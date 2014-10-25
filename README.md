@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/afvieira/Duster.svg?branch=development)](https://travis-ci.org/afvieira/Duster)
+[![Build Status](https://magnum.travis-ci.com/afvieira/Duster.svg?token=eaLWrqoed6Eo3oR8USNV)](https://magnum.travis-ci.com/afvieira/Duster)
 
 Duster
 ========
