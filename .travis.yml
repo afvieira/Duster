@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - "2.0.0"
+  - "2.1.3p242"
   - ruby-head
 env:
   - "RAILS_VERSION=4.0"
