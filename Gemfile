@@ -32,8 +32,13 @@ gem 'simple_form'
 # Add User Autentication using devise
 gem 'devise'
 
+# Add translation for devise
+#gem 'devise-i18n'
+
 # Add Facebook authentication via omniauth
 gem 'omniauth-facebook'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

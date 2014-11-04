@@ -10,14 +10,15 @@
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to "Guestbook", guestbooks_path %></li>
+					<li><%= link_to t("header.portuguese"), locale: "pt" %></li>
+					<li><%= link_to t("header.english"), locale: "en" %></li>
+				<li><%= link_to t("header.guestbook"), guestbooks_path %></li>
 				<% if user_signed_in? %>	
-					<li><%= link_to "Write in guestbook", new_guestbook_path %></li> 
-					<li><%= link_to "Settings", edit_user_registration_path %></li>
-					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+					<li><%= link_to t("header.settings"), edit_user_registration_path %></li>
+					<li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
 				<% else %>
-					<li><%= link_to "Login", new_user_session_path %></li>
-					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+					<li><%= link_to t("header.login"), new_user_session_path %></li>
+					<li><%= link_to t("header.signup"), new_user_registration_path %></li>
 			<% end %>
 			</ul>
 		</div>
