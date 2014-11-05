@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
+    scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+      devise_for :users
+      resources :guestbooks
+      root to: 'pages#home'
+    end
+    get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+    get '', to: redirect("/#{I18n.default_locale}")
+end
+ 
+
+  #get 'pages/home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
+    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -53,4 +64,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

@@ -1,0 +1,12 @@
+pt:
+  pages:
+    home:
+      welcome: "Bem-Vindo"
+  header:
+    guestbook: "Livro de Visitas"
+    login: "Autentique-se"
+    signup: "Registe-se"
+    english: "Inglês"
+    portuguese: "Português"
+    logout: "Sair"
+    settings: "Opções"

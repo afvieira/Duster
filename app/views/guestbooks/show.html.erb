@@ -1,0 +1,16 @@
+<div class="container">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Name:</strong>
+	  <%= @guestbook.Name %>
+	</p>
+
+	<p>
+	  <strong>Message:</strong>
+	  <%= @guestbook.Message %>
+	</p>
+
+	<%= link_to 'Edit', edit_guestbook_path(@guestbook) %> |
+	<%= link_to 'Back', guestbooks_path %>
+</div>
