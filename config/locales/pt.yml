@@ -4,7 +4,7 @@ pt:
       welcome: "Bem-Vindo"
   header:
     guestbook: "Livro de Visitas"
-    auth: "Autentique-se"
+    login: "Autentique-se"
     signup: "Registe-se"
     english: "Inglês"
     portuguese: "Português"
