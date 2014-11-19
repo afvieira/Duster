@@ -15,9 +15,15 @@
         <tr>
           <td><%= guestbook.Name %></td>
           <td><%= guestbook.Message %></td>
-          <td><%= link_to 'Show', guestbook %></td>
-          <td><%= link_to 'Edit', edit_guestbook_path(guestbook) %></td>
-          <td><%= link_to 'Destroy', guestbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if can? :update, @guestbook %>
+            <td><%= link_to 'Show', guestbook %></td>
+          <% end %>
+          <% if can? :edit, @guestbook %>
+            <td><%= link_to 'Edit', edit_guestbook_path(guestbook) %></td>
+          <% end %>
+          <% if can? :destroy, @guestbook %>
+            <td><%= link_to 'Destroy', guestbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

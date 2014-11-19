@@ -11,7 +11,7 @@
 	  <%= @guestbook.Message %>
 	</p>
 
-	<% if can? :update, @article %>
+	<% if can? :edit, @guestbook%>
 		<%= link_to 'Edit', edit_guestbook_path(@guestbook) %> |
 	<% end %>
 	

@@ -1,6 +1,6 @@
 class GuestbooksController < ApplicationController
+  load_and_authorize_resource
   before_action :set_guestbook, only: [:show, :edit, :update, :destroy]
-
   # GET /guestbooks
   # GET /guestbooks.json
   def index
@@ -10,6 +10,7 @@ class GuestbooksController < ApplicationController
   # GET /guestbooks/1
   # GET /guestbooks/1.json
   def show
+
   end
 
   # GET /guestbooks/new
