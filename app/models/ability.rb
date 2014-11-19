@@ -5,7 +5,6 @@ class Ability
     if(user)
         if user.account_level == "a"
             can :manage, :all
-            puts "asdasdas"
         else 
             can :read, :all
         end
