@@ -12,6 +12,7 @@ class CreateUtilizadores < ActiveRecord::Migration
       t.date    :date_of_last_acess, null:false
       t.integer :name_of_user
       t.string  :photo #has to be unique put in model
+      #t.integer :type, null:false o has_one no model poem o tipo?
       t.integer :zip_code, null:false
 
 
