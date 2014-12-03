@@ -1,3 +1,3 @@
 class Premium < ActiveRecord::Base
-  has_many :utilizadores
+  belongs_to :payment_types
 end
