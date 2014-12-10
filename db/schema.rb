@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101231252) do
+ActiveRecord::Schema.define(version: 20141210155917) do
 
   create_table "additional_informations", force: true do |t|
     t.string   "description"
@@ -142,17 +142,7 @@ ActiveRecord::Schema.define(version: 20141101231252) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
-    t.integer  "cc"
-    t.integer  "cell_phone"
-    t.integer  "phone"
-    t.string   "email"
-    t.date     "birth_date"
-    t.date     "registration_date"
-    t.date     "last_access_date"
-    t.string   "photo"
-    t.string   "nationality"
-    t.boolean  "gender"
+    t.string   "email",                  default: "",  null: false
     t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -162,7 +152,17 @@ ActiveRecord::Schema.define(version: 20141101231252) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "account_level",          default: "0", null: false
+    t.string   "name"
+    t.integer  "cc"
+    t.integer  "cell_phone"
+    t.integer  "phone"
+    t.date     "birth_date"
+    t.date     "registration_date"
+    t.date     "last_access_date"
+    t.string   "photo"
+    t.string   "nationality"
+    t.boolean  "gender"
+    t.string   "account_level",          default: "c", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -170,5 +170,6 @@ ActiveRecord::Schema.define(version: 20141101231252) do
   add_index "users", ["cc"], name: "index_users_on_cc", unique: true
   add_index "users", ["cell_phone"], name: "index_users_on_cell_phone", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

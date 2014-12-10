@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :utilizadors
+  resources :guestbooks
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users
