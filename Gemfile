@@ -37,7 +37,9 @@ gem 'devise'
 
 # Add Facebook authentication via omniauth
 gem 'omniauth-facebook'
-#teste
+
+# Add cancancan authorization
+gem 'cancancan'
 
 
 
