@@ -1,0 +1,23 @@
+<h1>Listing additional_informations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @additional_informations.each do |additional_information| %>
+      <tr>
+        <td><%= link_to 'Show', additional_information %></td>
+        <td><%= link_to 'Edit', edit_additional_information_path(additional_information) %></td>
+        <td><%= link_to 'Destroy', additional_information, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Additional information', new_additional_information_path %>

@@ -1,4 +1,44 @@
 Rails.application.routes.draw do
+  resources :answer_types
+
+  resources :answers
+
+  resources :additional_informations
+
+  resources :states
+
+  resources :histories
+
+  resources :rankings
+
+  resources :services
+
+  resources :feedbacks
+
+  resources :payment_types
+
+  resources :premia
+
+  resources :service_provider_premia
+
+  resources :days
+
+  resources :slots
+
+  resources :schedules
+
+  resources :service_types
+
+  resources :service_type_service_providers
+
+  resources :service_providers
+
+  resources :addresses
+
+  resources :users
+
+  resources :utilizadors
+
     scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
       devise_for :users
       resources :guestbooks

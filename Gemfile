@@ -54,8 +54,11 @@ gem 'omniauth-facebook'
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-	gem 'capybara', '~> 2.4.4'
   gem 'rspec-rails', '~> 3.1.0'
 	gem 'pronto-rubocop'
 	gem "rails_best_practices"
+end
+
+group :test do
+	gem 'capybara', '~> 2.4.4'
 end

@@ -1,0 +1,23 @@
+<h1>Listing service_provider_premia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @service_provider_premia.each do |service_provider_premium| %>
+      <tr>
+        <td><%= link_to 'Show', service_provider_premium %></td>
+        <td><%= link_to 'Edit', edit_service_provider_premium_path(service_provider_premium) %></td>
+        <td><%= link_to 'Destroy', service_provider_premium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Service provider premium', new_service_provider_premium_path %>
