@@ -1,4 +1,4 @@
 class Feedback < ActiveRecord::Base
-  belongs_to :services
-  belongs_to :users
+  belongs_to :service
+  belongs_to :user
 end

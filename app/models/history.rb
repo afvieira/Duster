@@ -1,3 +1,5 @@
 class History < ActiveRecord::Base
-  has_one :states
+  belongs_to :state
+  belongs_to :service
+  belongs_to :answer
 end

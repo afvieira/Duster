@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :answer_types
+
+  resources :answers
+
+  resources :additional_informations
+
   resources :states
 
   resources :histories
@@ -20,8 +26,6 @@ Rails.application.routes.draw do
   resources :slots
 
   resources :schedules
-
-  resources :addicional_informations
 
   resources :service_types
 

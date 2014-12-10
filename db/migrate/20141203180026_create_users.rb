@@ -7,9 +7,13 @@ class CreateUsers < ActiveRecord::Migration
       t.integer    :phone
       t.string     :email
       t.date       :birth_date
-      t.timestamps :registration_date
-      t.timestamps :last_access_date
-      t.string :photo
+      t.date       :registration_date
+      t.date       :last_access_date
+      t.string     :photo
+      t.string     :nationality
+      t.boolean    :gender
+      t.timestamps
+
     end
     add_index :users, :cc,   unique: true
     add_index :users, :cell_phone, unique:true

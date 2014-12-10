@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203192629) do
+ActiveRecord::Schema.define(version: 20141210155917) do
 
-  create_table "addicional_informations", force: true do |t|
+  create_table "additional_informations", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20141203192629) do
     t.string   "street"
     t.integer  "door_number"
     t.string   "district"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "answer_types", force: true do |t|
+    t.string   "answer_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "answers", force: true do |t|
+    t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -42,7 +54,6 @@ ActiveRecord::Schema.define(version: 20141203192629) do
   end
 
   create_table "histories", force: true do |t|
-    t.integer  "state"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -103,10 +114,16 @@ ActiveRecord::Schema.define(version: 20141203192629) do
     t.date     "matching_date"
     t.date     "creation_date"
     t.integer  "zip_code"
-    t.string   "city",          null: false
-    t.string   "street",        null: false
-    t.string   "doorNumber",    null: false
-    t.string   "district",      null: false
+    t.string   "city",                   null: false
+    t.string   "street",                 null: false
+    t.string   "doorNumber",             null: false
+    t.string   "district",               null: false
+    t.integer  "number_of_rooms"
+    t.string   "buildingType"
+    t.string   "frequency"
+    t.time     "timePretended"
+    t.boolean  "cleaningStuff"
+    t.string   "additional_information"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,7 +137,6 @@ ActiveRecord::Schema.define(version: 20141203192629) do
 
   create_table "states", force: true do |t|
     t.string   "description"
-    t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -132,9 +148,13 @@ ActiveRecord::Schema.define(version: 20141203192629) do
     t.integer  "phone"
     t.string   "email"
     t.date     "birth_date"
+    t.date     "registration_date"
+    t.date     "last_access_date"
+    t.string   "photo"
+    t.string   "nationality"
+    t.boolean  "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "photo"
   end
 
   add_index "users", ["cc"], name: "index_users_on_cc", unique: true

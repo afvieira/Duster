@@ -1,4 +1,4 @@
 class Ranking < ActiveRecord::Base
-  has_one :services
-  has_one :users
+  belongs_to :service
+  belongs_to :user
 end
