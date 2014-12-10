@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
 
 # Add Simpleform
 gem 'simple_form'
@@ -37,9 +37,9 @@ gem 'devise'
 
 # Add Facebook authentication via omniauth
 gem 'omniauth-facebook'
-#teste
 
-
+# Add cancancan authorization
+gem 'cancancan'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

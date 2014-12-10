@@ -37,15 +37,18 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :utilizadors
+  resources :guestbooks
 
-    scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
-      devise_for :users
-      resources :guestbooks
-      root to: 'pages#home'
-    end
-    get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
-    get '', to: redirect("/#{I18n.default_locale}")
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users
+    resources :guestbooks
+    root to: 'pages#home'
+    get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
+  end
+  
+  get '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '/*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
+  get '', to: redirect("/#{I18n.locale}")
 end
  
 

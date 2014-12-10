@@ -5,12 +5,16 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
-  private
-  	def set_locale
-  		I18n.locale = params[:locale] if params[:locale].present?
-  	end
+  def default_url_options(options={})
+    {locale: I18n.locale}
+  end
 
-  	def default_url_options(options={})
-  		{locale: I18n.locale}
-  	end
+  private
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present?
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+  redirect_to root_url, :alert => exception.message
+  end
 end

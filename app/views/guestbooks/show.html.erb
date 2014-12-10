@@ -11,6 +11,9 @@
 	  <%= @guestbook.Message %>
 	</p>
 
-	<%= link_to 'Edit', edit_guestbook_path(@guestbook) %> |
+	<% if can? :edit, @guestbook%>
+		<%= link_to 'Edit', edit_guestbook_path(@guestbook) %> |
+	<% end %>
+	
 	<%= link_to 'Back', guestbooks_path %>
 </div>
