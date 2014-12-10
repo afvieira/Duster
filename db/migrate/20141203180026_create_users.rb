@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps :last_access_date
       t.string :photo
     end
-    add_index :cc, :cell_phone, :email, unique: true
+    add_index :users, :cc,   unique: true
+    add_index :users, :cell_phone, unique:true
+    add_index :users, :email,  unique:true
   end
 end

@@ -9,7 +9,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :city, null:false
       t.string :street, null:false
       t.string :doorNumber, null:false
-      t.string :district, null:fals
+      t.string :district, null:false
       t.timestamps
     end
   end
