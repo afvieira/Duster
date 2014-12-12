@@ -5,5 +5,5 @@ class Service < ActiveRecord::Base
   has_many :history
   has_many :feedback
   has_one :ranking
-  belong_to :answer
+  belongs_to :answer
 end

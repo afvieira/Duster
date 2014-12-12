@@ -1,48 +1,8 @@
 Rails.application.routes.draw do
-  resources :answer_types
-
-  resources :answers
-
-  resources :additional_informations
-
-  resources :states
-
-  resources :histories
-
-  resources :rankings
-
-  resources :services
-
-  resources :feedbacks
-
-  resources :payment_types
-
-  resources :premia
-
-  resources :service_provider_premia
-
-  resources :days
-
-  resources :slots
-
-  resources :schedules
-
-  resources :service_types
-
-  resources :service_type_service_providers
-
-  resources :service_providers
-
-  resources :addresses
-
-  resources :users
-
-  resources :guestbooks
-
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    root to: 'welcome#index'
     devise_for :users
-    resources :guestbooks
-    root to: 'pages#home'
+    resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end
   
