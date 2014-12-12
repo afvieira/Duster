@@ -25,15 +25,7 @@
                 <!-- begin navbar-collapse -->
                 <div class="collapse navbar-collapse" id="header-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active dropdown">
-                            <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                            <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                                <li><a href="index.html">Page with Transparent Header</a></li>
-                                <li><a href="index_inverse_header.html">Page with Inverse Header</a></li>
-                                <li><a href="index_default_header.html">Page with White Header</a></li>
-                                <li><a href="extra_element.html">Extra Element</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#home" data-click="scroll-to-target">HOME</a></li>
                         <li><a href="#about" data-click="scroll-to-target">ABOUT</a></li>
                         <li><a href="#team" data-click="scroll-to-target">TEAM</a></li>
                         <li><a href="#service" data-click="scroll-to-target">SERVICES</a></li>
@@ -41,6 +33,17 @@
                         <li><a href="#client" data-click="scroll-to-target">CLIENT</a></li>
                         <li><a href="#pricing" data-click="scroll-to-target">PRICING</a></li>
                         <li><a href="#contact" data-click="scroll-to-target">CONTACT</a></li>
+                        <li><%= link_to t("header.portuguese"), locale: "pt" %></li>
+                        <li><%= link_to t("header.english"), locale: "en" %></li>
+                        <li><%= link_to t("header.guestbook"), guestbooks_path %></li>
+                
+                        <% if user_signed_in? %>    
+                            <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
+                            <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
+                        <% else %>
+                            <li><%= link_to t("header.login"), new_user_session_path %></li>
+                            <li><%= link_to t("header.signup"), new_user_registration_path %></li>
+                        <% end %>
                     </ul>
                 </div>
                 <!-- end navbar-collapse -->
@@ -860,8 +863,3 @@
         <!-- end theme-panel -->
     </div>
     <!-- end #page-container -->
-  <script>    
-      $(document).ready(function() {
-          App.init();
-      });
-  </script>
