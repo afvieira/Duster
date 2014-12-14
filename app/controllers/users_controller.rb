@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
     respond_with(@user)
   end
-
+  
   def edit
   end
 

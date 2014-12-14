@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/bootstrap.min
+ *= require font-awesome-4.2.0/css/font-awesome.min
+ *= require simple-line-icons/simple-line-icons
+ *= require animate.min
+ *= require style.min
+ *= require style-responsive.min
+ *= require theme/default
  */

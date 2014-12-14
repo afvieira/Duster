@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
     devise_for :users
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end
-  
+  get '/*locale*/*path/assets', to: redirect("")
   get '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '/*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
   get '', to: redirect("/#{I18n.locale}")
 end
- 
+
+
 
   #get 'pages/home'
 
@@ -18,7 +20,7 @@ end
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -67,4 +69,3 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-

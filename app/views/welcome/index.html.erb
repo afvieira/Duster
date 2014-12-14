@@ -36,13 +36,13 @@
                         <li><%= link_to t("header.portuguese"), locale: "pt" %></li>
                         <li><%= link_to t("header.english"), locale: "en" %></li>
                         <li><%= link_to t("header.guestbook"), guestbooks_path %></li>
-                
-                        <% if user_signed_in? %>    
+
+                        <% if user_signed_in? %>
                             <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
                             <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
                         <% else %>
-                            <li><%= link_to t("header.login"), new_user_session_path %></li>
-                            <li><%= link_to t("header.signup"), new_user_registration_path %></li>
+                        <li><%= link_to t("header.login"), new_user_session_path %></li>
+                        <li><%= link_to t("header.signup"), new_user_registration_path %></li>
                         <% end %>
                     </ul>
                 </div>
@@ -51,7 +51,7 @@
             <!-- end container -->
         </div>
         <!-- end #header -->
-        
+
         <!-- begin #home -->
         <div id="home" class="content has-bg home">
             <!-- begin content-bg -->
@@ -74,7 +74,7 @@
             <!-- end container -->
         </div>
         <!-- end #home -->
-        
+
         <!-- begin #about -->
         <div id="about" class="content" data-scrollview="true">
             <!-- begin container -->
@@ -92,18 +92,18 @@
                         <div class="about">
                             <h3>Our Story</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                Vestibulum posuere augue eget ante porttitor fringilla. 
-                                Aliquam laoreet, sem eu dapibus congue, velit justo ullamcorper urna, 
-                                non rutrum dolor risus non sapien. Vivamus vel tincidunt quam. 
-                                Donec ultrices nisl ipsum, sed elementum ex dictum nec. 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Vestibulum posuere augue eget ante porttitor fringilla.
+                                Aliquam laoreet, sem eu dapibus congue, velit justo ullamcorper urna,
+                                non rutrum dolor risus non sapien. Vivamus vel tincidunt quam.
+                                Donec ultrices nisl ipsum, sed elementum ex dictum nec.
                             </p>
                             <p>
-                                In non libero at orci rutrum viverra at ac felis. 
-                                Curabitur a efficitur libero, eu finibus quam. 
-                                Pellentesque pretium ante vitae est molestie, ut faucibus tortor commodo. 
-                                Donec gravida, eros ac pretium cursus, est erat dapibus quam, 
-                                sit amet dapibus nisl magna sit amet orci. 
+                                In non libero at orci rutrum viverra at ac felis.
+                                Curabitur a efficitur libero, eu finibus quam.
+                                Pellentesque pretium ante vitae est molestie, ut faucibus tortor commodo.
+                                Donec gravida, eros ac pretium cursus, est erat dapibus quam,
+                                sit amet dapibus nisl magna sit amet orci.
                             </p>
                         </div>
                         <!-- end about -->
@@ -171,7 +171,7 @@
             <!-- end container -->
         </div>
         <!-- end #about -->
-    
+
         <!-- begin #milestone -->
         <div id="milestone" class="content bg-black-darker has-bg" data-scrollview="true">
             <!-- begin content-bg -->
@@ -221,14 +221,14 @@
             <!-- end container -->
         </div>
         <!-- end #milestone -->
-        
+
         <!-- begin #team -->
         <div id="team" class="content" data-scrollview="true">
             <!-- begin container -->
             <div class="container">
                 <h2 class="content-title">Our Team</h2>
                 <p class="content-desc">
-                    Phasellus suscipit nisi hendrerit metus pharetra dignissim. Nullam nunc ante, viverra quis<br /> 
+                    Phasellus suscipit nisi hendrerit metus pharetra dignissim. Nullam nunc ante, viverra quis<br />
                     ex non, porttitor iaculis nisi.
                 </p>
                 <!-- begin row -->
@@ -236,7 +236,7 @@
                     <!-- begin col-4 -->
                     <div class="col-md-4 col-sm-4">
                         <!-- begin team -->
-                        <div class="team">             
+                        <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
                                 <img src="assets/img/user-1.jpg" alt="Ryan Teller" />
                             </div>
@@ -249,7 +249,7 @@
                                     <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
-                            </div>                     
+                            </div>
                         </div>
                         <!-- end team -->
                     </div>
@@ -257,7 +257,7 @@
                     <!-- begin col-4 -->
                     <div class="col-md-4 col-sm-4">
                         <!-- begin team -->
-                        <div class="team">             
+                        <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
                                 <img src="assets/img/user-2.jpg" alt="Jonny Cash" />
                             </div>
@@ -270,7 +270,7 @@
                                     <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
-                            </div>                     
+                            </div>
                         </div>
                         <!-- end team -->
                     </div>
@@ -278,7 +278,7 @@
                     <!-- begin col-4 -->
                     <div class="col-md-4 col-sm-4">
                         <!-- begin team -->
-                        <div class="team">             
+                        <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
                                 <img src="assets/img/user-3.jpg" alt="Mia Donovan" />
                             </div>
@@ -291,7 +291,7 @@
                                     <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
-                            </div>                     
+                            </div>
                         </div>
                         <!-- end team -->
                     </div>
@@ -302,7 +302,7 @@
             <!-- end container -->
         </div>
         <!-- end #team -->
-        
+
         <!-- begin #quote -->
         <div id="quote" class="content bg-black-darker has-bg" data-scrollview="true">
             <!-- begin content-bg -->
@@ -317,7 +317,7 @@
                     <!-- begin col-12 -->
                     <div class="col-md-12 quote">
                         <i class="fa fa-quote-left"></i> Passion leads to design, design leads to performance, <br />
-                        performance leads to <span class="text-theme">success</span>!  
+                        performance leads to <span class="text-theme">success</span>!
                         <i class="fa fa-quote-right"></i>
                         <small>Sean Themes, Developer Teams in Malaysia</small>
                     </div>
@@ -328,7 +328,7 @@
             <!-- end container -->
         </div>
         <!-- end #quote -->
-        
+
         <!-- beign #service -->
         <div id="service" class="content" data-scrollview="true">
             <!-- begin container -->
@@ -416,7 +416,7 @@
             <!-- end container -->
         </div>
         <!-- end #about -->
-        
+
         <!-- beign #action-box -->
         <div id="action-box" class="content has-bg" data-scrollview="true">
             <!-- begin content-bg -->
@@ -432,7 +432,7 @@
                     <div class="col-md-9 col-sm-9">
                         <div class="icon-large text-theme">
                             <i class="fa fa-binoculars"></i>
-                        </div> 
+                        </div>
                         <h3>CHECK OUT OUR ADMIN THEME!</h3>
                         <p>
                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus faucibus magna eu lacinia eleifend.
@@ -450,7 +450,7 @@
             <!-- end container -->
         </div>
         <!-- end #action-box -->
-        
+
         <!-- begin #work -->
         <div id="work" class="content" data-scrollview="true">
             <!-- begin container -->
@@ -592,7 +592,7 @@
             <!-- end container -->
         </div>
         <!-- end #work -->
-        
+
         <!-- begin #client -->
         <div id="client" class="content has-bg bg-green" data-scrollview="true">
             <!-- begin content-bg -->
@@ -655,7 +655,7 @@
             <!-- end containter -->
         </div>
         <!-- end #client -->
-        
+
         <!-- begin #pricing -->
         <div id="pricing" class="content" data-scrollview="true">
             <!-- begin container -->
@@ -758,7 +758,7 @@
             <!-- end container -->
         </div>
         <!-- end #pricing -->
-        
+
         <!-- begin #contact -->
         <div id="contact" class="content bg-silver-lighter" data-scrollview="true">
             <!-- begin container -->
@@ -824,7 +824,7 @@
             <!-- end container -->
         </div>
         <!-- end #contact -->
-        
+
         <!-- begin #footer -->
         <div id="footer" class="footer">
             <div class="container">
@@ -846,7 +846,7 @@
             </div>
         </div>
         <!-- end #footer -->
-        
+
         <!-- begin theme-panel -->
         <div class="theme-panel">
             <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>

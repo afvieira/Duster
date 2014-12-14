@@ -10,8 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// require jquery  Import for rails jquery, theme uses an older version
+//= require jquery/jquery-1.8.2.min
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
-//= require_tree ../../../vendor/assets//
+//= require bootstrap/bootstrap.min
+//= require pace/pace.min
+//= require jquery-cookie/jquery.cookie
+//= require scrollMonitor/scrollMonitor
+//= require apps/apps.min
