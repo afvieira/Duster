@@ -14,8 +14,7 @@
 //= require jquery/jquery-1.8.2.min
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap/bootstrap.min
-//= require pace/pace.min
+//= require bootstrap/bootstrap
 //= require jquery-cookie/jquery.cookie
 //= require scrollMonitor/scrollMonitor
-//= require apps/apps.min
+//= require frontend/apps/apps
