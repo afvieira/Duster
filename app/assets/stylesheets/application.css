@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/bootstrap
+ *= require font-awesome-4.2.0/css/font-awesome
+ *= require simple-line-icons/simple-line-icons
+ *= require animate/animate
+ *= require frontend/style/style
+ *= require frontend/style-responsive/style-responsive
+ *= require frontend/theme/blue
  */

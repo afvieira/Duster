@@ -4,8 +4,8 @@ en:
       welcome: "Welcome"
   header:
     guestbook: "Guestbook"
-    auth: "Login"
-    login: "Sign up"
+    login: "Login"
+    signup: "Sign up"
     english: "English"
     portuguese: "Portuguese"
     logout: "Logout"

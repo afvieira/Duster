@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def default_url_options(options={})
+    logger.debug
     {locale: I18n.locale}
   end
 
