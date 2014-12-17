@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <title>Duster | Limpeza do seu lar à distância de um click!</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="description" />
+    <meta content="" name="author" />
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <%= javascript_include_tag "header"%>
+  <%= stylesheet_link_tag "application"%>
+  <!--
+  <link href="assets/plugins/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/plugins/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="assets/plugins/simple-line-icons/simple-line-icons.css" rel="stylesheet" />
+  <link href="assets/css/animate.min.css" rel="stylesheet" />
+  <link href="assets/css/style.min.css" rel="stylesheet" />
+  <link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+  <link href="assets/css/theme/default.css" id="theme" rel="stylesheet" />-->
+  <!-- ================== END BASE CSS STYLE ================== -->
+
+  <!-- ================== BEGIN BASE JS ================== -->
+  <!--  <script src="assets/plugins/pace/pace.min.js"></script>-->
+  <!-- ================== END BASE JS ================== -->
+</head>
+<body <%= yield (:body_class) %>>
+
+<% flash.each do |name, msg| %>
+<div class="alert text-center alert-<%= name == notice ? "success" : "error" %>">
+  <a class="close" data-dismiss="alert">x</a>
+  <%= msg %>
+</div>
+<% end %>
+
+<%= yield %>
+
+
+<!-- ================== BEGIN BASE JS ================== -->
+<%= javascript_include_tag "application"%>
+
+<!--<script src="assets/plugins/jquery-1.8.2/jquery-1.8.2.min.js"></script>
+<script src="assets/plugins/bootstrap-3.2.0/js/bootstrap.min.js"></script>-->
+<!--[if lt IE 9]>
+<script src="assets/crossbrowserjs/html5shiv.js"></script>
+<script src="assets/crossbrowserjs/respond.min.js"></script>
+<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+<![endif]-->
+<!--<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+<script src="assets/plugins/scrollMonitor/scrollMonitor.js"></script>
+<script src="assets/js/apps.js"></script>-->
+<!-- ================== END BASE JS ================== -->
+
+<script>
+  $(document).ready(function() {
+    App.init();
+  });
+</script>
+</body>
+</html>
