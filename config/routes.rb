@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/home', to:"users#home"
 
+  
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
-    devise_for :users, :controllers =>{:registrations => "registrations"}
+    devise_for :users
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end

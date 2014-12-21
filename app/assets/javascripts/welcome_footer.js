@@ -12,14 +12,9 @@
 //
 // require jquery  Import for rails jquery, theme uses an older version
 //= require jquery/jquery-1.8.2.min
-//= require jquery-ui-1.10.4/ui/minified/jquery-ui.min
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/bootstrap
 //= require jquery-cookie/jquery.cookie
-//= require slimscroll/jquery.slimscroll
-//= require sparkline/jquery.sparkline
-//= require admin/apps
-//the folowing two javascripts are not being used
-// require gritter/jquery.gritter
-// require admin/dashboard
+//= require scrollMonitor/scrollMonitor
+//= require frontend/apps/apps
