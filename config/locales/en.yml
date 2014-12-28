@@ -10,3 +10,6 @@ en:
     portuguese: "Portuguese"
     logout: "Logout"
     settings: "Settigs"
+  registration:
+    radio_client: "I'm looking for a maid."
+    radio_professional: "I'm looking for a job."

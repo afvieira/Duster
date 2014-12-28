@@ -115,7 +115,11 @@
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag 'user-1.jpg'%>
             <!-- mudar para nome-->
-            <span class="hidden-xs"><%= current_user.email%></span> <b class="caret"></b>
+            <span class="hidden-xs">
+              <%if user_signed_in?%>
+                <%= current_user.email%>
+              <% end%>
+              </span> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu animated fadeInLeft">
             <li class="arrow"></li>
@@ -144,7 +148,9 @@
             <a href="javascript:;"><%= image_tag 'user-1.jpg' %></a>
           </div>
           <div class="info">
-            <%= current_user.email%>
+            <%if user_signed_in?%>
+              <%= current_user.email%>
+            <%end%>
             <small>Empregada</small>
           </div>
         </li>

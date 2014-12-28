@@ -10,3 +10,6 @@ pt:
     portuguese: "Português"
     logout: "Sair"
     settings: "Opções"
+  registration:
+    radio_client: "Estou a procura de alguem para trabalhar."
+    radio_professional: "Estou a procura de emprego."
