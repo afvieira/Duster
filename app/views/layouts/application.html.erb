@@ -116,9 +116,10 @@
             <%= image_tag 'user-1.jpg'%>
             <!-- mudar para nome-->
             <span class="hidden-xs">
-              <%if user_signed_in?%>
-                <%= current_user.email%>
-              <% end%>
+            <%if user_signed_in?%>
+              <%= current_user.name%>
+            <%end%>
+            
               </span> <b class="caret"></b>
           </a>
           <ul class="dropdown-menu animated fadeInLeft">
@@ -149,7 +150,7 @@
           </div>
           <div class="info">
             <%if user_signed_in?%>
-              <%= current_user.email%>
+              <%= current_user.name%>
             <%end%>
             <small>Empregada</small>
           </div>

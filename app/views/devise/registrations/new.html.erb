@@ -6,17 +6,29 @@
 	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
 	  <%= f.error_notification %>
 
-    <%= radio_button_tag(:client, "client") %>
-    <%= label_tag(:client_option, t("registration.radio_client")) %>
-    <%= radio_button_tag(:professional, "professional") %>
-    <%= label_tag(:professional_option, t("registration.radio_professional")) %>
+    <%= radio_button_tag(:option, "client") %>
+    <%= label_tag(:client, t("registration.radio_client")) %>
+    <%= radio_button_tag(:option, "professional") %>
+    <%= label_tag(:professional, t("registration.radio_professional")) %>
 	  <div class="form-inputs">
+	  	<h6>Type</h6
+
+			
+	    <%= f.input :photo, required:true, input_html:{type:"file"} %>
       <%= f.input :name, required: true, autofocus: true, input_html:{class:"form-control"} %>
 	    <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control"} %>
 	    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
 	    <%= f.input :password_confirmation, required: true %>
 	    <%= f.input :cc, required:true, input_html:{type:"file"} %>
-      <%= f.label :cc, "Cartao unico" %>
+      	<%= f.input :phone, input_html:{type:"tel"} %>
+			<%= f.input :birth_date, input_html:{type:"date"}%>
+			<%= f.input :nationality %>
+			<h6>Gender</h1>
+			<%= f.radio_button :gender, 'gent'%>
+			<%= f.label :radio_button, 'gent', :value => 'gent' %>
+			<%= f.radio_button :gender, 'lady'%>
+			<%= f.label :radio_button, 'lady', :value => 'lady' %>
+
   </div>
 
 	  <div class="form-actions">
