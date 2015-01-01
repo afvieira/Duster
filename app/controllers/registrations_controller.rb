@@ -7,7 +7,8 @@ class RegistrationsController < Devise::RegistrationsController
             puts "---------------------->client"
             @user = User.new(client_params)
             @user.save
-            puts @user.inspect
+            
+            puts @user.cc
             redirect_to :back
         else
             puts "----------------------->worker"
@@ -19,5 +20,5 @@ class RegistrationsController < Devise::RegistrationsController
         def client_params
             params.require(:user).permit(:photo, :name, :email, :password, :password_confirmation, :cc, :phone, :birth_date, :nationality, :gender)
         end
-
+        
 end

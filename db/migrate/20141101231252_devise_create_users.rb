@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string     :name
-      t.integer    :cc
+      t.string     :cc
       t.integer    :cell_phone
       t.integer    :phone
       t.date       :birth_date
