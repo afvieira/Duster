@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <title>Duster | Limpeza do seu lar à distância de um click!</title>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="" name="Duster home page" />
+  <meta content="" name="Duster" />
+
+  <!-- ================== BEGIN BASE CSS STYLE ================== -->
+  <%= stylesheet_link_tag "application"%>
+  <!-- ================== END BASE CSS STYLE ================== -->
+
+  <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+  <!-- add required css or js to the header-->
+  <%= yield(:header) if @content_for_header %>
+  <!-- ================== END PAGE LEVEL STYLE ================== -->
+</head>
+<body>
+
+
+<%= yield %>
+
+
+</body>
+<!-- ================== BEGIN BASE JS ================== -->
+<%= javascript_include_tag "application" %>
+
+<!--A parte de baixo nao esta a funcionar talvez criar
+um manifest e incluir o necessario-->
+<!--[if lt IE 9]>
+<script src="assets/crossbrowserjs/html5shiv.js"></script>
+<script src="assets/crossbrowserjs/respond.min.js"></script>
+<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+<![endif]-->
+<!-- ================== END BASE JS ================== -->
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<!-- include aditional js per view -->
+<%= yield(:header) if @content_for_footer %>
+<!-- ================== END PAGE LEVEL JS ================== -->
+<script>
+$(document).ready(function() {
+  App.init();
+  Dashboard.init();
+});
+
+</script>
+</body>
+</html>

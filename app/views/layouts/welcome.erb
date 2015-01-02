@@ -27,7 +27,7 @@
   <!--  <script src="assets/plugins/pace/pace.min.js"></script>-->
   <!-- ================== END BASE JS ================== -->
 </head>
-<body <%= yield (:body_class) %>>
+<body>
 
 <% flash.each do |name, msg| %>
 <div class="alert text-center alert-<%= name == notice ? "success" : "error" %>">

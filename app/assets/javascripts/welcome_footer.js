@@ -18,3 +18,5 @@
 //= require jquery-cookie/jquery.cookie
 //= require scrollMonitor/scrollMonitor
 //= require frontend/apps/apps
+//= require handlebars
+//= require registration
