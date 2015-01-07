@@ -16,8 +16,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/bootstrap
-//= require jquery-cookie/jquery.cookie
 //= require slimscroll/jquery.slimscroll
+//= require jquery-cookie/jquery.cookie
 //= require sparkline/jquery.sparkline
 //= require admin/apps
 //the folowing two javascripts are not being used

@@ -1,4 +1,4 @@
-//= require admin/form-wizards-validation.demo
-//= require parsley/src/parsley
+//= require parsley/dist/parsley
 //= require bootstrap-wizard/bwizard
+//= require admin/form-wizards-validation.demo
 
