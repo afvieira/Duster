@@ -2,18 +2,19 @@ pt:
   landing:
     header:
       home: "Inicio"
-      who_we_are: "Quem somos"
+      about_us: "Sobre nós"
       our_team: "A nossa equipa"
       services: "Serviços"
       contact_us: "Contactos"
-      register: "Registar"
+      signup: "Registar"
       login: "Entrar"
       signup_as_a_client: "Como cliente"
       signup_as_a_maid: "Como empregado(a)"
     home:
-      welcome: "Bem Vindo ao Duster"
-    who_we_are:
-      title: "Quem somos"
+      welcome: "Bem-vindo ao Duster"
+      phrase_2: "Limpeza do seu lar à distância de um click!"
+    about_us:
+      title: "Sobre nós"
       subtitle1: "O que fazemos?"
       subtitle1_text: "O Duster consiste numa plataforma criada com o intuito de facilitar a vida de muitas pessoas que nos dias de hoje se veem com dificuldades em arranjar alguém de confiança para lhes tratar das lidas domésticas, como também aquelas pessoas com um jeito para as limpezas que não se importariam de ganhar algum dinheiro extra. Mas afinal como isto funciona? Simples! Após o registo na plataforma, o encontro destas duas necessidades é estabelecido e ambos os lados serão notificados para que o serviço seja assim realizado! Simples certo? A plataforma neste momento ainda se encontra em fase de desenvolvimento, mas novidades irão ser lançadas!"
       subtitle2: "A nossa filosofia?"
@@ -21,6 +22,8 @@ pt:
       footer_data1: "Clientes registados"
       footer_data2: "Profissionais de limpeza registadas"
       footer_data3: "Serviços efectuados"
+    how_it_works:
+        title: Como funciona
     our_team:
       title: "A nossa equipa"
       introduction_text: "Duster, nasce com o intuito de facilitar a vida das pessoas que tenham necessidade de encontrar alguém para tratar das lidas domesticas, tudo por um click."
@@ -35,11 +38,11 @@ pt:
       area_control2: "Qual é a sua cidade?"
     contact_us:
       title: "Contacte-nos"
-      introduction_text: "Se tem reclamações ou sugestões por favor contacte-nos através de email ou envie-nos uma menssagem:"
+      introduction_text: "Se tem reclamações ou sugestões por favor contacte-nos através de email ou envie-nos uma mensagem:"
       phone_title: "Telemóvel"
       place_title: "Local"
       place_place: "Braga, Portugal"
       message_name: "Nome"
       message_message: "Mensagem"
       message_send: "Enviar Mensagem"
-      copywrite: "C 2014 Duster. Todos os direitos reservados."
+      copyright: "2014 Duster. Todos os direitos reservados."
