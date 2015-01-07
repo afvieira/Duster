@@ -1,22 +1,104 @@
-<div class="container">
-  <div class="col-lg-3"></div>
-  <div class="col-lg-6">
-	<h2>Sign up</h2>
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+  <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+    <!-- begin container -->
+    <div class="container">
+      <!-- begin navbar-header -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand">
+          <span class="brand-logo"></span>
+          <span class="brand-text">
+            <span class="text-theme">Duster</span>
+          </span>
+        </a>
+      </div>
+      <!-- end navbar-header -->
+      <!-- begin navbar-collapse -->
+      <div class="collapse navbar-collapse" id="header-navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active dropdown">
+            <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">HOME <b class="caret"></b></a>
+            <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+              <li><a href="index.html">Page with Transparent Header</a></li>
+              <li><a href="index_inverse_header.html">Page with Inverse Header</a></li>
+              <li><a href="index_default_header.html">Page with White Header</a></li>
+              <li><a href="extra_element.html">Extra Element</a></li>
+            </ul>
+          </li>
+          <li><a href="#about" data-click="scroll-to-target">ABOUT</a></li>
+          <li><a href="#team" data-click="scroll-to-target">TEAM</a></li>
+          <li><a href="#service" data-click="scroll-to-target">SERVICES</a></li>
+          <li><a href="#work" data-click="scroll-to-target">WORK</a></li>
+          <li><a href="#client" data-click="scroll-to-target">CLIENT</a></li>
+          <li><a href="#pricing" data-click="scroll-to-target">PRICING</a></li>
+          <li><a href="#contact" data-click="scroll-to-target">CONTACT</a></li>
+        </ul>
+      </div>
+      <!-- end navbar-collapse -->
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end #header -->
 
-	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
-	  <%= f.error_notification %>
+  <div id="content" class="content">
+    <div class="contaier-fluid">
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+      	   <h2>Sign up</h2>
+           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+             <%= f.error_notification %>
+               <div class="form-group">
+                 <h6>Type</h6>
+                 <%= radio_button_tag(:option, "client") %>
+                 <%= label_tag(:client, t("registration.radio_client")) %>
+                 <%= radio_button_tag(:option, "professional") %>
+                 <%= label_tag(:professional, t("registration.radio_professional")) %>
+               </div>
 
-	  <div class="form-inputs">
-	    <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control"} %>
-	    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
-	    <%= f.input :password_confirmation, required: true %>
-	  </div>
-
-	  <div class="form-actions">
-	    <%= f.button :submit, "Sign up" %>
-	  </div>
-	<% end %>
-	<%= render "devise/shared/links" %>
-	</div>
-	<div class="col-lg-3"></div>
+               <!-- Begin of form inputs -->
+               <div class="form-inputs">
+                 <div class="form-group">
+                   <%= f.input :photo, required:true, input_html:{type:"file"} %>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :name, required: true, autofocus: true, input_html:{class:"form-control"} %>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control"} %>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+                   <%= f.input :password_confirmation, required: true %>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :phone, input_html:{type:"tel"} %>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :birth_date, input_html:{type:"date"}%>
+                 </div>
+                 <div class="form-group">
+                   <%= f.input :nationality %>
+                 </div>
+                 <div class="form-group">
+                   <h1>Gender</h1>
+                   <%= f.radio_button :gender, 'gent'%>
+                   <%= f.label :radio_button, 'gent', :value => 'gent' %>
+                   <%= f.radio_button :gender, 'lady'%>
+                   <%= f.label :radio_button, 'lady', :value => 'lady' %>
+                 </div>
+              </div>
+              <!-- End of form inputs-->
+              <div class="form-actions">
+                <%= f.button :submit, "Sign up", class:"btn-defaul" %>
+              </div>
+           <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
     respond_with(@user)
   end
-  
+
   def edit
   end
 
@@ -35,6 +35,11 @@ class UsersController < ApplicationController
     @user.destroy
     respond_with(@user)
   end
+
+  def home
+
+  end
+
 
   private
     def set_user

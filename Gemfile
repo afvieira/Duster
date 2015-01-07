@@ -41,6 +41,9 @@ gem 'omniauth-facebook'
 # Add cancancan authorization
 gem 'cancancan'
 
+#Add carrierwave
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
