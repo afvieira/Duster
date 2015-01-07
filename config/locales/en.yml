@@ -1,15 +1,45 @@
 en:
-  pages:
+  landing:
+    header:
+      home: "Home"
+      who_we_are: "Who we are"
+      our_team: "Our team"
+      services: "Services"
+      contact_us: "Cuntact us"
+      register: "Register"
+      login: "Login"
+      signup_as_a_client: "As a client"
+      signup_as_a_maid: "As a maid"
     home:
-      welcome: "Welcome"
-  header:
-    guestbook: "Guestbook"
-    login: "Login"
-    signup: "Sign up"
-    english: "English"
-    portuguese: "Portuguese"
-    logout: "Logout"
-    settings: "Settigs"
-  registration:
-    radio_client: "I'm looking for a maid."
-    radio_professional: "I'm looking for a job."
+      welcome: "Welcome to Duster"
+    who_we_are:
+      title: "Who we are"
+      subtitle1: "What we do"
+      subtitle1_text: "The Duster is a platform created to make life easier for many people who today find themselves struggling to find someone to trust to take care of their domestic work, as well as those people looking for a job and with cleaning skills in order to earn some extra money. But after all how this works? Simple! After registration on the platform, the meeting of these two requirements is established and both sides will be notified so that the service is well done! Simple right? The platform currently still under development, but news will be released!"
+      subtitle2: "Our Philosophy"
+      subtitle2_text: "Get Your Place Cleaned With Just a Click"
+      footer_data1: "Registered clients"
+      footer_data2: "Registered maids"
+      footer_data3: "Services"
+    our_team:
+      title: "Our team"
+      introduction_text: "Duster, is born in order to make life easier for people who need to find someone to deal with domestic work, all for a click."
+    services:
+      title: "Our services"
+      introduction_text: "Our system performs the match of interests of two groups of stakeholders:"
+      subtitle1: "Client"
+      subtitle1_text: "The customer can search and schedule cleaning services to a time and place in the system. For this, you may choose the maid who carry out these services"
+      subtitle2: "Maid"
+      subtitle2_text: ""
+      area_control: "Check if we're in your area!"
+      area_control2: "Where do you live?"
+    contact_us:
+      title: "Contact us"
+      introduction_text: "Do you have any complain or sugestion? Please contact us:"
+      phone_title: "Cell phone"
+      place_title: "Local"
+      place_place: "Braga, Portugal"
+      message_name: "Name"
+      message_message: "Message"
+      message_send: "Send Message"
+      copywrite: "C 2014 Duster. All rights reserved."
