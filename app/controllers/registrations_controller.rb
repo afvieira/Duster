@@ -1,7 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'welcome'
-
+  layout 'application'
+    #default method used by devise
     def create
+      @navbar_user = false
+      @sidebar = false
         puts params.inspect
         if params[:option] == "client"
             puts "---------------------->client"
@@ -13,7 +15,12 @@ class RegistrationsController < Devise::RegistrationsController
         else
             puts "----------------------->worker"
         end
+    end
 
+    def create_user
+    end
+
+    def new_user
     end
 
     private
