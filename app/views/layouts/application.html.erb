@@ -57,8 +57,7 @@
 $(document).ready(function() {
   App.init();
  // Dashboard.init();
-<%= yield :ready_js %>
-  FormWizardValidation.init();
+  <%= yield :js_start %>
 });
 
 </script>

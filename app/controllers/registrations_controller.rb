@@ -1,26 +1,25 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'application'
-    #default method used by devise
-    def create
-      @navbar_user = false
-      @sidebar = false
-        puts params.inspect
-        if params[:option] == "client"
-            puts "---------------------->client"
-            @user = User.new(client_params)
-            @user.save
-
-            puts @user.cc
-            redirect_to :back
-        else
-            puts "----------------------->worker"
-        end
-    end
 
     def create_user
+
+
+        final_params = user_params
+        if final_params[:gender] == "gent" 
+            final_params[:gender] = true
+        else
+            final_params[:gender] = false
+        end
+        puts final_params.inspect    
+          
+        @user = User.new(final_params)
+        @user.save
+        redirect_to "/"
+
     end
 
     def new_user
+        @user = User.new
     end
 
     def new_client
@@ -45,6 +44,8 @@ class RegistrationsController < Devise::RegistrationsController
 
     private
         def client_params
+        end
+        def user_params
             params.require(:user).permit(:photo, 
                                          :name, 
                                          :email, 
