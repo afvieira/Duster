@@ -23,6 +23,10 @@ class RegistrationsController < Devise::RegistrationsController
     def new_user
     end
 
+    def new_client
+        @user = User.new
+    end
+
     private
         def client_params
             params.require(:user).permit(:photo, :name, :email, :password, :password_confirmation, :cc, :phone, :birth_date, :nationality, :gender)

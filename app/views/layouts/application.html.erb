@@ -52,10 +52,12 @@
 <!-- include aditional js per view -->
 <%= yield :header_js %>
 <!-- ================== END PAGE LEVEL JS ================== -->
+
 <script>
 $(document).ready(function() {
   App.init();
  // Dashboard.init();
+<%= yield :ready_js %>
   FormWizardValidation.init();
 });
 

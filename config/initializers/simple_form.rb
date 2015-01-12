@@ -92,7 +92,7 @@ SimpleForm.setup do |config|
   # config.item_wrapper_class = nil
 
   # How the label text should be generated altogether with the required text.
-  # config.label_text = lambda { |label, required| "#{required} #{label}" }
+  config.label_text = lambda { |label, required| "#{} #{label}" }
 
   # You can define the class to use on all labels. Default is nil.
   config.label_class = 'control-label'
@@ -112,7 +112,6 @@ SimpleForm.setup do |config|
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
   config.browser_validations = false
-
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
 

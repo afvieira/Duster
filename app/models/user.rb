@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include ActiveModel::Validations
+
   has_many :addresses
   has_many :feedback
   has_many :service
@@ -14,4 +16,5 @@ class User < ActiveRecord::Base
   mount_uploader :photo, FileUploader
   mount_uploader :cc, FileUploader
 
+  validates_confirmation_of :password
 end

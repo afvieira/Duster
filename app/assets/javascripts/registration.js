@@ -1,4 +1,15 @@
 //= require parsley/dist/parsley
 //= require bootstrap-wizard/bwizard
 //= require admin/form-wizards-validation.demo
-
+//= require bootstrap/bootstrap-datepicker/js/bootstrap-datepicker
+//= require ionRangeSlider/js/ion-rangeSlider/ion.rangeSlider
+//= require bootstrap-colorpicker/js/bootstrap-colorpicker
+//= require masked-input/masked-input
+//= require bootstrap-timepicker/js/bootstrap-timepicker
+//= require password-indicator/js/password-indicator
+//= require bootstrap-combobox/js/bootstrap-combobox
+//= require bootstrap-select/bootstrap-select
+//= require bootstrap-tagsinput/bootstrap-tagsinput
+//= require bootstrap-tagsinput/bootstrap-tagsinput-typeahead
+//= require jquery-tag-it/js/tag-it.min
+//= require formplugins/form-plugins.demo
