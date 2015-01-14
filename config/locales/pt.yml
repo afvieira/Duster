@@ -1,5 +1,7 @@
 pt:
   landing:
+    portuguese: "Português"
+    english: "Inglês"
     header:
       home: "Inicio"
       about_us: "Sobre nós"
