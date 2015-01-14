@@ -1,4 +1,4 @@
-/*   
+/*
 Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 1.4.0
 Author: Sean Ngu
@@ -6,26 +6,26 @@ Website: http://www.seantheme.com/color-admin-v1.4/
 */
 
 .btn.btn-theme {
-    background: #348fe2;
-    border-color: #348fe2;
-    color: #fff;
+  background: #50b2fe;
+  border-color: #50b2fe;
+  color: #fff;
 }
 .btn.btn-theme:hover,
 .btn.btn-theme:focus {
-    background: #2a72b5;
-    border-color: #2a72b5;
+  background: #3c8ac7;
+  border-color: #3c8ac7;
 }
-.header.navbar .navbar-nav > li.active > a, 
-.header.navbar .navbar-nav > li > a:hover, 
+.header.navbar .navbar-nav > li.active > a,
+.header.navbar .navbar-nav > li > a:hover,
 .header.navbar .navbar-nav > li > a:focus,
-.header.navbar.navbar-default .navbar-nav > li.active > a, 
-.header.navbar.navbar-default .navbar-nav > li > a:hover, 
+.header.navbar.navbar-default .navbar-nav > li.active > a,
+.header.navbar.navbar-default .navbar-nav > li > a:hover,
 .header.navbar.navbar-default .navbar-nav > li > a:focus,
-.header.navbar.navbar-transparent .navbar-nav > li.active > a, 
-.header.navbar.navbar-transparent .navbar-nav > li > a:hover, 
+.header.navbar.navbar-transparent .navbar-nav > li.active > a,
+.header.navbar.navbar-transparent .navbar-nav > li > a:hover,
 .header.navbar.navbar-transparent .navbar-nav > li > a:focus,
-.header.navbar.navbar-inverse .navbar-nav > li.active > a, 
-.header.navbar.navbar-inverse .navbar-nav > li > a:hover, 
+.header.navbar.navbar-inverse .navbar-nav > li.active > a,
+.header.navbar.navbar-inverse .navbar-nav > li > a:hover,
 .header.navbar.navbar-inverse .navbar-nav > li > a:focus,
 .header.navbar.navbar-transparent.navbar-small .navbar-nav > li.active > a,
 .header.navbar.navbar-transparent.navbar-small .navbar-nav > li > a:hover,
@@ -36,24 +36,24 @@ Website: http://www.seantheme.com/color-admin-v1.4/
 .navbar-nav .dropdown-menu > li > a:focus,
 .pricing-table .price .price-number,
 a {
-    color: #348fe2;
+  color: #FFF;
 }
 a:hover,
 a:focus {
-    color: #2a72b5;
+  color: #2a72b5;
 }
 .pricing-table .highlight h3,
 .pace-progress {
-    background: #2a72b5;
+  background: #2a72b5;
 }
 .pricing-table .highlight .price {
-    background: #348fe2;
+  background: #348fe2;
 }
 .pace .pace-activity {
-    border-top-color: #348fe2;
-    border-left-color: #348fe2;
+  border-top-color: #348fe2;
+  border-left-color: #348fe2;
 }
 .brand-logo,
 .footer .footer-brand-logo {
-    border-color: #2F83CF #2a72b5 #1f5688;
+  border-color: #2F83CF #2a72b5 #1f5688;
 }

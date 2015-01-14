@@ -1,15 +1,48 @@
 pt:
-  pages:
+  landing:
+    header:
+      home: "Inicio"
+      about_us: "Sobre nós"
+      our_team: "A nossa equipa"
+      services: "Serviços"
+      contact_us: "Contactos"
+      signup: "Registar"
+      login: "Entrar"
+      signup_as_a_client: "Como cliente"
+      signup_as_a_maid: "Como empregado(a)"
     home:
-      welcome: "Bem-Vindo"
-  header:
-    guestbook: "Livro de Visitas"
-    login: "Autentique-se"
-    signup: "Registe-se"
-    english: "Inglês"
-    portuguese: "Português"
-    logout: "Sair"
-    settings: "Opções"
-  registration:
-    radio_client: "Estou a procura de alguem para trabalhar."
-    radio_professional: "Estou a procura de emprego."
+      welcome: "Bem-vindo ao Duster"
+      phrase_2: "Limpeza do seu lar à distância de um click!"
+    about_us:
+      title: "Sobre nós"
+      subtitle1: "O que fazemos?"
+      subtitle1_text: "O Duster consiste numa plataforma criada com o intuito de facilitar a vida de muitas pessoas que nos dias de hoje se veem com dificuldades em arranjar alguém de confiança para lhes tratar das lidas domésticas, como também aquelas pessoas com um jeito para as limpezas que não se importariam de ganhar algum dinheiro extra. Mas afinal como isto funciona? Simples! Após o registo na plataforma, o encontro destas duas necessidades é estabelecido e ambos os lados serão notificados para que o serviço seja assim realizado! Simples certo? A plataforma neste momento ainda se encontra em fase de desenvolvimento, mas novidades irão ser lançadas!"
+      subtitle2: "A nossa filosofia?"
+      subtitle2_text: "A limpeza da sua casa à distância de um clique"
+      footer_data1: "Clientes registados"
+      footer_data2: "Profissionais de limpeza registadas"
+      footer_data3: "Serviços efectuados"
+    how_it_works:
+        title: Como funciona
+    our_team:
+      title: "A nossa equipa"
+      introduction_text: "Duster, nasce com o intuito de facilitar a vida das pessoas que tenham necessidade de encontrar alguém para tratar das lidas domesticas, tudo por um click."
+    services:
+      title: "Os nossos serviços"
+      introduction_text: "O nosso sistema realiza o casamento entre interesses de dois grupos de intervenientes:"
+      subtitle1: "Cliente"
+      subtitle1_text: "O cliente poderá procurar e agendar serviços de limpeza para a uma data e local disponível no sistema. Para isto, poderá escolher a empregada que efectuará"
+      subtitle2: "Empregada Doméstica"
+      subtitle2_text: ""
+      area_control: "Veja se o Duster tem serviços disponíveis na sua área!"
+      area_control2: "Qual é a sua cidade?"
+    contact_us:
+      title: "Contacte-nos"
+      introduction_text: "Se tem reclamações ou sugestões por favor contacte-nos através de email ou envie-nos uma mensagem:"
+      phone_title: "Telemóvel"
+      place_title: "Local"
+      place_place: "Braga, Portugal"
+      message_name: "Nome"
+      message_message: "Mensagem"
+      message_send: "Enviar Mensagem"
+      copyright: "2014 Duster. Todos os direitos reservados."
