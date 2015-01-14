@@ -36,10 +36,9 @@ class RegistrationsController < Devise::RegistrationsController
         end
 
         @user = User.new(final_params)
-        @user.save
+        @user.save!
+        @user.service_provider.create(current_job:"",radius:0)
 
-        @serviceProvider = ServiceProvider.new
-        @serviceProvider.user_id = @user.id 
 
         redirect_to "/"
     end

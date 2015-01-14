@@ -90,11 +90,14 @@ ActiveRecord::Schema.define(version: 20141210155917) do
   end
 
   create_table "service_providers", force: true do |t|
+    t.integer  "user_id"
     t.string   "current_job"
     t.float    "radius"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "service_providers", ["user_id"], name: "index_service_providers_on_user_id"
 
   create_table "service_type_service_providers", force: true do |t|
     t.float    "value"

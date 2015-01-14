@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_many :feedback
   has_many :service
+  has_many :service_provider
   has_one  :ranking
 
   # Include default devise modules. Others available are:
