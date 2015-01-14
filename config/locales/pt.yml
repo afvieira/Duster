@@ -1,5 +1,6 @@
 pt:
   landing:
+    language: "Linguagem"
     portuguese: "Português"
     english: "Inglês"
     header:

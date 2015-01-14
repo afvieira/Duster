@@ -17,7 +17,7 @@
                     <a href="index.html" class="navbar-brand">
                         <span class="brand-logo"></span>
                         <span class="brand-text">
-                            <span class="text-theme">Color</span> Admin
+                            <span class="text-theme">Duster</span> 
                         </span>
                     </a>
                 </div>
@@ -31,8 +31,13 @@
                       <li><a href="#service" data-click="scroll-to-target"><%= t 'landing.header.services' %></a></li>
                       <li><a href="#team" data-click="scroll-to-target"><%= t 'landing.header.our_team' %></a></li>
                       <li><a href="#contact" data-click="scroll-to-target"><%= t 'landing.header.contact_us' %></a></li>
-                      <li><%= link_to t("header.portuguese"), locale: "pt" %></li>
-                      <li><%= link_to t("header.english"), locale: "en" %></li>
+                      <li class="dropdown">
+                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.language' %><b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to image_tag('portugal_flag.jpg',size: '20x10') + " " + t("landing.portuguese") , locale: "pt"%></li>
+                          <li><%= link_to image_tag('england_flag.png',size: '20x10') + " " + t("landing.english"), locale: "en" %></li>
+                        </ul>
+                      </li>
                       <% if user_signed_in? %>
                       <li class="dropdown">
                         <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown">USER<b class="caret"></b></a>
@@ -42,7 +47,7 @@
                         </ul>
                       </li>
                       <% else %>
-                      <li><%= link_to t("header.login"), new_user_session_path %></li>
+                      <li><%= link_to t("landing.header.login"), new_user_session_path %></li>
                       <li class="dropdown">
                         <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
