@@ -19,7 +19,7 @@
        
         <div class="panel-body">
           <!-- <form action="/" method="POST" data-parsley-validate="true" name="form-wizard">-->
-           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
+           <%= simple_form_for(resource, as: resource_name, url: "/users/create_client", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
           
             <div id="wizard">
               <ol>

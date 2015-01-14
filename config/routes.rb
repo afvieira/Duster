@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     devise_scope :user do
       get "users/new_user" => 'registrations#new_user'
       get "users/new_client" => 'registrations#new_client'
+      post "users/create_client" => "registrations#create_client"
     end
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }

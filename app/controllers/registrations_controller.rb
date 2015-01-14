@@ -27,9 +27,36 @@ class RegistrationsController < Devise::RegistrationsController
         @user = User.new
     end
 
+    def create_client
+        final_params = client_params
+        if final_params[:gender] == "M"
+            final_params[:gender] = true
+        else
+            final_params[:gender] = false
+        end
+
+        @user = User.new(final_params)
+        @user.save
+
+        @serviceProvider = ServiceProvider.new
+        @serviceProvider.user_id = @user.id 
+
+        redirect_to "/"
+    end
+
     private
         def client_params
-            params.require(:user).permit(:photo, :name, :email, :password, :password_confirmation, :cc, :phone, :birth_date, :nationality, :gender)
+            params.require(:user).permit(:photo, 
+                                         :name, 
+                                         :email, 
+                                         :password, 
+                                         :password_confirmation, 
+                                         :cc,
+                                         :phone, 
+                                         :birth_date, 
+                                         :nationality, 
+                                         :gender,
+                                         :cell_phone)
         end
 
 end
