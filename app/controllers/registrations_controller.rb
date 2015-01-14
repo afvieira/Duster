@@ -2,15 +2,12 @@ class RegistrationsController < Devise::RegistrationsController
   layout 'application'
 
     def create_user
-
-
         final_params = user_params
         if final_params[:gender] == "gent" 
             final_params[:gender] = true
         else
             final_params[:gender] = false
         end
-        puts final_params.inspect    
           
         @user = User.new(final_params)
         @user.save

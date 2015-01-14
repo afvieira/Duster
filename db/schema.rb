@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(version: 20141210155917) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "cc"
+    t.integer  "cc"
     t.integer  "cell_phone"
     t.integer  "phone"
     t.date     "birth_date"
