@@ -14,12 +14,16 @@
 ActiveRecord::Schema.define(version: 20141210155917) do
 
   create_table "additional_informations", force: true do |t|
+    t.integer  "service_provider_id"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "additional_informations", ["service_provider_id"], name: "index_additional_informations_on_service_provider_id"
+
   create_table "addresses", force: true do |t|
+    t.integer  "user_id"
     t.integer  "zip_code"
     t.string   "city"
     t.string   "street"
@@ -29,17 +33,27 @@ ActiveRecord::Schema.define(version: 20141210155917) do
     t.datetime "updated_at"
   end
 
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+
   create_table "answer_types", force: true do |t|
     t.string   "answer_type"
+    t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "answer_types", ["answer_id"], name: "index_answer_types_on_answer_id"
+
   create_table "answers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "answer_type_id"
     t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "answers", ["answer_type_id"], name: "index_answers_on_answer_type_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "days", force: true do |t|
     t.string   "description"
@@ -48,16 +62,28 @@ ActiveRecord::Schema.define(version: 20141210155917) do
   end
 
   create_table "feedbacks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "service_id"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "feedbacks", ["service_id"], name: "index_feedbacks_on_service_id"
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+
   create_table "histories", force: true do |t|
+    t.integer  "state_id"
+    t.integer  "service_id"
+    t.integer  "answer_id"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "histories", ["answer_id"], name: "index_histories_on_answer_id"
+  add_index "histories", ["service_id"], name: "index_histories_on_service_id"
+  add_index "histories", ["state_id"], name: "index_histories_on_state_id"
 
   create_table "payment_types", force: true do |t|
     t.integer  "description"
@@ -66,28 +92,44 @@ ActiveRecord::Schema.define(version: 20141210155917) do
   end
 
   create_table "premia", force: true do |t|
+    t.integer  "payment_type_id"
     t.string   "description"
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "premia", ["payment_type_id"], name: "index_premia_on_payment_type_id"
+
   create_table "rankings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "service_id"
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "rankings", ["service_id"], name: "index_rankings_on_service_id"
+  add_index "rankings", ["user_id"], name: "index_rankings_on_user_id"
+
   create_table "schedules", force: true do |t|
+    t.integer  "service_provider_id"
+    t.integer  "slot_id"
+    t.integer  "day_id"
     t.boolean  "availability"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "service_provider_premia", force: true do |t|
+    t.integer  "service_provider_id"
+    t.integer  "premium_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "service_provider_premia", ["premium_id"], name: "index_service_provider_premia_on_premium_id"
+  add_index "service_provider_premia", ["service_provider_id"], name: "index_service_provider_premia_on_service_provider_id"
 
   create_table "service_providers", force: true do |t|
     t.integer  "user_id"
@@ -100,10 +142,15 @@ ActiveRecord::Schema.define(version: 20141210155917) do
   add_index "service_providers", ["user_id"], name: "index_service_providers_on_user_id"
 
   create_table "service_type_service_providers", force: true do |t|
+    t.integer  "service_provider_id"
+    t.integer  "service_type_id"
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "service_type_service_providers", ["service_provider_id"], name: "index_service_type_service_providers_on_service_provider_id"
+  add_index "service_type_service_providers", ["service_type_id"], name: "index_service_type_service_providers_on_service_type_id"
 
   create_table "service_types", force: true do |t|
     t.string   "description"
@@ -112,6 +159,10 @@ ActiveRecord::Schema.define(version: 20141210155917) do
   end
 
   create_table "services", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "service_provider_id"
+    t.integer  "service_type_id"
+    t.integer  "answer_id"
     t.integer  "state"
     t.date     "service_date"
     t.date     "matching_date"
@@ -130,6 +181,11 @@ ActiveRecord::Schema.define(version: 20141210155917) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "services", ["answer_id"], name: "index_services_on_answer_id"
+  add_index "services", ["service_provider_id"], name: "index_services_on_service_provider_id"
+  add_index "services", ["service_type_id"], name: "index_services_on_service_type_id"
+  add_index "services", ["user_id"], name: "index_services_on_user_id"
 
   create_table "slots", force: true do |t|
     t.time     "begining_hour"
