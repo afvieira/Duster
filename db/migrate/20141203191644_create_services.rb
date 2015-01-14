@@ -1,6 +1,11 @@
 class CreateServices < ActiveRecord::Migration
   def change
     create_table :services do |t|
+      t.integer :user_id
+      t.integer :service_provider_id
+      t.integer :service_type_id
+      t.integer :answer_id
+
       t.integer :state
       t.date :service_date
       t.date :matching_date
@@ -18,5 +23,9 @@ class CreateServices < ActiveRecord::Migration
       t.string  :additional_information
       t.timestamps
     end
+    add_index :services, :user_id
+    add_index :services, :service_provider_id
+    add_index :services, :service_type_id
+    add_index :services, :answer_id
   end
 end
