@@ -37,7 +37,9 @@ class UsersController < ApplicationController
   end
 
   def home
-
+    @sidebar = true
+    @navbar = true
+    @user = User.find(current_user.id)
   end
 
 

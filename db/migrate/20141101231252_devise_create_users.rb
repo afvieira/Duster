@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string     :name
-      t.string     :cc
+      t.integer    :cc
       t.integer    :cell_phone
       t.integer    :phone
       t.date       :birth_date
@@ -49,7 +49,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-    add_index :users, :cc,                   unique: true
-    add_index :users, :cell_phone,           unique:true
+    # add_index :users, :cc,                   unique: true
+    # add_index :users, :cell_phone,           unique:true
   end
 end
