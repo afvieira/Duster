@@ -1,0 +1,33 @@
+en:
+  previous: "Previous"
+  next: "Next"
+  pinfo:
+    title: "Personal information"
+    name: "Name"
+    name_example: "John"
+    sex: "Sex"
+    male: "Male"
+    female: "Female"
+    cc: "ID Civil Number"
+    cc_example: "123456789"
+    nacionality: "Nacionality"
+    choose_one: "Choose one"
+    date: "Data de Nascimento" 
+    date_example: "13-04-2015"
+  cinfo:
+    title: "Contact information"
+    email: "Email"
+    email_example: "example@duster.pt"
+    cellphone: "Cell Phone"
+    cellphone_example: "901234567"
+    phone: "Phone"
+    phone_example: "201234567"
+  pwd:
+    title: "Password"
+    password: "Password"
+    confirm_password: "Confirm Password"
+  concluded:
+    title: "Finish register"
+    warning: "Click below to confirm"
+    welcome: "Welcome to Duster"
+    confirm_register: "Confirm"

@@ -1,0 +1,33 @@
+pt:
+  previous: "Anterior"
+  next: "Próximo"
+  pinfo:
+    title: "Informação Pessoal"
+    name: "Nome"
+    name_example: "João"
+    sex: "Sexo"
+    male: "Masculino"
+    female: "Female"
+    cc: "BI/CC"
+    cc_example: "12345678 0 ZZ5"
+    nacionality: "Nacionalidade"
+    choose_one: "Selecione uma"
+    date: "Data de Nascimento"
+    date_example: "13-04-2015"
+  cinfo:
+    title: "Contactos Pessoais"
+    email: "Email"
+    email_example: "exemplo@duster.pt"
+    cellphone: "Telemóvel"
+    cellphone_example: "918273254"
+    phone: "Telefone"
+    phone_example: "253678345"
+  pwd:
+    title: "Palavra Chave"
+    password: "Palavra Chave"
+    confirm_password: "Confirmação da Palavra Chave"
+  concluded:
+    title: "Concluir Registo"
+    warning: "Clique em baixo para confirmar o registo"
+    welcome: "Bem vindo ao Duster"
+    confirm_register: "Confirmar"
