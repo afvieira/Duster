@@ -3,12 +3,14 @@ class RegistrationsController < Devise::RegistrationsController
 
     def create_user
         final_params = user_params
+
         if final_params[:gender] == "gent" 
             final_params[:gender] = true
         else
             final_params[:gender] = false
         end
-          
+        final_params[:birth_date] =   final_params[:birth_date].to_date
+
         @user = User.new(final_params)
         @user.save
         redirect_to "/"
@@ -21,19 +23,24 @@ class RegistrationsController < Devise::RegistrationsController
 
     def new_client
         @user = User.new
+        @address = Address.new
     end
 
     def create_client
-        final_params = client_params
-        if final_params[:gender] == "M"
-            final_params[:gender] = true
+        puts "------------OLASDASDFAF----------------------------"
+        params.permit!
+        cli_params = client_params
+        #puts params[:user][:addresses]
+        if cli_params[:gender] == "gent" 
+            cli_params[:gender] = true
         else
-            final_params[:gender] = false
+            cli_params[:gender] = false
         end
-
-        @user = User.new(final_params)
+        #final_params[:birth_date] = Date.strptime(final_params[:birth_date],"%d/%,/%Y")
+        @user = User.new(cli_params)
         @user.save!
         @user.service_provider.create(current_job:"",radius:0)
+        @user.addresses.create(params[:user][:addresses])
 
 
         redirect_to "/"
@@ -41,6 +48,18 @@ class RegistrationsController < Devise::RegistrationsController
 
     private
         def client_params
+            params.require(:user).permit(:photo, 
+                                         :name, 
+                                         :email, 
+                                         :password, 
+                                         :password_confirmation, 
+                                         :cc,
+                                         :phone, 
+                                         :birth_date, 
+                                         :nationality, 
+                                         :gender,
+                                         :cell_phone,
+                                         :addresses)
         end
         def user_params
             params.require(:user).permit(:photo, 
@@ -55,5 +74,4 @@ class RegistrationsController < Devise::RegistrationsController
                                          :gender,
                                          :cell_phone)
         end
-
 end

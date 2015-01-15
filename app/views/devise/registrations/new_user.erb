@@ -1,12 +1,12 @@
 <%= content_for :header_css do %>
-<%= stylesheet_link_tag "user_registration"%>
+  <%= stylesheet_link_tag "user_registration"%>
 <%end%>
 <% content_for :header_js do %>
-<%= javascript_include_tag "user_registration" %>
+  <%= javascript_include_tag "user_registration" %>
 <% end %>
+
 <%= content_for :js_start do %>
   <%= "FormWizardValidation.init();"%>
-  <%= "FormMultipleUpload.init();" %>
 <%end%>
 
 <!-- begin #content -->
@@ -43,7 +43,7 @@
                   <small>Phasellus lacinia placerat neque pretium condimentum.</small>
                 </li>
                 <li>
-                  Personal details
+                  Conclusão
                   <small>Sed nunc neque, dapibus non leo sed, rhoncus dignissim elit.</small>
                 </li>
               </ol>
@@ -72,25 +72,22 @@
                     <!--begin col-4 -->
                     <div class="col-md-4">
                       <div class="form-group">
-                         <div class="form-group">
                            <%= f.input :email, autofocus: true, 
                               input_html: {class: "form-control regist-mod",
                                            "data-parsley-group" => "wizard-step-1"
                                            } %>
-                         </div>
-
                       </div>
                     </div>
                     <!-- begin col-4 -->
-                    <div class="col-md-2">
+                    <div class="col-md-4">
 
                       <div class="form-group">
+                          <br></br>
                           <span class="btn btn-success fileinput-button">
                               <i class="glyphicon glyphicon-plus"></i>
-                              <span>
-                                Upload Photo
-                              </span>
-                              <%= f.input :photo, label: false, 
+                              <span> Upload photo</span>
+                              <%= f.input :photo, 
+                                  label: false, 
                                   input_html:{type:"file"} %>
                           </span>
                           <br></br>
@@ -154,16 +151,41 @@
                               "data-parsley-group" => "wizard-step-3",
                               "data-parsley-type" => "number"
                             }%>
-
+                            <br></br>
+                        <%= f.input :phone, 
+                            input_html:{
+                              type:"tel",
+                              placeholder:"1234567890",
+                              class: "form-control regist-mod",
+                              "data-parsley-group" => "wizard-step-3",
+                              "data-parsley-type" => "number"
+                            }%>
                       </div>
                     </div>
                     <!-- end col-6 -->
                     <!-- begin col-6 -->
                     <div class="col-md-4">
                       <div class="form-group">
-                       <%= f.input :birth_date, input_html:{type:"date"}%>
-                      </div>
-                    </div>
+                        <label> Data nascimento </label>
+                          <input id="datepicker-default" 
+                                name="user[birth_date]" 
+                                type="text" 
+                                class="form-control"
+                                data-parsley-group="wizard-step-3"
+                                required=""
+                                ></input>
+                               <br></br>
+
+                          <%= f.input :nationality,
+                                      input_html:{
+                                        class: "form-control regist-mod",
+                                        "data-parsley-group" => "wizard-step-3"
+                                              } 
+                            %>
+                          </div>
+
+
+                    </div>                      
                     <!-- end col-6 -->
                     <div class="col-md-4">
                       <div class="form-group">
@@ -185,39 +207,12 @@
                 </fieldset>
               </div>
               <!-- end wizard step-3 -->
+              
               <!-- begin wizard step-4 -->
               <div>
                 <div class="form-actions">
                  <div class="row">
                   
-                    <!-- begin col-6 -->
-                    <div class="col-md-4">
-                      <div class="form-group">
-                          <%= f.input :nationality,
-                              input_html:{
-                                class: "form-control regist-mod",
-                                  "data-parsley-group" => "wizard-step-4"
-                                } %>
-
-                      </div>
-                    </div>
-
-                    <!-- end col-6 -->
-                    <div class="col-md-4">
-                      <div class="form-group">
-                          <span class="btn btn-success fileinput-button">
-                              <i class="glyphicon glyphicon-plus"></i>
-                              <span>
-                                Upload CC
-                              </span>
-                              <%= f.input :cc, label: false, 
-                                  input_html:{type:"file"} %>
-                          </span>
-                          <br></br>
-                      </div>
-                   
-                    </div>
-
                   </div>
                   <!-- end row -->
                     <%= f.button :submit, "Sign up", class:"btn-defaul" %>

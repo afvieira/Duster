@@ -1,3 +1,4 @@
+
 /*   
 Template Name: Color Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
 Version: 1.4.0
@@ -7,7 +8,9 @@ Website: http://www.seantheme.com/color-admin-v1.4/
 
 var handleDatepicker = function() {
     $('#datepicker-default').datepicker({
-        todayHighlight: true
+        todayHighlight: true,
+        format: 'dd/mm/yyyy'
+
     });
     $('#datepicker-inline').datepicker({
         todayHighlight: true
@@ -36,6 +39,7 @@ var handleIonRangeSlider = function() {
     });
     $('#customRange_rangeSlider').ionRangeSlider({
         min: 1000,
+
         max: 100000,
         from: 30000,
         to: 90000,
