@@ -36,6 +36,13 @@ class ServicesController < ApplicationController
     respond_with(@service)
   end
 
+  def resource_name
+
+  end
+
+  def resource
+  end
+
   private
     def set_service
       @service = Service.find(params[:id])
