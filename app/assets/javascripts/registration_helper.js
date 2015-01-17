@@ -14,7 +14,7 @@ $(function($){
 
 	$(".regist-mod").each(changeRequired);
 
-	$('#datepicker-default').datepicker()
+	$('#datepicker-default').datepicker({format: 'dd/mm/yyyy'})
 	
 
 

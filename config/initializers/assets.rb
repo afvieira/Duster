@@ -12,6 +12,8 @@ Rails.application.config.assets.precompile += %w(welcome_header.js)
 Rails.application.config.assets.precompile += %w(welcome_footer.js)
 Rails.application.config.assets.precompile += %w(application_header.js)
 Rails.application.config.assets.precompile += %w(user_registration.js)
+Rails.application.config.assets.precompile += %w(client_registration.js)
 Rails.application.config.assets.precompile += %w(welcome.css)
 Rails.application.config.assets.precompile += %w(user_registration.css)
+Rails.application.config.assets.precompile += %w(client_registration.css)
 
