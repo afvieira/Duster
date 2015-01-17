@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
         else
             final_params[:gender] = false
         end
-        final_params[:birth_date] =   final_params[:birth_date].to_date
+        final_params[:birth_date] = Date.strptime(final_params[:birth_date],"%d/%m/%Y")
 
         @user = User.new(final_params)
         @user.save
@@ -36,7 +36,7 @@ class RegistrationsController < Devise::RegistrationsController
         else
             cli_params[:gender] = false
         end
-        #final_params[:birth_date] = Date.strptime(final_params[:birth_date],"%d/%,/%Y")
+        cli_params[:birth_date] = Date.strptime(cli_params[:birth_date],"%d/%m/%Y")
         @user = User.new(cli_params)
         @user.save!
         @user.service_provider.create(current_job:"",radius:0)
