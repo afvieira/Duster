@@ -41,8 +41,10 @@ var handleHeaderNavigationState = function() {
       var headerHeight = $('#header').height();
       if (totalScroll >= headerHeight) {
         $('#header').addClass('navbar-small');
+        $('#logo-container').css("float", "none");
       } else {
         $('#header').removeClass('navbar-small');
+        $('#logo-container').css("float", "left");
       }
     }
   });
