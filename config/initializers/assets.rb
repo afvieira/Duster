@@ -18,4 +18,6 @@ Rails.application.config.assets.precompile += %w(user_registration.css)
 Rails.application.config.assets.precompile += %w(client_registration.css)
 Rails.application.config.assets.precompile += %w( registration.css )
 Rails.application.config.assets.precompile += %w( registration.js )
+Rails.application.config.assets.precompile += %w(schedule.css)
+Rails.application.config.assets.precompile += %w(schedule.js)
 

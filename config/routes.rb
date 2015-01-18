@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   get 'users/home', to:"users#home"
+  post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
+  post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
+    get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
     devise_for :users, :controllers => {:registrations => "registrations"}
     devise_scope :user do
       get "users/new_user" => 'registrations#new_user'
