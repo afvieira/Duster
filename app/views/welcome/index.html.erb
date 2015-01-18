@@ -14,11 +14,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="navbar-brand">
-                        <span class="brand-logo"></span>
-                        <span class="brand-text">
-                            <span class="text-theme">Color</span> Admin
-                        </span>
+                    <a id="logo-container" href="index.html" class="navbar-brand">
+                        <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                        <!--<span class="brand-text">Duster</span>-->
                     </a>
                 </div>
                 <!-- end navbar-header -->
@@ -31,8 +29,13 @@
                       <li><a href="#service" data-click="scroll-to-target"><%= t 'landing.header.services' %></a></li>
                       <li><a href="#team" data-click="scroll-to-target"><%= t 'landing.header.our_team' %></a></li>
                       <li><a href="#contact" data-click="scroll-to-target"><%= t 'landing.header.contact_us' %></a></li>
-                      <li><%= link_to t("header.portuguese"), locale: "pt" %></li>
-                      <li><%= link_to t("header.english"), locale: "en" %></li>
+                      <li class="dropdown">
+                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.language' %><b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to image_tag('portugal_flag.jpg',size: '20x10') + " " + t("landing.portuguese") , locale: "pt"%></li>
+                          <li><%= link_to image_tag('england_flag.png',size: '20x10') + " " + t("landing.english"), locale: "en" %></li>
+                        </ul>
+                      </li>
                       <% if user_signed_in? %>
                       <li class="dropdown">
                         <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown">USER<b class="caret"></b></a>
@@ -42,7 +45,7 @@
                         </ul>
                       </li>
                       <% else %>
-                      <li><%= link_to t("header.login"), new_user_session_path %></li>
+                      <li><%= link_to t("landing.header.login"), new_user_session_path %></li>
                       <li class="dropdown">
                         <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
@@ -70,6 +73,13 @@
           <div class="container home-content">
             <h1><%= t 'landing.home.welcome' %></h1>
             <h3><%= t 'landing.home.phrase_2' %></h3>
+            <h4>Verifique se existem serviços de limpeza na sua área</h4>
+                <center>
+                  <select class="form-control input-lg" id="selectCity" name="city" style="width: 150px;">
+                    <option value="">Cidade</option>
+                    <option value="190101">Angra Do Heroismo</option><option value="10101">Aveiro</option><option value="20101">Beja</option><option value="30101">Braga</option><option value="40101">Bragança</option><option value="50101">Castelo Branco</option><option value="60101">Coimbra</option><option value="70101">Évora</option><option value="80101">Faro</option><option value="220101">Funchal</option><option value="90101">Guarda</option><option value="200101">Horta</option><option value="100101">Leiria</option><option value="110101">Lisboa</option><option value="210101">Ponta Delgada</option><option value="120101">Portalegre</option><option value="130101">Porto</option><option value="140101">Santarém</option><option value="150101">Setúbal</option><option value="160101">Viana Do Castelo</option><option value="170101">Vila Real</option><option value="180101">Viseu</option>            </select> <br>
+                  <button id="searchHP" type="submit" class="btn btn-theme">Continuar</button>
+              </center>    
           </div>
           <!-- end container -->
         </div>
@@ -229,20 +239,122 @@
                 <p class="content-desc"><%= t 'landing.our_team.introduction_text' %><p>
                 <!-- begin row -->
                 <div class="row">
-                    <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-2 col-sm-4">
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user-1.jpg', title:"Ryan Teller" %>
+                              <%= image_tag 'user_andre.png', title:"André Vieira" %>
                             </div>
                             <div class="info">
-                                <h3 class="name">Ryan Teller</h3>
-                                <div class="title text-theme">FOUNDER</div>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+                                <h3 class="name">André Vieira</h3>
+                                <div class="name">Project Manager</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user_tiago.png', size: '128x128',  title:"Tiago Martins"%>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Tiago Martins</h3>
+                                <div class="name">Developer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                              <%= image_tag 'user_hugo.png', title:"Hugo Gomes" %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Hugo Gomes</h3>
+                                <div class="name">Developer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user_carla.png',  title:"Carla Regadas"%>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Carla Regadas</h3>
+                                <div class="name">Designer & Developer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                              <%= image_tag 'user_jorge.png', title:"Jorge Oliveira" %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Jorge Oliveira</h3>
+                                <div class="name">Developer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <div class="col-md-2 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                              <%= image_tag 'user_sonia.png', title:"Sónia Dias" %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Sónia Dias</h3>
+                                <div class="name">Technical Writer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-3 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                                <%= image_tag 'user_pedro.png',  title:"Pedro Eiras"%>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Pedro Eiras</h3>
+                                <div class="name">Designer & Developer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
@@ -251,19 +363,17 @@
                     </div>
                     <!-- end col-4 -->
                     <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-4">
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                                <%= image_tag 'user-2.jpg',  title:"Jonny Cash"%>
+                              <%= image_tag 'user_kelly.png', title:"Kelyanne Thomé" %>
                             </div>
                             <div class="info">
-                                <h3 class="name">Johnny Cash</h3>
-                                <div class="title text-theme">WEB DEVELOPER</div>
-                                <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                <h3 class="name">Kelyanne Thomé</h3>
+                                <div class="name">Technical Writer</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
@@ -272,19 +382,36 @@
                     </div>
                     <!-- end col-4 -->
                     <!-- begin col-4 -->
-                    <div class="col-md-4 col-sm-4">
+                    <div class="col-md-3 col-sm-4">
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user-3.jpg', title:"Mia Donovan" %>
+                                <%= image_tag 'user_rogerio.png',  title:"Rogério Pontes"%>
                             </div>
                             <div class="info">
-                                <h3 class="name">Mia Donovan</h3>
-                                <div class="title text-theme">WEB DESIGNER</div>
-                                <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. </p>
+                                <h3 class="name">Rogério Pontes</h3>
+                                <div class="name">Developer</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-twitter fa-lg fa-fw"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end team -->
+                    </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-3 col-sm-4">
+                        <!-- begin team -->
+                        <div class="team">
+                            <div class="image" data-animation="true" data-animation-type="flipInX">
+                              <%= image_tag 'user_ligia.png', title:"Ligia Chiuale" %>
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Ligia Chiuale</h3>
+                                <div class="name">Technical Writer</div>
+                                <div class="social">
+                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
@@ -362,8 +489,7 @@
         <div id="footer" class="footer">
             <div class="container">
                 <div class="footer-brand">
-                    <div class="footer-brand-logo"></div>
-                    Duster
+                  <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
                 </div>
                 <p>
                     &copy; <%= t 'landing.contact_us.copyright' %> <br />
