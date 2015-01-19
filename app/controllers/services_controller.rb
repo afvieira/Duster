@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:show]
 
   respond_to :html
 
@@ -18,6 +19,14 @@ class ServicesController < ApplicationController
   end
 
   def edit
+  end
+
+  def request_service
+    @zipcodes = Service.where(user_id:'1')
+  end
+
+  def request_result
+    @workers = User.take(10)
   end
 
   def create

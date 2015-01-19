@@ -8,6 +8,12 @@
 <%= 'FormWizardValidation.init();' %>
 <% end %>
 
+<% @zipcodes.each do |zipcode| %>
+                        <p>
+                          <%= zipcode.zip_code %> yolo zipcode
+                        </p>
+                    <% end %>
+
 <!-- begin #content -->
 <div id="content" class="content-form">
   <!-- begin row -->
@@ -18,8 +24,7 @@
       <div class="panel panel-inverse">
        
         <div class="panel-body">
-          <!-- <form action="/" method="POST" data-parsley-validate="true" name="form-wizard">-->
-           <%= simple_form_for(:service, url: "/service/request", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
+           <%= simple_form_for(:service, url: "/  ", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
           
             <div id="wizard">
               <ol>
@@ -141,7 +146,7 @@
                           <!-- tera de vir de um get -->
                     </div>
                     <div class="col-md-4">
-                      <%= f.select :duracao, options_for_select([["Selecione uma", ""], "Morada1", "Morada2", "Morada3"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <%= collection_select(:morada, 0, Service.where("user_id = 1"), :id, :zip_code) %>
                     </div>
                   </div>
                   <br>
