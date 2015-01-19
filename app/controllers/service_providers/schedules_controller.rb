@@ -27,7 +27,7 @@ class ServiceProviders::SchedulesController < ApplicationController
     res = TimeTable.where(service_provider_id: srvp.id)
     jres = {}
 
-    res.each { |elem| jres[elem.id] = { "start_time" => elem.start_time, 
+    res.each { |elem| jres[elem.id] = { "start_time" => up_date(elem.start_time), 
                                         "end_time" => elem.end_time}}
 
     puts jres
@@ -70,6 +70,35 @@ class ServiceProviders::SchedulesController < ApplicationController
   end
 
   private
+
+    def next_week(tdate)
+      return tdate + (7 - tdate.wday)
+    end
+
+    def next_wday (odate)
+      tdate = Date.today
+      puts odate.wday
+      puts tdate.wday
+      odate.wday > tdate.wday ? tdate + (odate.wday - tdate.wday) : next_week(tdate).next_day(odate.wday)
+    end
+
+    def up_date(odate)
+        #cdate = next_wday(odate)
+        #return odate.change(:day => cdate.day)
+        tdate = Date.today
+        cdate = tdate.monday
+        #A semana comeca a segunda no rails
+        #Se a data for um domingo entao pedo o domingo anterior a segunda da semana actual
+        #caso contrario calcula o dia corresponde ao dia da semana da  data antiga
+        if odate.wday == 0 
+          cdate = cdate.yesterday
+        else
+          cdate = cdate.change(:day => cdate.day + odate.wday-1)
+        end
+
+        puts cdate
+        return odate.change(:day => cdate.day)
+    end 
 
     #verifys if the days is already in the db
     # if it does it return the existing one otherwise return a new one.

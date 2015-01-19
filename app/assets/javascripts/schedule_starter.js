@@ -19,6 +19,7 @@ $(document).ready(function() {
     var select_cb = function select_cb(start, end, allDay, js_event) {
 
         render_options = {
+            title: "Working",
             start: start,
             end: end,
             allDay: false
@@ -26,8 +27,7 @@ $(document).ready(function() {
 
 
         if (!isOverlapping(start, end)) {
-            console.log(start);
-            console.log(end);            
+          
             calendar.fullCalendar('renderEvent', render_options, true);
             ajax_new_block(start,end);
         }
@@ -41,27 +41,25 @@ $(document).ready(function() {
 
     var stop_resize_cb = function stop_resize_cb( event, jsEvent, ui, view){
 
-        console.log(event);
     }
 
 
-    var event_render = function event_render(event, element, view){
-            console.log(event);
-    }
-    var user_events = [];
+
 
     var ajax_request_calendar = function ajax_request_calendar(){
 
         $.post("/ajax/schedule/", function(data){
             for(var key in data){
                 if(data.hasOwnProperty(key)){
-
+                    console.log(data[key].start_time);
                     var even = {id: key,
-                                title: "work",
+                                title: "Working",
                                  start: data[key].start_time,
-                                 end: data[key].end_time
+                                 end: data[key].end_time,
+                                 allDay: false // this is required
                                 };
-                user_events.push(even);
+            calendar.fullCalendar('renderEvent', even, true);
+
             }
 
             }
@@ -69,9 +67,7 @@ $(document).ready(function() {
     }
 
 
-    console.log(user_events);
     var options = {
-        events: user_events,
         header: header_options,
         defaultView: 'agendaWeek',
         allDaySlot: false,
@@ -90,9 +86,7 @@ $(document).ready(function() {
 
 
     }
+    
     ajax_request_calendar();
-    calendar.fullCalendar(options);
-    //console.log(new Date())
-    //calendar.fullCalendar('render_event',{id:20, start:'Wed, '})
-
+    calendar.fullCalendar(options)
 });
