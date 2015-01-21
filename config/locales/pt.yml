@@ -1,6 +1,6 @@
 pt:
   landing:
-    language: "Linguagem"
+    language: "Lingua"
     portuguese: "Português"
     english: "Inglês"
     header:
@@ -16,6 +16,11 @@ pt:
     home:
       welcome: "Bem-vindo ao Duster"
       phrase_2: "Limpeza do seu lar à distância de um click!"
+      phrase_3: "Verifique se existem empregadas de limpeza na sua área"
+      title_option: "Cidade"
+      title_button: "Verifique"
+      result_1: "Existem "
+      result_2: " empregadas perto de si!"
     about_us:
       title: "Sobre nós"
       subtitle1: "O que fazemos?"
