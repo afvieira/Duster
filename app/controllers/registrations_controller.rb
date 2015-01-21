@@ -1,6 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
   layout 'application'
 
+    def sign_up
+        redirect_to "/users/home"
+    end
+    
     def create_user
         final_params = user_params
 
@@ -13,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
 
         @user = User.new(final_params)
         @user.save
-        redirect_to "/"
+        redirect_to "/users/sign_in"
 
     end
 
@@ -41,7 +45,7 @@ class RegistrationsController < Devise::RegistrationsController
         @user.addresses.create(params[:user][:addresses])
 
 
-        redirect_to "/"
+        redirect_to "/users/sign_in"
     end
 
     private

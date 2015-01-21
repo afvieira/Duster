@@ -1,1 +1,0 @@
-//= require bootstrap/bootstrap-datepicker/js/bootstrap-datepicker

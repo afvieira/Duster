@@ -49,8 +49,13 @@
                       <li class="dropdown">
                         <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                          <li><%= link_to t("landing.header.signup_as_a_client"),new_user_registration_path%></li>
-                          <li><%= link_to t("landing.header.signup_as_a_maid"),new_user_registration_path%></li>
+                          <li><%= link_to t("landing.header.signup_as_a_client"), 
+                                      controller:"registrations", 
+                                      action:"new_user"%>
+                                      </li>
+                          <li><%= link_to t("landing.header.signup_as_a_maid"), 
+                                      controller:"registrations",
+                                      action:"new_client"%></li>
                         </ul>
                       </li>
                       <% end %>
