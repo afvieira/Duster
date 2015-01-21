@@ -22,7 +22,19 @@
 
     <!-- end sidebar user -->
     <% if current_user.is_client %>
-
+      <ul class="nav">
+        <li class="nav-header"> Home </li>
+        <%if @active_schedule %>
+          <li class="active">
+        <% else %>
+          <li class>
+        <% end %>
+          <%= link_to controller: "service_providers/schedules", action: "show", id:current_user.id do%>
+            <i class="fa fa-calendar"></i>
+            <span> Schedule </span>
+            <%end%>
+        </li>
+      </ul>
     <%else%>
       <!-- begin sidebar nav -->
       <ul class="nav">

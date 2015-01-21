@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210155917) do
+ActiveRecord::Schema.define(version: 20150118203311) do
 
   create_table "additional_informations", force: true do |t|
     t.integer  "service_provider_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141210155917) do
 
   create_table "addresses", force: true do |t|
     t.integer  "user_id"
-    t.integer  "zip_code"
+    t.string   "zip_code"
     t.string   "city"
     t.string   "street"
     t.integer  "door_number"
@@ -199,6 +199,14 @@ ActiveRecord::Schema.define(version: 20141210155917) do
 
   create_table "states", force: true do |t|
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "time_tables", force: true do |t|
+    t.integer  "service_provider_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
