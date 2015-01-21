@@ -8,7 +8,6 @@ Website: http://www.seantheme.com/color-admin-v1.4/
 
 @media (max-width: 1200px) {
     .content.has-bg .content-bg img {
-        /*max-height: 100%;*/
         max-width: inherit;
     }
     .content .content-desc {
