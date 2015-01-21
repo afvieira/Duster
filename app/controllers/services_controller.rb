@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:show]
 
   respond_to :html
 
@@ -10,6 +11,8 @@ class ServicesController < ApplicationController
 
   def show
     respond_with(@service)
+    @sidebar=true
+    @navbar=true
   end
 
   def new
@@ -18,6 +21,21 @@ class ServicesController < ApplicationController
   end
 
   def edit
+  end
+
+  def request_service
+    @service = Service.new
+    @zipcodes = Service.where(user_id:'1')
+  end
+
+
+  def request_result
+
+    @workers = User.take(10)
+  end
+
+  def request_submit
+
   end
 
   def create
@@ -34,6 +52,13 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_with(@service)
+  end
+
+  def resource_name
+
+  end
+
+  def resource
   end
 
   private
