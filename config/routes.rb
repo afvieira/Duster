@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'users/home', to:"users#home"
   post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
+  post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do

@@ -27,10 +27,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def create_client
-        puts "------------OLASDASDFAF----------------------------"
         params.permit!
         cli_params = client_params
-        #puts params[:user][:addresses]
         if cli_params[:gender] == "gent" 
             cli_params[:gender] = true
         else

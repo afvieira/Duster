@@ -28,15 +28,24 @@ class ServiceProviders::SchedulesController < ApplicationController
     jres = {}
 
     res.each { |elem| jres[elem.id] = { "start_time" => up_date(elem.start_time), 
-                                        "end_time" => elem.end_time}}
-
-    puts jres
+                                        "end_time" => up_date(elem.end_time)}}
 
     render :json => jres
-
   end
+
+  def ajax_block_resize
+    params.permit!
+
+    date_start = DateTime.parse(params[:start])
+    date_end = DateTime.parse(params[:end])
+
+
+    srvp = ServiceProvider.find(current_user.id)
+    srvp.update_slot(params[:id], date_start, date_end)
+    render :json => {:result => "ok"}
+  end
+
   def ajax_new_block
-    puts params.inspect
     params.permit!
 
     date_start = DateTime.parse(params[:time_start])
@@ -46,7 +55,6 @@ class ServiceProviders::SchedulesController < ApplicationController
     #day = day_exists(date_start.wday)
     srvp = ServiceProvider.find(current_user.id)
 
-    puts params[:time_start]
     srvp.add_slot(date_start, date_end)
     #srvp.add_schedule(slot,day)
     
@@ -71,17 +79,6 @@ class ServiceProviders::SchedulesController < ApplicationController
 
   private
 
-    def next_week(tdate)
-      return tdate + (7 - tdate.wday)
-    end
-
-    def next_wday (odate)
-      tdate = Date.today
-      puts odate.wday
-      puts tdate.wday
-      odate.wday > tdate.wday ? tdate + (odate.wday - tdate.wday) : next_week(tdate).next_day(odate.wday)
-    end
-
     def up_date(odate)
         #cdate = next_wday(odate)
         #return odate.change(:day => cdate.day)
@@ -95,9 +92,9 @@ class ServiceProviders::SchedulesController < ApplicationController
         else
           cdate = cdate.change(:day => cdate.day + odate.wday-1)
         end
-
-        puts cdate
-        return odate.change(:day => cdate.day)
+        return odate.change(:day => cdate.day, 
+                            :month => cdate.month, 
+                            :year => cdate.year)
     end 
 
     #verifys if the days is already in the db

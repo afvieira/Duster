@@ -22,9 +22,17 @@ class ServiceProvider < ActiveRecord::Base
 
   end
   
+  def update_slot(id, time_start, time_end)
+    puts time_start
+    puts time_end
+    slot = TimeTable.find(id)
+    slot.update(start_time: time_start)
+    slot.update(end_time: time_end)
+    #slot.update_attributes(stax rt_time: time_start, end_time: time_end)
+    
+  end  
 
   def add_schedule(slot,day)
-
 
   	schedules = Schedule.where(service_provider_id: self.id, day_id: day.id)
   	#Se o cliente ainda nao tem slots naquele dia pode-se adicionar a vontade
@@ -44,6 +52,7 @@ class ServiceProvider < ActiveRecord::Base
 
   	end
   end
+
 
   
 end
