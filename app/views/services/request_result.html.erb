@@ -1,26 +1,37 @@
-<%= content_for :header_css do %>
-<%= stylesheet_link_tag "registration"%>
-<% end %>
-<% content_for :header_js do %>
-<%= javascript_include_tag "registration" %>
-<% end %>
-
-
-<table class="table">
-	<tr>
+<%= simple_form_for(:service, url: "/service/request_result", html: {"name" => "form-wizard"}) do |f| %>
+  <table class="table">
+  	<tr>
   		<td> Nome </td>
   		<td> Email </td>
   		<td> Nacionalidade </td>
   		<td> Sexo </td>
-  		<td> <a href="http://www.google.pt" onclick="javascript:void window.open('http://www.google.pt','1421687153403','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Pop-up Window</a> </td>
+  		<td>  </td>
+  		<td> escolher empregado(a) </td>
   	</tr>
-  <% @workers.each do |worker| %>
-  	<tr>
-  		<td> <%= worker.name %> </td>
-  		<td> <%= worker.email %> </td>
-  		<td> <%= worker.nationality %> </td>
-  		<td> <%= worker.gender %> </td>
-  		<td> <a href="http://www.google.pt" onclick="javascript:void window.open('http://www.google.pt','1421687153403','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Pop-up Window</a> </td>
-  	</tr>
-  <% end %>
-</table>
+    <% @workers.each do |worker| %>
+    	<tr>
+    		<td> <%= worker.name %> </td>
+    		<td> <%= worker.email %> </td>
+    		<td> <%= worker.nationality %> </td>
+    		<td> 
+    			<% if worker.gender == true %>
+    				Macho
+    			<% else %>
+    				Fêmea
+    			<% end %>
+    		</td>
+    		<td> 
+    			<a href="http://www.google.pt" onclick="javascript:void window.open('http://www.google.pt','1421687153403','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">
+    				ver perfil
+    			</a>
+    		</td>
+    		<td>
+    			<%= f.radio_button :opcao, worker.id %>
+    		</td>
+    	</tr>
+    <% end %>
+  </table>
+  <div align="center">
+  	<%= f.button :submit, "Submeter pedido"%>
+  </div>
+<% end %>

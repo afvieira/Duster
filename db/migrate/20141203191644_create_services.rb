@@ -8,9 +8,15 @@ class CreateServices < ActiveRecord::Migration
 
       t.integer :state
       t.date :service_date
-      t.date :matching_date
-      t.date :creation_date
+      t.datetime :matching_date
+      t.datetime :creation_date
+      t.time :service_start
+      t.time :service_end
       t.integer :zip_code
+      t.string :country
+      t.string :district
+      t.string :perish
+      t.string :preference
       t.string :city, null:false
       t.string :street, null:false
       t.string :doorNumber, null:false
@@ -18,7 +24,7 @@ class CreateServices < ActiveRecord::Migration
       t.integer :number_of_rooms
       t.string  :buildingType
       t.string  :frequency
-      t.time    :timePretended
+      t.integer :timePretended
       t.boolean :cleaningStuff
       t.string  :additional_information
       t.timestamps

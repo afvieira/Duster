@@ -164,18 +164,21 @@ ActiveRecord::Schema.define(version: 20141210155917) do
     t.integer  "service_type_id"
     t.integer  "answer_id"
     t.integer  "state"
-    t.date     "service_date"
-    t.date     "matching_date"
-    t.date     "creation_date"
+    t.datetime "service_date"
+    t.datetime "matching_date"
+    t.datetime "creation_date"
     t.integer  "zip_code"
+    t.string   "country"
+    t.string   "district",               null: false
+    t.string   "perish"
+    t.string   "preference"
     t.string   "city",                   null: false
     t.string   "street",                 null: false
     t.string   "doorNumber",             null: false
-    t.string   "district",               null: false
     t.integer  "number_of_rooms"
     t.string   "buildingType"
     t.string   "frequency"
-    t.time     "timePretended"
+    t.integer  "timePretended"
     t.boolean  "cleaningStuff"
     t.string   "additional_information"
     t.datetime "created_at"

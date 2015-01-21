@@ -11,6 +11,8 @@ class ServicesController < ApplicationController
 
   def show
     respond_with(@service)
+    @sidebar=true
+    @navbar=true
   end
 
   def new
@@ -22,11 +24,18 @@ class ServicesController < ApplicationController
   end
 
   def request_service
+    @service = Service.new
     @zipcodes = Service.where(user_id:'1')
   end
 
+
   def request_result
+
     @workers = User.take(10)
+  end
+
+  def request_submit
+
   end
 
   def create

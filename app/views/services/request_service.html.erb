@@ -8,12 +8,6 @@
 <%= 'FormWizardValidation.init();' %>
 <% end %>
 
-<% @zipcodes.each do |zipcode| %>
-                        <p>
-                          <%= zipcode.zip_code %> yolo zipcode
-                        </p>
-                    <% end %>
-
 <!-- begin #content -->
 <div id="content" class="content-form">
   <!-- begin row -->
@@ -24,8 +18,7 @@
       <div class="panel panel-inverse">
        
         <div class="panel-body">
-           <%= simple_form_for(:service, url: "/  ", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
-          
+           <%= simple_form_for(:service, url: "/service/request_service", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
             <div id="wizard">
               <ol>
                 <li>
@@ -48,13 +41,13 @@
               <!-- begin wizard step-1 -->
               <div class="wizard-step-1">
                 <fieldset>
-                  <legend class="pull-left width-full">Informações da casa</legend>
+                  <legend class="pull-left width-full">Informações do idificio</legend>
                   <div class="row">
                     <div class="col-md-2">
-                      <label>Número de divisões da casa</label>
+                      <label>Número de divisões do edificio</label>
                     </div>
                     <div class="col-md-4">
-                      <%= f.select :ndivisoes, options_for_select([["Selecione uma", ""], "1", "2", "3", "4", "5", "6"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                      <%= f.select :number_of_rooms, options_for_select([["Selecione uma", ""], "1", "2", "3", "4", "5", "6"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
                     </div>
                   </div>
                   <br>
@@ -65,12 +58,12 @@
                     </div>
                     <div class="col-md-4">
                       <p>
-                        <%= f.radio_button :limpeza, 'C' %>
-                        <%= label :limpeza, 'Limpeza' %>
-                      <p> 
+                        <%= f.radio_button :service_type_id, '1' %>
+                        <%= label :service_type_id, 'Limpeza' %>
+                      </p> 
                       <p>
-                        <%= f.radio_button :engomadoria, 'E' %>  
-                        <%= label :engomadoria, 'Engomadoria' %>
+                        <%= f.radio_button :service_type_id, '2' %>  
+                        <%= label :service_type_id, 'Limpeza e Engomadoria' %>
                       </p>
                     </div>
                   </div>
@@ -80,22 +73,22 @@
                       <label>Tipo de espaço</label>
                     </div>
                     <div class="col-md-4">
-                        <p>
-                        <p>
-                        <%= f.radio_button :tipoespaco, 'H' %>
-                        <%= label :tipoespaco, 'Casa' %>
-                      <p> 
                       <p>
-                        <%= f.radio_button :tipoespaco, 'B' %>  
-                        <%= label :tipoespaco, 'Prédio' %>
+                        <%= f.radio_button :buildingType, 'H' %>
+                        <%= label :buildingType, 'Casa' %>
                       </p>
                       <p>
-                        <%= f.radio_button :tipoespaco, 'O' %>
-                        <%= label :tipoespaco, 'Escritório' %>
-                      <p> 
+                        <%= f.radio_button :buildingType, 'B' %>  
+                        <%= label :buildingType, 'Prédio' %>
+                      </p>
                       <p>
-                        <%= f.radio_button :tipoespaco, 'A' %>  
-                        <%= label :tipoespaco, 'Outro' %><%= f.input :tipoespaco, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                        <%= f.radio_button :buildingType, 'O' %>
+                        <%= label :buildingType, 'Escritório' %>
+                      </p>
+                      <p>
+                        <%= f.radio_button :buildingType, 'A' %>  
+                        <%= label :buildingType, 'Outro' %>
+                        <%= f.input :buildingType, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
                       </p>
                     </div>
                   </div>
@@ -105,7 +98,7 @@
                       <label>número de horas do serviço: </label>
                     </div>
                     <div class="col-md-4">
-                      <%= f.select :duracao, options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                      <%= f.select :timePretended, options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
                     </div>
                   </div>
                   <br>
@@ -115,13 +108,13 @@
                     </div>
                     <div class="col-md-8">
                       <p>
-                        <%= f.radio_button :material, 'Y' %>
-                        <%= label :material, 'Sim' %>
+                        <%= f.radio_button :cleaningStuff, 'Y' %>
+                        <%= label :cleaningStuff, 'Sim' %>
+                      </p>
                       <p>
-                      <p>
-                        <%= f.radio_button :material, 'N' %>
-                        <%= label :material, 'Não (o preço base poderá ser mais elevado)' %>
-                      <p>  
+                        <%= f.radio_button :cleaningStuff, 'N' %>
+                        <%= label :cleaningStuff, 'Não (o preço base poderá ser mais elevado)' %>
+                      </p>  
                     </div>
                   </div>
                   <br>
@@ -130,7 +123,7 @@
                       <label>informações adicionais</label>
                     </div>
                     <div class="col-md-8">
-                      <%= f.input :infoadicional, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                      <%= f.input :additional_information, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
                     </div>
                   </div>
                 </fieldset>
@@ -143,10 +136,9 @@
                   <div class="row">
                     <div class="col-md-2">
                       <label>Morada já definida</label>
-                          <!-- tera de vir de um get -->
                     </div>
                     <div class="col-md-4">
-                      <%= collection_select(:morada, 0, Service.where("user_id = 1"), :id, :zip_code) %>
+                      <%= collection_select(:zip_code, 0, Service.where("user_id = 1"), :id, :zip_code) %>
                     </div>
                   </div>
                   <br>
@@ -161,56 +153,56 @@
                   <br>
                   <div class="row">
                     <div class="col-md-1">
-                        <label>País</label>
-                        </div>
-                        <div class="col-md-4">
-                          <%= f.select :country, options_for_select([["Selecione uma", ""], "Portugal", "Espanha"])%>
-                        </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                    <div class="col-md-1">
-                        <label>Distrito</label>
-                        </div>
-                        <div class="col-md-2">
-                          <%= f.input :distrito, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <label>País</label>
+                    </div>
+                    <div class="col-md-4">
+                      <%= f.input :country, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
                     </div>
                   </div>
                   <br>
                   <div class="row">
                     <div class="col-md-1">
-                        <label>Localidade</label>
-                        </div>
-                        <div class="col-md-2">
-                          <%= f.input :localidade, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <label>Distrito</label>
+                    </div>
+                    <div class="col-md-2">
+                      <%= f.input :district, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%> 
                     </div>
                   </div>
                   <br>
                   <div class="row">
                     <div class="col-md-1">
-                        <label>Freguesia</label>
-                        </div>
-                        <div class="col-md-2">
-                          <%= f.input :freguesia, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <label>Localidade</label>
+                    </div>
+                    <div class="col-md-2">
+                      <%= f.input :city, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
                     </div>
                   </div>
                   <br>
                   <div class="row">
                     <div class="col-md-1">
-                        <label>Código postal</label>
-                        </div>
-                        <div class="col-md-2">
-                        <%= f.input :codigopostal, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <label>Freguesia</label>
+                    </div>
+                    <div class="col-md-2">
+                      <%= f.input :perish, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
                     </div>
                   </div>
                   <br>
                   <div class="row">
                     <div class="col-md-1">
-                        <label>Rua</label>
-                        </div>
-                        <div class="col-md-4">
-                        <%= f.input :rua, as: :string, required: true, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                      <label>Código postal</label>
                     </div>
+                    <div class="col-md-2">
+                    <%= f.input :zip_code, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                  <div class="col-md-1">
+                    <label>Rua</label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.input :street, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
                   </div>
                   </fieldset>
                 </div>
@@ -219,47 +211,47 @@
               <div class="wizard-step-3">
                 <fieldset>
                   <legend class="pull-left width-full">Frequência</legend>
+                  <p>
                     <div class="col-md-8">
-                    <p>
                       <span style="display:inline-block; width: 50px;"></span>
-                      <%= f.radio_button :frequencia, 'O' %>
-                      <%= label :frequencia, 'Ocasionalmente' %>
+                      <%= f.radio_button :frequency, 'O' %>
+                      <%= label :frequency, 'Ocasionalmente' %>
                       <span style="display:inline-block; width: 40px;"></span>
-                      <%= f.radio_button :frequencia, 'M' %>
-                      <%= label :frequencia, 'Mensalmente' %>
+                      <%= f.radio_button :frequency, 'M' %>
+                      <%= label :frequency, 'Mensalmente' %>
                       <span style="display:inline-block; width: 40px;"></span>
-                      <%= f.radio_button :frequencia, 'W' %>
-                      <%= label :frequencia, 'Semanalmente' %>
+                      <%= f.radio_button :frequency, 'W' %>
+                      <%= label :frequency, 'Semanalmente' %>
                     </div>
                   </p>
                   <legend class="pull-left width-full">Escolha da data</legend>
                   <div class="row">
                     <div class="col-md-4">
                         <label>Data</label>
-                        <%= f.input :date, label: false, required: true, placeholder: "Select date", label: false, autofocus: true, input_html: { class:"form-control", id:"datepicker-default", data_parsley_group:"wizard-step-3"}%>
+                        <%= f.input :service_date%>
                     </div>
                     <div class="col-md-2", align="right">
                       <label>Preferências</label>
                     </div>
                     <div class="col-md-2">
                       <p>
-                        <%= f.radio_button :preferencia, 'P' %>
-                        <%= label :preferencia, 'Preço' %>
+                        <%= f.radio_button :preference, 'P' %>
+                        <%= label :preference, 'Preço' %>
                       </p>
                       <p>
-                        <%= f.radio_button :preferencia, 'D' %>
-                        <%= label :preferencia, 'Distância' %>
+                        <%= f.radio_button :preference, 'D' %>
+                        <%= label :preference, 'Distância' %>
                       </p>
                       <p>
-                        <%= f.radio_button :preferencia, 'R' %>
-                        <%= label :preferencia, 'Rating' %>
+                        <%= f.radio_button :preference, 'R' %>
+                        <%= label :preference, 'Rating' %>
                       </p>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-4">
                         <label>Hora de inicio</label>
-                          <%= f.select :duracao, options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-3"}%>
+                          <%= f.select :service_start options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-3"}%>
                     </div>
                   </div>
                 </fieldset>
