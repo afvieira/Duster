@@ -19,7 +19,7 @@ $(document).ready(function() {
     var select_cb = function select_cb(start, end, allDay, js_event) {
 
         render_options = {
-            title: "Working",
+            title: "Free to work",
             start: start,
             end: end,
             allDay: false
@@ -69,7 +69,7 @@ $(document).ready(function() {
                     if (data.hasOwnProperty(key)) {
                         var even = {
                             id: key,
-                            title: "Free to Work",
+                            title: "Free to work",
                             start: data[key].start_time,
                             end: data[key].end_time,
                             allDay: false // this is required
