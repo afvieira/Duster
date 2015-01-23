@@ -13,7 +13,6 @@
 // require jquery  Import for rails jquery, theme uses an older version
 //= require jquery/jquery-1.8.2.min
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap/bootstrap
 //= require jquery-cookie/jquery.cookie
 //= require scrollMonitor/scrollMonitor

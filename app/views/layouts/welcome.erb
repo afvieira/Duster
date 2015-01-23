@@ -30,13 +30,6 @@
 </head>
 <body>
 
-<% flash.each do |name, msg| %>
-<div class="alert text-center alert-<%= name == notice ? "success" : "error" %>">
-  <a class="close" data-dismiss="alert">x</a>
-  <%= msg %>
-</div>
-<% end %>
-<div id="page-loader" class="fade in"><span class="spinner"></span></div>
 <%= yield %>
 
 <!-- ================== BEGIN BASE JS ================== -->

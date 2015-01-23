@@ -14,7 +14,6 @@
 //= require jquery/jquery-1.8.2.min
 //= require jquery-ui-1.10.4/ui/minified/jquery-ui.min
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap/bootstrap
 //= require slimscroll/jquery.slimscroll
 //= require jquery-cookie/jquery.cookie
@@ -23,4 +22,3 @@
 //the folowing two javascripts are not being used
 // require gritter/jquery.gritter
 // require admin/dashboard
-

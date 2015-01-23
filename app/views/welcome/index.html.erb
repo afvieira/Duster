@@ -30,7 +30,7 @@
                       <li><a href="#team" data-click="scroll-to-target"><%= t 'landing.header.our_team' %></a></li>
                       <li><a href="#contact" data-click="scroll-to-target"><%= t 'landing.header.contact_us' %></a></li>
                       <li class="dropdown">
-                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.language' %><b class="caret"></b></a>
+                        <a href="#" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.language' %><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
                           <li><%= link_to image_tag('portugal_flag.jpg',size: '20x10') + " " + t("landing.portuguese") , locale: "pt"%></li>
                           <li><%= link_to image_tag('england_flag.png',size: '20x10') + " " + t("landing.english"), locale: "en" %></li>
@@ -91,8 +91,12 @@
                   <br/>
                   <label><h5>Existem 4 empregadas na sua zona!</h5></label>
                 </form>
-                <button id="searchHP" type="submit" class="btn btn-primary">Registar como cliente</button>
-                <button id="searchHP" type="submit" class="btn btn-primary">Registar como empregada(o)</button>
+                      
+                <% if not user_signed_in? %>
+                  <button id="searchHP" type="submit" class="btn btn-primary">Registar como cliente</button>
+                  <button id="searchHP" type="submit" class="btn btn-primary">Registar como empregada(o)</button>
+                <%end%>
+
               </center>    
           </div>
           <!-- end container -->
