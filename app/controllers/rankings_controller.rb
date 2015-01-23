@@ -1,6 +1,5 @@
 class RankingsController < ApplicationController
   before_action :set_ranking, only: [:show, :edit, :update, :destroy]
-
   respond_to :html
 
   def index
@@ -22,8 +21,9 @@ class RankingsController < ApplicationController
 
   def create
     @ranking = Ranking.new(ranking_params)
+    @ranking.user_id = current_user.id
     @ranking.save
-    respond_with(@ranking)
+    redirect_to services_rating_path
   end
 
   def update
@@ -41,7 +41,7 @@ class RankingsController < ApplicationController
       @ranking = Ranking.find(params[:id])
     end
 
-    def ranking_params
-      params[:ranking]
+     def ranking_params
+      params.require(:ranking).permit(:user_id, :service_id, :comment, :value)
     end
 end

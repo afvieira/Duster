@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comment"
   end
 
   add_index "rankings", ["service_id"], name: "index_rankings_on_service_id"
