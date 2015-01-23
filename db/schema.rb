@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150118203311) do
+ActiveRecord::Schema.define(version: 20150123223653) do
 
   create_table "additional_informations", force: true do |t|
     t.integer  "service_provider_id"
@@ -71,6 +71,14 @@ ActiveRecord::Schema.define(version: 20150118203311) do
 
   add_index "feedbacks", ["service_id"], name: "index_feedbacks_on_service_id"
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+
+  create_table "guestbooks", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "histories", force: true do |t|
     t.integer  "state_id"

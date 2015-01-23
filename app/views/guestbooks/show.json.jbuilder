@@ -1,1 +1,1 @@
-json.extract! @guestbook, :id, :Name, :Message, :created_at, :updated_at
+json.extract! @guestbook, :id, :name, :email, :message, :created_at, :updated_at

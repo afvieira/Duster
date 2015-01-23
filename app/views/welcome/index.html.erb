@@ -467,33 +467,37 @@
                     </div>
                     <!-- end col-6 -->
                     <!-- begin col-6 -->
+
+
                     <div class="col-md-6 form-col" data-animation="true" data-animation-type="fadeInRight">
-                        <form class="form-horizontal">
+                      <%= simple_form_for(@guestbook) do |f| %>
                             <div class="form-group">
-                                <label class="control-label col-md-3"><%= t 'landing.contact_us.message_name' %> <span class="text-theme">*</span></label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" />
+                                  <%= t 'landing.contact_us.message_name' %>
+                                  <%= f.input :name, label: false, input_html: {class: "form-control"} %>  
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Email <span class="text-theme">*</span></label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" />
+                                <br/>
+                                  Email
+                                  <%= f.input :email, label: false, input_html: {class: "form-control"} %>  
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3"><%= t 'landing.contact_us.message_message' %> <span class="text-theme">*</span></label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="10"></textarea>
+                                <br/>
+                                  <%= t 'landing.contact_us.message_message' %>
+                                  <%= f.input :message, label: false, input_html: {class: "form-control", rows: "5"} %>  
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3"></label>
                                 <div class="col-md-9 text-left">
+                                <br/>
                                     <button type="submit" class="btn btn-theme btn-block"><%= t 'landing.contact_us.message_send' %></button>
                                 </div>
                             </div>
-                        </form>
+                         <% end %>   
                     </div>
                     <!-- end col-6 -->
                 </div>
@@ -510,7 +514,7 @@
                   <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
                 </div>
                 <p>
-                    &copy; <%= t 'landing.contact_us.copyright' %> <br />
+                    &copy; <%= Date.today.year %><%= t 'landing.contact_us.copyright' %> <br />
                 </p>
                 <p class="social-list">
                     <a href="facebook.com/duster.oficial"><i class="fa fa-facebook fa-fw"></i></a>

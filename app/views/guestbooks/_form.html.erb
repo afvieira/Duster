@@ -1,9 +1,10 @@
-<%= simple_form_for(@guestbook, html:{class: "form-horizontal"}) do |f| %>
+<%= simple_form_for(@guestbook) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :Name %>
-    <%= f.input :Message %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :message %>
   </div>
 
   <div class="form-actions">

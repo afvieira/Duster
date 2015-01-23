@@ -1,75 +1,47 @@
 class GuestbooksController < ApplicationController
-  load_and_authorize_resource
   before_action :set_guestbook, only: [:show, :edit, :update, :destroy]
-  # GET /guestbooks
-  # GET /guestbooks.json
+
+  respond_to :html
+
   def index
     @guestbooks = Guestbook.all
+    respond_with(@guestbooks)
   end
 
-  # GET /guestbooks/1
-  # GET /guestbooks/1.json
   def show
-
+    respond_with(@guestbook)
   end
 
-  # GET /guestbooks/new
   def new
     @guestbook = Guestbook.new
+    respond_with(@guestbook)
   end
 
-  # GET /guestbooks/1/edit
   def edit
   end
 
-  # POST /guestbooks
-  # POST /guestbooks.json
   def create
     @guestbook = Guestbook.new(guestbook_params)
-
-    respond_to do |format|
-      if @guestbook.save
-        format.html { redirect_to @guestbook, notice: 'Guestbook was successfully created.' }
-        format.json { render :show, status: :created, location: @guestbook }
-      else
-        format.html { render :new }
-        format.json { render json: @guestbook.errors, status: :unprocessable_entity }
-      end
-    end
+    @guestbook.save
+    redirect_to root_path
   end
 
-  # PATCH/PUT /guestbooks/1
-  # PATCH/PUT /guestbooks/1.json
   def update
-    respond_to do |format|
-      if @guestbook.update(guestbook_params)
-        format.html { redirect_to @guestbook, notice: 'Guestbook was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guestbook }
-      else
-        format.html { render :edit }
-        format.json { render json: @guestbook.errors, status: :unprocessable_entity }
-      end
-    end
+    @guestbook.update(guestbook_params)
+    respond_with(@guestbook)
   end
 
-  # DELETE /guestbooks/1
-  # DELETE /guestbooks/1.json
   def destroy
     @guestbook.destroy
-    respond_to do |format|
-      format.html { redirect_to guestbooks_url, notice: 'Guestbook was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@guestbook)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_guestbook
       @guestbook = Guestbook.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def guestbook_params
-      params.require(:guestbook).permit(:Name, :Message)
+      params.require(:guestbook).permit(:name, :email, :message)
     end
 end

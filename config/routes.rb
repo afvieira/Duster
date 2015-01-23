@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :guestbooks
+
   get 'users/home', to:"users#home"
   post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
