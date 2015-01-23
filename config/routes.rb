@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
   post '/ajax/resquest/maid', to:"welcome#number_of_maids"
-  
+  get 'help/client', to:"help#help_client"
+  get 'help/user', to:"help#help_user"
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
     get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
@@ -25,6 +27,7 @@ Rails.application.routes.draw do
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end
+  
   get '/*locale*/*path/assets', to: redirect("")
   get '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '/*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }
