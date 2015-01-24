@@ -3,10 +3,13 @@ Rails.application.routes.draw do
   post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
+  
+  get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
+  get 'service_providers/jobs' => 'service_providers/jobs#show'
+  
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
-    get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
     devise_for :users, :controllers => {:registrations => "registrations"}
     devise_scope :user do
       get "users/new_user" => 'registrations#new_user'

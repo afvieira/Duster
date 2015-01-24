@@ -1,0 +1,33 @@
+<!-- receives parameters, location: pull_right, user,gender,request object m
+model that contais id and information about request  -->
+
+<li class="media media-sm">
+	<% if @pull_right%>
+		<a class="pull-right" href="javascript:;">
+  <%else %>
+ 		 <a class="pull-left" href="javascript:;">
+  <% end%>
+
+  <% if @gent %>
+  	<% src = "http://loremflickr.com/480/480/men/all?random=" + @request.id %>
+
+	<% else %>
+  	<% src = "http://loremflickr.com/480/480/girl/all?random=" + @request.id %>
+
+	<% end%>
+
+		<img src=<%=src%>
+			alt="" 
+			class="media-object rounded-corner"
+	/>
+	
+	</a>
+	<div class="media-body text-right">
+		<h4 class="media-heading">Nested media heading</h4>
+		<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio,  tempus viverra turpis.</p>
+		<p>
+			<a href="javascript:;" class="btn btn-sm btn-primary m-r-5">Confirm</a>
+			<a href="javascript:;" class="btn btn-sm btn-danger m-r-5">Reject</a>
+		</p>
+	</div>
+</li>

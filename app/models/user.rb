@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   #uploader
-  mount_uploader :photo, FileUploader
-  mount_uploader :cc, FileUploader
-
+  #deactivated for seeding, to work just uncooment line
+  #mount_uploader :photo, FileUploader
+  
   validates_confirmation_of :password
   
   def is_client
