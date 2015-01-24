@@ -1,0 +1,51 @@
+<div class="media media-sm">
+	<div class="media-body">
+			<% if service[:type] == 1 %>
+				<h4 class="media-heading">Engomadoria</h4>
+		  <%elsif service[:type] == 2 %>
+		  	<h4 class="media-heading">Limpeza geral</h4>
+		  	<p>
+	  			<span class="f-w-700">Divisões: </span>
+					<span class="m-r-10"><%= service[:number_of_rooms]%> </span>
+				</p>
+		  <%elsif service[:type] == 3 %>
+		  	<h4 class="media-heading">Refeição</h4>
+		  <%elsif service[:type] == 4 %>
+		  	<h4 class="media-heading">Compras para o lar</h4>
+		  <%end%>
+			<p>	 
+				<span class="f-w-700">Data: </span>
+					<span class="m-r-5">
+							Dia 
+							<span class="f-w-600">
+								<%= service[:date] %> 
+							</span>
+							das
+							<span class="f-w-600">
+							<%= service[:service_start].hour%>:
+							<%= service[:service_start].min%> 
+							</span> as
+							<span class="f-w-600">
+								<%= service[:service_end].hour%>:
+								<%= service[:service_end].min%>
+							</span>
+					</span>
+				</p>
+			  <p>
+					<span class="f-w-700">Morada: </span>
+						<span class="m-r-10"> 						
+							<%= service[:district] %>,
+							<%= service[:street] %>,
+							<%= service[:door_number] %>,
+							<%= service[:city]%>,
+							<%= service[:zip_code]%>
+						</span>
+				</p>
+
+				<p>	
+	 				<span class="f-w-700">Informação extra:</span>
+	 				<%= service[:additional_information]%>
+				</p>
+
+	</div>
+</div>

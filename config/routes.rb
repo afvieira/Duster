@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   
   get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
   get 'service_providers/jobs' => 'service_providers/jobs#show'
-  
+  get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
+  get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
+
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'

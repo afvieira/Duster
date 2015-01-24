@@ -92,8 +92,8 @@ end
 
 def generate_service_type
 	ServiceType.create(description: "Engomadoria")
-	ServiceType.create(description: "Limpeza casa")
-	ServiceType.create(description: "Almoço/Jantar")
+	ServiceType.create(description: "Limpeza geral")
+	ServiceType.create(description: "Refeição")
 	ServiceType.create(description: "Compras para o lar")
 end
 
@@ -136,13 +136,14 @@ def generate_service(user, maid)
 	# 1 - service waint for maid confirmation
 	# 2 - confirmated by maid
 	# 3 - completed
+	# 4 -  rejected or canceled
 	serv_date = Faker::Date.forward(30)
 	start_hour = Faker::Time.between(serv_date, serv_date, :morning)
 	end_hour = Faker::Time.between(serv_date, serv_date, :afternoon)
 	service = Service.create(user_id: user.id,
 													 service_provider_id: maid.id,
 													 service_type_id: rand(1..4),
-													 state: rand(1..3),
+													 state: rand(1..4),
 													 service_date: serv_date,
 													 matching_date: Faker::Time.between(30.days.ago,
 													 																		10.days.ago, 
@@ -157,7 +158,7 @@ def generate_service(user, maid)
 													 city: Faker::Address.city,
 													 street: Faker::Address.street_address,
 													 door_number: Faker::Address.building_number,
-													 number_of_rooms: Faker::Number.number(2),
+													 number_of_rooms: rand(1..12),
 													 #e.g 1-casa, 2-escritorio, 3-armazem
 													 #e.g: 1-mais d 200m2. 2-mais d 400m2, 3-mais d 600m2
 													 building_type: rand(1..3), 
@@ -184,7 +185,7 @@ def generate_feedback(maid, service)
 end
 
 #From the generated users generate services
-200.times do |i|
+500.times do |i|
 	user = users.sample
 	maid = maids.sample
 
