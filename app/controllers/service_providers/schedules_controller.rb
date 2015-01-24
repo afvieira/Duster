@@ -23,8 +23,9 @@ class ServiceProviders::SchedulesController < ApplicationController
   end
 
   def ajax_schedules
-    srvp = ServiceProvider.find(current_user.id)
+    srvp = ServiceProvider.where(user_id: current_user.id).first
     res = TimeTable.where(service_provider_id: srvp.id)
+
     jres = {}
 
     res.each { |elem| jres[elem.id] = { "start_time" => up_date(elem.start_time), 
@@ -40,7 +41,7 @@ class ServiceProviders::SchedulesController < ApplicationController
     date_end = DateTime.parse(params[:end])
 
 
-    srvp = ServiceProvider.find(current_user.id)
+    srvp = ServiceProvider.where(user_id: current_user.id).first
     srvp.update_slot(params[:id], date_start, date_end)
     render :json => {:result => "ok"}
   end
@@ -53,7 +54,7 @@ class ServiceProviders::SchedulesController < ApplicationController
 
     #slot = slot_exists(date_start.to_time, date_end.to_time)
     #day = day_exists(date_start.wday)
-    srvp = ServiceProvider.find(current_user.id)
+    srvp = ServiceProvider.where(user_id: current_user.id).first
 
     srvp.add_slot(date_start, date_end)
     #srvp.add_schedule(slot,day)
