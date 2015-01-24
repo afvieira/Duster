@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150123223653) do
   end
 
   create_table "feedbacks", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "service_provider_id"
     t.integer  "service_id"
     t.string   "description"
     t.datetime "created_at"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20150123223653) do
   end
 
   add_index "feedbacks", ["service_id"], name: "index_feedbacks_on_service_id"
-  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+  add_index "feedbacks", ["service_provider_id"], name: "index_feedbacks_on_service_provider_id"
 
   create_table "guestbooks", force: true do |t|
     t.string   "name"
@@ -170,32 +170,26 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.integer  "user_id"
     t.integer  "service_provider_id"
     t.integer  "service_type_id"
-    t.integer  "answer_id"
     t.integer  "state"
     t.date     "service_date"
     t.datetime "matching_date"
     t.datetime "creation_date"
     t.time     "service_start"
     t.time     "service_end"
-    t.integer  "zip_code"
-    t.string   "country"
+    t.integer  "zip_code",               null: false
     t.string   "district",               null: false
-    t.string   "perish"
-    t.string   "preference"
     t.string   "city",                   null: false
     t.string   "street",                 null: false
-    t.string   "doorNumber",             null: false
+    t.string   "door_number",            null: false
     t.integer  "number_of_rooms"
-    t.string   "buildingType"
-    t.string   "frequency"
-    t.integer  "timePretended"
-    t.boolean  "cleaningStuff"
+    t.integer  "building_type"
+    t.integer  "frequency"
+    t.boolean  "cleaning_stuff"
     t.string   "additional_information"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "services", ["answer_id"], name: "index_services_on_answer_id"
   add_index "services", ["service_provider_id"], name: "index_services_on_service_provider_id"
   add_index "services", ["service_type_id"], name: "index_services_on_service_type_id"
   add_index "services", ["user_id"], name: "index_services_on_user_id"

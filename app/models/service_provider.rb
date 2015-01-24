@@ -6,6 +6,7 @@ class ServiceProvider < ActiveRecord::Base
   has_many :service
   has_many :schedule
   has_many :time_table
+  has_many :feedback
 
 
   def add_slot(date_start, date_end)
