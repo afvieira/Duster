@@ -9,10 +9,10 @@ en:
       our_team: "Our team"
       services: "Services"
       contact_us: "Contact us"
-      signup: "Register"
+      signup: "Sign up"
       login: "Login"
-      signup_as_a_client: "As a client"
-      signup_as_a_maid: "As a maid"
+      signup_as_a_client: "Sign up as a client"
+      signup_as_a_maid: "Sign up as a maid"
     home:
       welcome: "Welcome to Duster"
       phrase_2: "Cleaning your home with just one click!"

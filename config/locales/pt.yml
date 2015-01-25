@@ -11,8 +11,8 @@ pt:
       contact_us: "Contactos"
       signup: "Registar"
       login: "Entrar"
-      signup_as_a_client: "Como cliente"
-      signup_as_a_maid: "Como empregado(a)"
+      signup_as_a_client: "Register como cliente"
+      signup_as_a_maid: "Registar como empregado(a)"
     home:
       welcome: "Bem-vindo ao Duster"
       phrase_2: "Limpeza do seu lar à distância de um click!"

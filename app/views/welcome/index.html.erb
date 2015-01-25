@@ -46,18 +46,6 @@
                       </li>
                       <% else %>
                       <li><%= link_to t("landing.header.login"), new_user_session_path %></li>
-                      <li class="dropdown">
-                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                          <li><%= link_to t("landing.header.signup_as_a_client"), 
-                                      controller:"registrations", 
-                                      action:"new_user"%>
-                                      </li>
-                          <li><%= link_to t("landing.header.signup_as_a_maid"), 
-                                      controller:"registrations",
-                                      action:"new_client"%></li>
-                        </ul>
-                      </li>
                       <% end %>
                     </ul>
                 </div>
@@ -91,12 +79,10 @@
                   <br/>
                   <label><h5>Existem 4 empregadas na sua zona!</h5></label>
                 </form>
-                      
                 <% if not user_signed_in? %>
-                  <button id="searchHP" type="submit" class="btn btn-primary">Registar como cliente</button>
-                  <button id="searchHP" type="submit" class="btn btn-primary">Registar como empregada(o)</button>
+                  <%= link_to t("landing.header.signup_as_a_client"), users_new_user_path, class: "btn btn-primary", :method => "get" %>
+                  <%= link_to t("landing.header.signup_as_a_maid"), users_new_client_path, class: "btn btn-primary",:method => "get" %>
                 <%end%>
-
               </center>    
           </div>
           <!-- end container -->
