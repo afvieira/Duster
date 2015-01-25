@@ -1,0 +1,577 @@
+<% content_for :body_class do %>
+  data-spy="scroll" data-target="#header-navbar" data-offset="51"
+<% end %>
+
+    <!-- begin #page-container -->
+    <div id="page-container" class="fade">
+        <!-- begin #header -->
+        <div id="header" class="header navbar navbar-inverse navbar-fixed-top">
+            <!-- begin container -->
+            <div class="container">
+                <!-- begin navbar-header -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="logo-container" href="http://localhost:3000/index.html" class="navbar-brand">
+                        <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                        <!--<span class="brand-text">Duster</span>-->
+                    </a>
+                </div>
+                <!-- end navbar-header -->
+                <!-- begin navbar-collapse -->
+                <div class="collapse navbar-collapse" id="header-navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#header" data-click="scroll-to-target">Início</a></li>
+                      <li><a href="#summary" data-click="scroll-to-target">Resumo</a></li>
+                      <li><a href="#pricing" data-click="scroll-to-target">Preçario</a></li>
+                      <li><a href="#faqs" data-click="scroll-to-target">FAQs</a></li>
+                      <li><a href="#services" data-click="scroll-to-target">Serviços</a></li>
+                      <% if user_signed_in? %>
+                      <li class="dropdown">
+                        <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown">USER<b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
+                          <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                      </li>
+                      <% else %>
+                      <li><%= link_to t("landing.header.login"), new_user_session_path %></li>
+                      <li class="dropdown">
+                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to t("landing.header.signup_as_a_client"),new_user_registration_path%></li>
+                          <li><%= link_to t("landing.header.signup_as_a_maid"),new_user_registration_path%></li>
+                        </ul>
+                      </li>
+                      <% end %>
+                    </ul>
+                </div>
+                <!-- end navbar-collapse -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end #header -->
+        
+        <!-- begin buttons -->
+        <div id="summary" class="content has-bg bg-black-darker" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <br/>
+                <h2 class="content-title">Resumo</h2>
+                <div class="text-center">
+                    
+                </div>
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end buttons -->
+        
+        <!-- begin pricing-table -->
+        <div id="pricing" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title">Pricing Table</h2>
+                <!-- begin row p-t-30 p-b-30-->
+                <div class="row p-t-30 p-b-30">
+                    <!-- begin col-12 -->
+                    <div class="col-md-10">
+                        <!-- begin pricing-table -->
+                        <ul class="pricing-table col-5 m-t-30">
+                            <li>
+                                <!-- begin pricing-container -->
+                                <div class="pricing-container">
+                                    <h3>Básico</h3>
+                                    <div class="price">
+                                        <div class="price-figure">
+                                            <span class="price-number">Gratuito</span>
+                                        </div>
+                                    </div>
+                                    <ul class="features" >
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Serviços Limitados</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-times text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Rating</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-times text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Comentar Serviço</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-times text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Acesso Histórico</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-times text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Suporte do Sistema</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-times text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Referencias</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#" class="btn btn-inverse btn-block">Registe-se</a>
+                                    </div>
+                                </div>
+                                <!-- end pricing-container -->
+                            </li>
+                            <li>
+                                <!-- begin pricing-container -->
+                                <div class="pricing-container">
+                                    <h3>Plano 1</h3>
+                                    <div class="price">
+                                        <div class="price-figure">
+                                            <span class="price-number">€?.??</span>
+                                            <span class="price-tenure">por Mês</span>
+                                        </div>
+                                    </div>
+                                    <ul class="features" >
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Serviços Limitados</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Rating</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Comentar Serviço</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Acesso Histórico</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Suporte do Sistema</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Referencias</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#" class="btn btn-inverse btn-block">Compre já</a>
+                                    </div>
+                                </div>
+                                <!-- end pricing-container -->
+                            </li>
+                            <li class="highlight">
+                                <!-- begin pricing-container -->
+                                <div class="pricing-container">
+                                    <h3>Plano 2</h3>
+                                    <div class="price">
+                                        <div class="price-figure">
+                                            <span class="price-number">€??.??</span>
+                                            <span class="price-tenure">por Semestre</span>
+                                        </div>
+                                    </div>
+                                    <ul class="features" >
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Serviços Limitados</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Rating</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Comentar Serviço</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Acesso Histórico</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Suporte do Sistema</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Referencias</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#" class="btn btn-inverse btn-block">Compre já</a>
+                                    </div>
+                                </div>
+                                <!-- end pricing-container -->
+                            </li>
+                            <li>
+                                <!-- begin pricing-container -->
+                                <div class="pricing-container">
+                                    <h3>Plano 3</h3>
+                                    <div class="price">
+                                        <div class="price-figure">
+                                            <span class="price-number">€???.??</span>
+                                            <span class="price-tenure">por Ano</span>
+                                        </div>
+                                    </div>
+                                    <ul class="features" >
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Serviços Limitados</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Rating</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Comentar Serviço</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Acesso Histórico</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Suporte do Sistema</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Referencias</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#" class="btn btn-inverse btn-block">Compre já</a>
+                                    </div>
+                                </div>
+                                <!-- end pricing-container -->
+                            </li>
+                            <li>
+                                <!-- begin pricing-container -->
+                                <div class="pricing-container">
+                                    <h3>Plano 3</h3>
+                                    <div class="price">
+                                        <div class="price-figure">
+                                            <span class="price-number">€???.??</span>
+                                            <span class="price-tenure">por Ano</span>
+                                        </div>
+                                    </div>
+                                    <ul class="features" >
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Serviços Limitados</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Rating</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Comentar Serviço</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Acesso Histórico</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-primary"></i></td>
+                                                    <td align="center" style="width:80%">Suporte do Sistema</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                        <li>
+                                            <table style="width:85%">
+                                                <tr>
+                                                    <td align="center" style="width:20%"><i class="fa fa-2x fa-check text-danger"></i></td>
+                                                    <td align="center" style="width:80%">Referencias</td>
+                                                </tr>
+                                            </table>
+                                        </li>
+                                    </ul>
+                                    <div class="footer">
+                                        <a href="#" class="btn btn-inverse btn-block">Compre já</a>
+                                    </div>
+                                </div>
+                                <!-- end pricing-container -->
+                            </li>
+                        </ul>
+                        <!-- end pricing-table -->
+                    </div>
+                    <!-- end col-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end pricing-table -->
+        
+        <!-- begin FAQs -->
+        <div id="faqs" class="content bg-silver" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title">FAQs</h2>
+                <!-- begin panel-group -->
+                <div class="panel-group" id="faq">
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-1"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 1</a>
+                            </h4>
+                        </div>
+                        <div id="faq-1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
+                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
+                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-2"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 2</a>
+                            </h4>
+                        </div>
+                        <div id="faq-2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
+                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
+                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-3"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 3</a>
+                            </h4>
+                        </div>
+                        <div id="faq-3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
+                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
+                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
+                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end panel-group -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end FAQs -->
+        
+        <!-- begin services -->
+        <div id="services" class="content" data-scrollview="true">
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title">Serviços</h2>
+                <!-- begin row -->
+                <div class="row p-t-30">
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service service-vertical">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-code"></i></div>
+                            <div class="info">
+                                <h4 class="title">Re-usable Code</h4>
+                                <p class="desc">Aenean et elementum dui. Aenean massa enim, suscipit ut molestie quis, pretium sed orci. Ut faucibus egestas mattis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service service-vertical">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
+                            <div class="info">
+                                <h4 class="title">Clean & Careful Design</h4>
+                                <p class="desc">Etiam nulla turpis, gravida et orci ac, viverra commodo ipsum. Donec nec mauris faucibus, congue nisi sit amet, lobortis arcu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service service-vertical">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-file"></i></div>
+                            <div class="info">
+                                <h4 class="title">Well Documented</h4>
+                                <p class="desc">Ut vel laoreet tortor. Donec venenatis ex velit, eget bibendum purus accumsan cursus. Curabitur pulvinar iaculis diam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                    <!-- begin col-3 -->
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service service-vertical">
+                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-code"></i></div>
+                            <div class="info">
+                                <h4 class="title">Re-usable Code</h4>
+                                <p class="desc">Aenean et elementum dui. Aenean massa enim, suscipit ut molestie quis, pretium sed orci. Ut faucibus egestas mattis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col-3 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end services -->
+        
+        <!-- begin #footer -->
+        <div id="footer" class="footer">
+            <div class="container">
+                <div class="footer-brand">
+                  <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                </div>
+                <p>
+                    &copy; <%= t 'landing.contact_us.copyright' %> <br />
+                </p>
+                <p class="social-list">
+                    <a href="http://facebook.com/duster.oficial"><i class="fa fa-facebook fa-fw"></i></a>
+                    <a href="http://dusterproject.tumblr.com/"><i class="fa fa-tumblr fa-fw"></i></a>
+                </p>
+            </div>
+        </div>
+        <!-- end #footer -->
+    </div>
+    <!-- end #page-container -->
+
+

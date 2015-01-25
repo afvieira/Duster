@@ -16,6 +16,11 @@ en:
     home:
       welcome: "Welcome to Duster"
       phrase_2: "Cleaning your home with just one click!"
+      phrase_3: "Verify if there are maids near your location"
+      title_option: "City"
+      title_button: "Verify"
+      result_1: "There are "
+      result_2: " maids near your location!"
     about_us:
       title: "About us"
       subtitle1: "What we do"
