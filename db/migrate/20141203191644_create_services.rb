@@ -18,12 +18,12 @@ class CreateServices < ActiveRecord::Migration
       t.string :street,         null:false
       t.string :door_number,     null:false
 
-      t.integer :number_of_rooms
+      t.integer  :number_of_rooms
       t.integer  :building_type
       t.integer  :frequency
       #t.integer :timePretended
-      t.boolean :cleaning_stuff
-      t.string  :additional_information
+      t.boolean  :cleaning_stuff
+      t.string   :additional_information
       t.timestamps
     end
     add_index :services, :user_id

@@ -11,6 +11,7 @@ class ServiceProviders::JobsController < ApplicationController
 		@comp_rec_jobs = get_completed_rejected_jobs(srvp)
 	end
 
+<<<<<<< HEAD
 	def ajax_stats
 		srvp = ServiceProvider.where(user_id: current_user.id).first
 		services_eng = Service.where(service_provider_id: srvp.id,
@@ -51,6 +52,27 @@ class ServiceProviders::JobsController < ApplicationController
 		redirect_to :back
 	end
 
+=======
+
+	def accept_job
+		puts params.inspect
+		params.permit!
+		service = Service.find(params[:id])
+		service.state = 2
+		service.save!
+
+		redirect_to :back
+	end
+
+	def reject_job
+		params.permit!
+		service = Service.find(params[:id])
+		service.state = 4
+		service.save!
+		redirect_to :back
+	end
+
+>>>>>>> Added history and time table
 
 	private
 		def get_pending_jobs(srvp)

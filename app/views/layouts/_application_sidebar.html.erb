@@ -25,21 +25,21 @@
         <%if @active_schedule %>
           <li class="active">
           <% else %>
-            <li class>
+            <li>
             <% end %>
             <%= link_to controller: "service_providers/schedules", action: "show", id:current_user.id do%>
               <i class="fa fa-calendar"></i>
-              <span> Schedule </span>
+              <span> Horário </span>
             <%end%>
           </li>
           <%if @active_jobs %>
             <li class="active">
             <% else %>
-              <li class>
+              <li>
               <% end %>
               <%= link_to controller: "service_providers/jobs", action: "show", id:current_user.id do%>
                 <i class="fa fa-tasks"></i>
-                <span> Job Panel </span>
+                <span> Painel de Trabalho </span>
               <%end%>
             </li>
           </ul>
