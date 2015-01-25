@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
-  resources :guestbooks
-
   get 'users/home', to:"users#home"
   post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
-  post '/ajax/resquest/maid', to:"welcome#number_of_maids"
-  get 'help/client', to:"help#help_client"
-  get 'help/user', to:"help#help_user"
+  post '/ajax/service_provider_stats', to:"service_providers/jobs#ajax_stats"
+
+  get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
+  get 'service_providers/jobs' => 'service_providers/jobs#show'
+  get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
+  get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
+
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
-    get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
     devise_for :users, :controllers => {:registrations => "registrations"}
     devise_scope :user do
       get "users/new_user" => 'registrations#new_user'
@@ -27,7 +28,6 @@ Rails.application.routes.draw do
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
   end
-  
   get '/*locale*/*path/assets', to: redirect("")
   get '/*locale/*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '/*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }

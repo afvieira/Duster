@@ -10,7 +10,6 @@
         </div>
         <div class="info">
           <%= current_user.name%>
-
           <% if current_user.is_client%>
             <small>Profesional de limpeza</small>
           <%else%>
@@ -19,37 +18,47 @@
         </div>
       </li>
     </ul>
-
     <!-- end sidebar user -->
     <% if current_user.is_client %>
       <ul class="nav">
         <li class="nav-header"> Home </li>
         <%if @active_schedule %>
           <li class="active">
-        <% else %>
-          <li class>
-        <% end %>
-          <%= link_to controller: "service_providers/schedules", action: "show", id:current_user.id do%>
-            <i class="fa fa-calendar"></i>
-            <span> Schedule </span>
+          <% else %>
+            <li class>
+            <% end %>
+            <%= link_to controller: "service_providers/schedules", action: "show", id:current_user.id do%>
+              <i class="fa fa-calendar"></i>
+              <span> Schedule </span>
             <%end%>
-        </li>
-      </ul>
-    <%else%>
-      <!-- begin sidebar nav -->
-      <ul class="nav">
-        <li class="nav-header">Home</li>  
-        <li>
-          <a href="index.html">
-           <i class="fa fa-search"></i> 
-            <span>Cleaning professional</span>
-          </a>
-        </li>
-      </ul>
-      <!-- end sidebar nav -->
-    <%end%>
-  </div>
-  <!-- end sidebar scrollbar -->
-</div>
-<div class="sidebar-bg"></div>
-<!-- end #sidebar -->
+          </li>
+          <%if @active_jobs %>
+            <li class="active">
+            <% else %>
+              <li class>
+              <% end %>
+              <%= link_to controller: "service_providers/jobs", action: "show", id:current_user.id do%>
+                <i class="fa fa-tasks"></i>
+                <span> Job Panel </span>
+              <%end%>
+            </li>
+          </ul>
+        <%else%>
+          <!-- begin sidebar nav -->
+          <ul class="nav">
+            <li class="nav-header">Home</li>
+            <li>
+              <a href="index.html">
+                <i class="fa fa-search"></i>
+                <span>Cleaning professional</span>
+              </a>
+            </li>
+          </ul>
+          <!-- end sidebar nav -->
+        <%end%>
+      </div>
+      mll
+      <!-- end sidebar scrollbar -->
+    </div>
+    <div class="sidebar-bg"></div>
+    <!-- end #sidebar -->

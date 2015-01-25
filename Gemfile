@@ -43,6 +43,10 @@ gem 'cancancan'
 #Add carrierwave
 gem 'carrierwave'
 
+gem 'faker'
+
+gem 'gender_detector'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
