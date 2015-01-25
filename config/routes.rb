@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   post '/ajax/new_block', to: "service_providers/schedules#ajax_new_block"
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
-  
+  post '/ajax/service_provider_stats', to:"service_providers/jobs#ajax_stats"
+
   get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
   get 'service_providers/jobs' => 'service_providers/jobs#show'
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'

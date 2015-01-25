@@ -11,6 +11,27 @@ class ServiceProviders::JobsController < ApplicationController
 		@comp_rec_jobs = get_completed_rejected_jobs(srvp)
 	end
 
+	def ajax_stats
+		srvp = ServiceProvider.where(user_id: current_user.id).first
+		services_eng = Service.where(service_provider_id: srvp.id,
+																 service_type_id: 1,
+																 state: 3).count
+
+		services_limp = Service.where(service_provider_id: srvp.id,
+																 service_type_id: 2,
+																 state: 3).count
+
+		services_ref = Service.where(service_provider_id: srvp.id,
+																 service_type_id: 3,
+																 state: 3).count
+		services_comp = Service.where(service_provider_id: srvp.id,
+																 service_type_id: 4,
+																 state: 3).count
+		render :json => {:eng => services_eng,
+										 :limp => services_limp,
+										 :ref => services_ref,
+										 :comp => services_comp}
+	end
 
 	def accept_job
 		puts params.inspect
