@@ -22,4 +22,6 @@ Rails.application.config.assets.precompile += %w(schedule.css)
 Rails.application.config.assets.precompile += %w(schedule.js)
 Rails.application.config.assets.precompile += %w(data_tables.css)
 Rails.application.config.assets.precompile += %w(data_tables.js)
+Rails.application.config.assets.precompile += %w(flot_include.js)
+Rails.application.config.assets.precompile += %w(jobs_pie.js)
 
