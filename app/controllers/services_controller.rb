@@ -13,6 +13,7 @@ class ServicesController < ApplicationController
     respond_with(@service)
     @sidebar=true
     @navbar=true
+
   end
 
   def new
@@ -24,8 +25,11 @@ class ServicesController < ApplicationController
   end
 
   def request_service
+    @sidebar = true
+    @navbar = true
+    @active_search_prof = true
     @service = Service.new
-    @zipcodes = Service.where(user_id:'1')
+    @zipcodes = Service.where(user_id: current_user.id)
   end
 
 

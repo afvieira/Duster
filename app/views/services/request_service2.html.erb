@@ -1,0 +1,293 @@
+<%= content_for :header_css do %>
+<%= stylesheet_link_tag "client_registration"%>
+<%end%>
+
+
+<% content_for :header_js do %>
+  <%= javascript_include_tag "client_registration" %>
+  <%= javascript_include_tag "search_map.js" %>
+<% end %>
+
+<% content_for :js_start do %>
+<%= 'FormWizardValidation.init();' %>
+<% end %>
+
+
+<!-- begin #content -->
+<div id="content" class="content">
+  <!-- begin row -->
+  <div class="row">
+    <!-- begin col-12 -->
+    <div class="col-md-12">
+      <!-- begin panel -->
+      <div class="panel panel-inverse">
+        <div class="panel-body">
+          <%= simple_form_for(:service, url: "/service/request_service", html: {"name" => "form-wizard","data-parsley-validate"=>"true"}) do |f| %>
+          <div id="wizard">
+            <ol>
+              <li>
+                Informações da casa
+                <small>Insert data.</small>
+              </li>
+              <li>
+                Informações da morada
+                <small>Insert data.</small>
+              </li>
+              <li>
+                Escolha da data
+                <small>Insert data.</small>
+              </li>
+              <li>
+                Sucesso
+                <small>Insert data.</small>
+              </li>
+            </ol>
+            <!-- begin wizard step-1 -->
+            <div class="wizard-step-1">
+              <fieldset>
+                <legend class="pull-left width-full">Informações do edificio</legend>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>Número de divisões do edificio</label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.select :number_of_rooms, options_for_select([["Selecione uma", ""], "1", "2", "3", "4", "5", "6"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>tipos de serviço: </label>
+                  </div>
+                  <div class="col-md-4">
+                    <p>
+                    <%= f.radio_button :service_type_id, '1' %>
+                    <%= label :service_type_id, 'Limpeza' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :service_type_id, '2' %>
+                    <%= label :service_type_id, 'Limpeza e Engomadoria' %>
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>Tipo de espaço</label>
+                  </div>
+                  <div class="col-md-4">
+                    <p>
+                    <%= f.radio_button :building_type, 'H' %>
+                    <%= label :building_type, 'Casa' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :building_type, 'B' %>
+                    <%= label :building_type, 'Prédio' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :building_type, 'O' %>
+                    <%= label :building_type, 'Escritório' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :building_type, 'A' %>
+                    <%= label :building_type, 'Outro' %>
+                    <%= f.input :building_type, 
+                          as: :string, 
+                          placeholder: "", 
+                          label: false, 
+                          autofocus: true, 
+                          input_html: { 
+                            class:"form-control", 
+                            data_parsley_group:"wizard-step-1"
+                            }%>
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>número de horas do serviço: </label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.select :time_pretended, options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>tem material de limpeza:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                  </div>
+                  <div class="col-md-8">
+                    <p>
+                    <%= f.radio_button :cleaning_stuff, 'Y' %>
+                    <%= label :cleaningStuff, 'Sim' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :cleaning_stuff, 'N' %>
+                    <%= label :cleaningStuff, 'Não (o preço base poderá ser mais elevado)' %>
+                    </p>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>informações adicionais</label>
+                  </div>
+                  <div class="col-md-8">
+                    <%= f.input :additional_information, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-1"}%>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- end wizard step-1 -->
+            <!-- begin wizard step-2 -->
+            <div class="wizard-step-2">
+              <fieldset>
+                <legend class="pull-left width-full">Informações da morada</legend>
+                <div class="row">
+                  <div class="col-md-2">
+                    <label>Morada já definida</label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= collection_select(:zip_code, 0, Service.where("user_id = 1"), :id, :zip_code) %>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group block1">
+                      <legend class="pull-left width-full">Ou criar outra</legend>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>País</label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.input :country, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>Distrito</label>
+                  </div>
+                  <div class="col-md-2">
+                    <%= f.input :district, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>Localidade</label>
+                  </div>
+                  <div class="col-md-2">
+                    <%= f.input :city, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>Freguesia</label>
+                  </div>
+                  <div class="col-md-2">
+                    <%= f.input :perish, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>Código postal</label>
+                  </div>
+                  <div class="col-md-2">
+                    <%= f.input :zip_code, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-md-1">
+                    <label>Rua</label>
+                  </div>
+                  <div class="col-md-4">
+                    <%= f.input :street, as: :string, placeholder: "", label: false, autofocus: true, input_html: { class:"form-control", data_parsley_group:"wizard-step-2"}%>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- end wizard step-2 -->
+            <!-- begin wizard step-3 -->
+            <div class="wizard-step-3">
+              <fieldset>
+                <legend class="pull-left width-full">Frequência</legend>
+                <p>
+                <div class="col-md-8">
+                  <span style="display:inline-block; width: 50px;"></span>
+                  <%= f.radio_button :frequency, 'O' %>
+                  <%= label :frequency, 'Ocasionalmente' %>
+                  <span style="display:inline-block; width: 40px;"></span>
+                  <%= f.radio_button :frequency, 'M' %>
+                  <%= label :frequency, 'Mensalmente' %>
+                  <span style="display:inline-block; width: 40px;"></span>
+                  <%= f.radio_button :frequency, 'W' %>
+                  <%= label :frequency, 'Semanalmente' %>
+                </div>
+                </p>
+                <legend class="pull-left width-full">Escolha da data</legend>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Data</label>
+                    <%= f.input :service_date%>
+                  </div>
+                  <div class="col-md-2", align="right">
+                    <label>Preferências</label>
+                  </div>
+                  <div class="col-md-2">
+                    <p>
+                    <%= f.radio_button :preference, 'P' %>
+                    <%= label :preference, 'Preço' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :preference, 'D' %>
+                    <%= label :preference, 'Distância' %>
+                    </p>
+                    <p>
+                    <%= f.radio_button :preference, 'R' %>
+                    <%= label :preference, 'Rating' %>
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <label>Hora de inicio</label>
+                    <%= f.select :service_start ,options_for_select([["Selecione uma", ""], "0h30", "1h00", "1h30", "2h00", "2h30", "3h00","3h30","4h00","4h30","5h30","6h00"]), input_html: { class:"form-control", data_parsley_group:"wizard-step-3"}%>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <!-- end wizard step-3 -->
+            <!-- begin wizard step-4 -->
+            <div>
+              <div class="jumbotron m-b-0">
+                <h1>Tudo preenchido com sucesso</h1>
+                <p>AVISO: após submeter a pesquisa os dados da pesquisa serão esquecidos, verifique que tudo está do seu agrado</p>
+                <%= f.button :submit, "ola"%>
+                <!--<p><a class="btn btn-success btn-lg" role="button">ir para a home</a></p>-->
+              </div>
+            </div>
+            <!-- end wizard step-4 -->
+          </div>
+          <% end %>
+          <!--</form>-->
+        </div>
+      </div>
+      <!-- end panel -->
+    </div>
+    <!-- end col-12 -->
+  </div>
+  <!-- end row -->
+</div>
+<!-- end #content -->

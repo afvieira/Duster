@@ -4,23 +4,19 @@
   <div class="container-fluid">
     <!-- begin mobile-sidebar expand / collapse button -->
     <div class="navbar-header">
-      <a href="javascript:;" class="navbar-brand">
-      </a>
-      <button type="button" class="navbar-toggle" data-clicl="sidebar-toggled">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+        <a class="navbar-brand">
+          <img id="logo" alt="Duster" height="50" src="/assets/logo.png" width="160">
+        </a>
     </div>
     <!-- end mobile sidebar expand /collapse button -->
     <% if @navbar %>
-
     <!-- begin header navigation right-->
     <ul class="nav navbar-nav  navbar-right">
+    <!--
       <li>
         <form class="navbar-form full-width hidden-xs">
           <div class="form-group">
-            <!-- search form on top bar-->
+            <search form on top bar>
             <input type="text" class="form-control" placeholder="Enter keyword"/>
             <button type="submit" class="btn btn-search"> <i class="fa fa-search"></i></button>
           </div>
@@ -84,7 +80,7 @@
             <a href="javascript:;">View more</a>
           </li>
         </ul>
-      </li>
+      </li>-->
       <li class="dropdown navbar-user">
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
           <%= image_tag current_user.photo %>
@@ -103,7 +99,9 @@
           <li><a href="javascript:;">Calendar</a></li>
           <li><a href="javascript:;">Setting</a></li>
           <li class="divider"></li>
-          <li><a href="javascript:;">Log Out</a></li>
+          <li>
+            <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+          </li>
         </ul>
       </li>
     </ul>

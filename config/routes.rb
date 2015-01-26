@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
   get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
 
+   get 'help/client', to:"help#help_client"
+   get 'help/user', to:"help#help_user"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
