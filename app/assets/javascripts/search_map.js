@@ -23,20 +23,23 @@
             //map.setCenter(marker.getPosition());
         });
 
-        // Create the search box and link it to the UI element.
-        /** @type {HTMLInputElement} */
-        var input = (document.getElementById('pac-input'));
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+	        // Create the search box and link it to the UI element.
+	        /** @type {HTMLInputElement} */
+	        var input = (document.getElementById('pac-input'));
+	        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        /** @type {HTMLInputElement} */
-        //var searchBox = new google.maps.places.SearchBox((input));
+	        /** @type {HTMLInputElement} */
+	        var searchBox = new google.maps.places.SearchBox((input));
 
-        // Listen for the event fired when the user selects an item from the
-        // pick list. Retrieve the matching places for that item.
-        /*google.maps.event.addListener(searchBox, 'places_changed', function() {
-            console.log(searchBox.getPlaces());
-        });*/
-        
+	        // Listen for the event fired when the user selects an item from the
+	        // pick list. Retrieve the matching places for that item.
+	        google.maps.event.addListener(searchBox, 'places_changed', function() {
+	            console.log(searchBox.getPlaces());
+        });
+        	        
+		});
+
     }
 
     $(initialize);
