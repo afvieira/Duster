@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   
   def is_client
 
-      sp = ServiceProvider.where(user_id: self.id)
+      sp = ServiceProvider.where(user_id: self.id).first
 
       if sp == nil
         return false
