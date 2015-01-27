@@ -39,32 +39,25 @@
 						<div class="form-group">
 							<label class="control-label col-md-1">Localidade</label>
 							<div class="col-md-5">
-								<select class="form-control selectpicker" data-size="10" data-live-search="true" data-style="btn-white">
-									<option value="" selected>Selecione uma cidade</option>
-									<option value="AF">Afghanistan</option>
-									<option value="AL">Albania</option>
-									<option value="DZ">Algeria</option>
-									<option value="AS">American Samoa</option>
-									<option value="AD">Andorra</option>
-									<option value="AO">Angola</option>
-									<option value="AI">Anguilla</option>
-									<option value="AQ">Antarctica</option>
-									<option value="AG">Antigua and Barbuda</option>
+								<select id="city-select"
+										class="form-control selectpicker" 
+										data-size="10" 
+										data-live-search="true" 
+										data-style="btn-white">
+									<option value="0" selected>Selecione uma cidade</option>
+
+									<% @maid_cities.each do |record| %>
+										<option value=<%= record.district%>><%= record.district%></option>
+									<%end%>
+				
 								</select>
 							</div>
 							<label class="control-label col-md-1">Frequesia</label>
 							<div class="col-md-5">
 								<select class="form-control selectpicker" data-size="10" data-live-search="true" data-style="btn-white">
-									<option value="" selected>Selecione uma freguesia</option>
-									<option value="AF">Afghanistan</option>
-									<option value="AL">Albania</option>
-									<option value="DZ">Algeria</option>
-									<option value="AS">American Samoa</option>
-									<option value="AD">Andorra</option>
-									<option value="AO">Angola</option>
-									<option value="AI">Anguilla</option>
-									<option value="AQ">Antarctica</option>
-									<option value="AG">Antigua and Barbuda</option>
+									<option value="p0" selected>Selecione uma freguesia</option>
+									<option id="perish-opt"> </option>
+
 								</select>
 							</div>
 						</div>

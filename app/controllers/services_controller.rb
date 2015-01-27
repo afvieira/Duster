@@ -16,12 +16,33 @@ class ServicesController < ApplicationController
 
   end
 
+  def request_perish
+      params.permit!
+      puts params[:city]
+      perishs = get_city_perish(params[:city])
+      perish_array = []
+      #mudar o district para perish se mudar a db
+      perishs.each{ |perish| perish_array << perish.city}
+      render :json => perish_array.to_s
+
+  end
   def new
     @service = Service.new
     respond_with(@service)
   end
 
   def edit
+  end
+
+  def search_service_provider
+    @sidebar = true
+    @navbar = true
+    @active_search_prof = true
+    @service = Service.new
+    @maid_cities = get_service_providers_cities
+    puts @maid_addresses.inspect
+
+
   end
 
   def request_service
@@ -66,6 +87,20 @@ class ServicesController < ApplicationController
   end
 
   private
+    def get_service_providers_cities
+       #mudar o district para city se mudarmos a base de dados
+ 
+      Address.select(:district).where(user_id: 
+        ServiceProvider.select(:user_id).where(user_id:
+          User.select(:id))).distinct
+    end
+
+    def get_city_perish(city)
+      #mudar o city para perish se mudarmos a base de dados
+      Address.select(:city, :district).where(district: city).distinct
+    end
+
+    
     def set_service
       @service = Service.find(params[:id])
     end

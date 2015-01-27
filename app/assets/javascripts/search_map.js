@@ -41,6 +41,6 @@
 		});
 
     }
-
-    $(initialize);
+    //$(initialize);
 }(jQuery));
+
