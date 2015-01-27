@@ -13,15 +13,15 @@ Rails.application.routes.draw do
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
   get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
 
-   get 'help/client', to:"help#help_client"
-   get 'help/user', to:"help#help_user"
+  get 'help/client', to:"help#help_client"
+  get 'help/user', to:"help#help_user"
 
   get "services/search_service_provider" => 'services#search_service_provider'
 
-  get "services/request_service" => 'services#request_service'
-  get "services/request_result" => "services#request_result"
-  post "services/request_service" => "service#request_result"
-  post "services/request_result" => "registrations#request_submit"
+  #get "services/request_service" => 'services#request_service'
+  #get "services/request_result" => "services#request_result"
+  post "services/request_service" => "services#request_service"
+  #post "services/request_result" => "registrations#request_submit"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'

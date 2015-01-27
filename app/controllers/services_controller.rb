@@ -33,13 +33,17 @@ class ServicesController < ApplicationController
     #gpsrvp_c(params[:city], params[:service])
 
     #opção mais simples apenas cidade, servico e hora default
-    if(params[:perish].blank? and
-       params[:quant].blank? and
-       params[:date].blank?)
+    #if(params[:perish].blank? and
+     #  params[:time_pretended].blank? and
+     #  params[:service_date].blank?)
      @srvps = srvps_csh(params[:city],
-                        params[:service],
-                        params[:timeS])
-    end
+                        params[:service_type_id],
+                        params[:service_start])
+    #end
+    
+    params.delete("controller")
+    params.delete("action")
+    @service = Service.new(params)
     render :partial =>'service_provider_ajax'
   end
 
@@ -64,7 +68,8 @@ class ServicesController < ApplicationController
     @sidebar = true
     @navbar = true
     @active_search_prof = true
-    @service = Service.new
+    params.permit!
+    @service = Service.new(params[:service])
     @zipcodes = Service.where(user_id: current_user.id)
   end
 

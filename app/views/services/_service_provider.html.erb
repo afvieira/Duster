@@ -10,12 +10,16 @@
 	 		<%= maid[:description]%>
 		</p>
 		<p>
-		<%= link_to "Selecionar", 
-				{controller: "service_providers/jobs",  
-				 action: "accept_job",
-				 id: maid[:id]},
-			 class:"btn btn-sm btn-primary m-r-5"%>
+		<%= simple_form_for(:service, url: "/services/request_service") do |f| %>
+			<%= f.input:city, :as => :hidden %>
+			<%= f.input:perish, :as => :hidden %>
+			<%= f.input:time_pretended, :as => 'hidden'%>
+			<%= f.input:service_type_id, :as => 'hidden'%>
+			<%= f.input:service_start, :as => 'hidden' %>
+			<%= f.input:service_date, :as => 'hidden' %>
+			<%= f.button :submit, "Selecionar", class:"btn btn-sm btn-primary m-r-5" %>
 
+		<%end%>
 		</p>
 	</div>
 </li>

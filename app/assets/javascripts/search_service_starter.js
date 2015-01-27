@@ -69,10 +69,10 @@ $(function($) {
  					var params = {
  						city: city_sel.val(),
  						perish: perish,
- 						service: serv,
- 						timeS: time_start,
- 						quant: quant,
- 						date: date
+ 						service_type_id: serv,
+ 						service_start: time_start,
+ 						time_pretended: quant,
+ 						service_date: date
  					}
                     console.log(params);
  					$.post('/ajax/search_maid', params, handleMaidRepsonse);
