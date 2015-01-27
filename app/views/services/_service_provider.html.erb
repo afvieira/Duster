@@ -1,0 +1,21 @@
+<li class="media media-sm">
+	<a class="pull-left" href="javascript:;">
+		<img src=<%= maid.photo+ "/all?random="+maid[:id].to_s%>
+			alt="" class="media-object rounded-corner"/>
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading"><%= maid[:name] %></h4>
+		<p>	
+	 		<span class="f-w-700">Descrição:</span>
+	 		<%= maid[:description]%>
+		</p>
+		<p>
+		<%= link_to "Selecionar", 
+				{controller: "service_providers/jobs",  
+				 action: "accept_job",
+				 id: maid[:id]},
+			 class:"btn btn-sm btn-primary m-r-5"%>
+
+		</p>
+	</div>
+</li>

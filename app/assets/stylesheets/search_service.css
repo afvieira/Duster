@@ -1,7 +1,9 @@
 /*
-*=require bootstrap-wizard/bwizard
-*=require parsley/parsley
-*=require bootstrap/bootstrap-datepicker/datepicker
+*= require bootstrap-wizard/bwizard
+*= require parsley/parsley
+*= require bootstrap/bootstrap-datepicker/datepicker
 *= require bootstrap-select/bootstrap-select
 *= require bootstrap-timepicker/css/bootstrap-timepicker.min
+*= require bootstrap/bootstrap-datepicker/datepicker
+*= require bootstrap-combobox/css/bootstrap-combobox
 */

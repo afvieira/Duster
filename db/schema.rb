@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.datetime "updated_at"
   end
 
-  add_index "answertypes", ["answer_id"], name: "index_answer_types_on_answer_id"
+  add_index "answer_types", ["answer_id"], name: "index_answer_types_on_answer_id"
 
   create_table "answers", force: true do |t|
     t.integer  "user_id"
@@ -240,6 +240,8 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "photo"
     t.string   "nationality"
     t.boolean  "gender"
+    t.string   "description"
+    t.string   "bio"
     t.string   "account_level",          default: "c", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
