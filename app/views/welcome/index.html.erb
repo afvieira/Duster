@@ -1,5 +1,5 @@
 <% content_for :body_class do %>
-  data-spy="scroll" data-target="#header-navbar" data-offset="51"
+data-spy="scroll" data-target="#header-navbar" data-offset="51"
 <% end %>
     <!-- begin #page-container -->
     <div id="page-container" class="fade">
@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a id="logo-container" href="index.html" class="navbar-brand">
-                        <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                        <img id="logo_bar" alt="Duster" src="/assets/logo2.png">
                         <!--<span class="brand-text">Duster</span>-->
                     </a>
                 </div>
@@ -32,16 +32,16 @@
                       <li class="dropdown">
                         <a href="#" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.language' %><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                          <li><%= link_to image_tag('portugal_flag.jpg',size: '20x10') + " " + t("landing.portuguese") , locale: "pt"%></li>
-                          <li><%= link_to image_tag('england_flag.png',size: '20x10') + " " + t("landing.english"), locale: "en" %></li>
+                            <li><%= link_to image_tag('portugal_flag.jpg',size: '20x10') + " " + t("landing.portuguese") , locale: "pt"%></li>
+                            <li><%= link_to image_tag('england_flag.png',size: '20x10') + " " + t("landing.english"), locale: "en" %></li>
                         </ul>
                       </li>
                       <% if user_signed_in? %>
                       <li class="dropdown">
                         <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown"><%=current_user.name%><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                          <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
-                          <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
+                            <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
+                            <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
                         </ul>
                       </li>
                       <% else %>
@@ -51,19 +51,20 @@
                 </div>
                 <!-- end navbar-collapse -->
             </div>
-            <!-- end container -->
+            <!-- end navbar-collapse -->
         </div>
-        <!-- end #header -->
-
-        <!-- begin #home -->
-        <div id="home" class="content has-bg home">
-          <!-- begin content-bg -->
-          <div class="content-bg">
+        <!-- end container -->
+    </div>
+    <!-- end #header -->
+    <!-- begin #home -->
+    <div id="home" class="content has-bg home" >
+        <!-- begin content-bg -->
+        <div class="content-bg">
             <%= image_tag 'home-bg.jpg' %>
-          </div>
-          <!-- end content-bg -->
-          <!-- begin container -->
-          <div class="container home-content">
+        </div>
+        <!-- end content-bg -->
+        <!-- begin container -->
+        <div class="container home-content">
             <h1><%= t 'landing.home.welcome' %></h1>
             <h3><%= t 'landing.home.phrase_2' %></h3>
             <h4><%= t 'landing.home.phrase_3' %></h4>
@@ -86,54 +87,51 @@
                 <%end%>
               </center> 
           </div>
-
           <!-- end container -->
         </div>
         <!-- end #home -->
-
         <!-- begin #about -->
         <div id="about" class="content" data-scrollview="true">
-          <!-- begin container -->
-          <div class="container" data-animation="true" data-animation-type="fadeInDown">
-            <h2 class="content-title"><%= t 'landing.about_us.title' %></h2>
-            <!-- begin row -->
-            <div class="row">
-              <!-- begin col-4 -->
-              <div class="col-md-6 col-sm-6">
-                <!-- begin about -->
-                <div class="about">
-                  <h3><%= t 'landing.about_us.subtitle1' %></h3>
-                  <p><%= t 'landing.about_us.subtitle1_text' %></p>
-                </div>
-                <!-- end about -->
-              </div>
-              <!-- end col-4 -->
-              <!-- begin col-4 -->
-              <div class="col-md-6 col-sm-6">
-                <h3><%= t 'landing.about_us.subtitle2' %></h3>
-                <!-- begin about-author -->
-                <div class="about-author">
-                  <div class="quote bg-silver">
-                    <i class="fa fa-quote-left"></i>
-                    <h3><%= t 'landing.about_us.subtitle2_text' %></h3>
-                    <i class="fa fa-quote-right"></i>
-                  </div>
-                  <div class="author">
-                    <div class="image">
-                      <%= image_tag 'user-1.jpg', title: "Sean Ngu" %>
+            <!-- begin container -->
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title"><%= t 'landing.about_us.title' %></h2>
+                <!-- begin row -->
+                <div class="row">
+                    <!-- begin col-4 -->
+                    <div class="col-md-6 col-sm-6">
+                        <!-- begin about -->
+                        <div class="about">
+                            <h3><%= t 'landing.about_us.subtitle1' %></h3>
+                            <p><%= t 'landing.about_us.subtitle1_text' %></p>
+                        </div>
+                        <!-- end about -->
                     </div>
-                  </div>
+                    <!-- end col-4 -->
+                    <!-- begin col-4 -->
+                    <div class="col-md-6 col-sm-6">
+                        <h3><%= t 'landing.about_us.subtitle2' %></h3>
+                        <!-- begin about-author -->
+                        <div class="about-author">
+                            <div class="quote bg-silver">
+                                <i class="fa fa-quote-left"></i>
+                                <h3><%= t 'landing.about_us.subtitle2_text' %></h3>
+                                <i class="fa fa-quote-right"></i>
+                            </div>
+                            <div class="author">
+                                <div class="image">
+                                    <%= image_tag 'user-1.jpg', title: "Sean Ngu" %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end about-author -->
+                    </div>
+                    <!-- end col-4 -->
                 </div>
-                <!-- end about-author -->
-              </div>
-              <!-- end col-4 -->
+                <!-- end row -->
             </div>
-            <!-- end row -->
-          </div>
-          <!-- end container -->
+            <!-- end container -->
         </div>
         <!-- end #about -->
-
         <!-- begin #milestone -->
         <div id="milestone" class="content bg-black-darker has-bg" data-scrollview="true">
             <!-- begin content-bg -->
@@ -175,68 +173,78 @@
             <!-- end container -->
         </div>
         <!-- end #milestone -->
-
         <!-- begin #how_work -->
         <div id="how_it_works" class="content" data-scrollview="true">
-          <!-- begin container -->
-          <div class="container" data-animation="true" data-animation-type="fadeInDown">
-            <h2 class="content-title"><%= t 'landing.how_it_works.title' %></h2>
-            <br/>
-            <!-- begin video -->
-
-            <h2>Aqui estará o vídeo</h2>
-
-            <!-- end video -->
-          </div>
-          <!-- end container -->
-        </div>
-        <!-- end #how_work -->
-
-        <!-- begin #service -->
-        <div id="service" class="content" data-scrollview="true">
-          <div id="action-box" class="content has-bg" data-scrollview="true">
-            <!-- begin content-bg -->
-            <div class="content-bg">
-              <%= image_tag 'home-bg-services.jpg' %>
-            </div>
-            <!-- end content-bg -->
             <!-- begin container -->
-            <div class="container">
-              <h2 class="content-title"><%= t 'landing.services.title' %></h2>
-              <p class="content-desc"><%= t 'landing.services.introduction_text' %>
-              </p>
-              <!-- begin row -->
-              <div class="row">
-                <!-- begin col-4 -->
-                <div class="col-md-6 col-sm-6">
-                  <div class="service">
-                    <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-cog"></i></div>
-                    <div class="info">
-                      <h4 class="title"><%= t 'landing.services.subtitle1' %></h4>
-                      <p class="content-desc"><%= t 'landing.services.subtitle1_text' %></p>
+            <div class="container" data-animation="true" data-animation-type="fadeInDown">
+                <h2 class="content-title"><%= t 'landing.how_it_works.title' %></h2>
+                <br/>
+                <center>
+                <p style="font-size:150%"> <span><b>Duster.</b></span> <%= t 'landing.how_it_works.desc' %></p>
+                </center>
+                <!-- begin video -->
+                <div id="how-it-works-container">
+                    <div class="how-it-works-video">
+                        <%= image_tag 'pc.png', title:"teste2" %>
                     </div>
-                  </div>
-                </div>
-                <!-- end col-4 -->
-                <!-- begin col-4 -->
-                <div class="col-md-6 col-sm-6">
-                  <div class="service">
-                    <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
-                    <div class="info">
-                      <h4 class="title"><%= t 'landing.services.subtitle2' %></h4>
-                      <p class="content-desc"><%= t 'landing.services.subtitle2_text' %></p>
+                    <div id="video">
+                    <a class="popup-vimeo" href="https://player.vimeo.com/video/103433291?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1">
+                      <iframe src="https://player.vimeo.com/video/103433291?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" width="50%" height="50%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    </a>
                     </div>
-                  </div>
                 </div>
-                <!-- end col-4 -->
-              </div>
-              <!-- end row -->
+
+                <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/rY0WxgSXdEE" frameborder="0" allowfullscreen></iframe> -->
+                <!-- end video -->
             </div>
             <!-- end container -->
-          </div>
+        </div>
+
+        <!-- end #how_work -->
+        <!-- begin #service -->
+        <div id="service" class="content-bg" data-scrollview="true">
+            <div id="action-box" class="content has-bg" data-scrollview="true">
+                <!-- begin content-bg -->
+                <div id="second_content-bg" class="content-bg">
+                    <%= image_tag 'home-bg-services.jpg' %>
+                </div>
+                <!-- end content-bg -->
+                <!-- begin container -->
+                <div class="container">
+                    <h2 class="content-title"><%= t 'landing.services.title' %></h2>
+                    <p class="content-desc"><%= t 'landing.services.introduction_text' %>
+                    </p>
+                    <!-- begin row -->
+                    <div class="row">
+                        <!-- begin col-4 -->
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service">
+                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-cog"></i></div>
+                                <div class="info">
+                                    <h4 class="title"><%= t 'landing.services.subtitle1' %></h4>
+                                    <p class="content-desc"><%= t 'landing.services.subtitle1_text' %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                        <!-- begin col-4 -->
+                        <div class="col-md-6 col-sm-6">
+                            <div class="service">
+                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
+                                <div class="info">
+                                    <h4 class="title"><%= t 'landing.services.subtitle2' %></h4>
+                                    <p class="content-desc"><%= t 'landing.services.subtitle2_text' %></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col-4 -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </div>
         </div>
         <!-- end #service -->
-
         <!-- begin #team -->
         <div id="team" class="content" data-scrollview="true">
             <!-- begin container -->
@@ -249,7 +257,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_andre.png', title:"André Vieira" %>
+                                <%= image_tag 'user_andre.png', title:"André Vieira" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">André Vieira</h3>
@@ -284,7 +292,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_hugo.png', title:"Hugo Gomes" %>
+                                <%= image_tag 'user_hugo.png', title:"Hugo Gomes" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">Hugo Gomes</h3>
@@ -318,7 +326,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_jorge.png', title:"Jorge Oliveira" %>
+                                <%= image_tag 'user_jorge.png', title:"Jorge Oliveira" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">Jorge Oliveira</h3>
@@ -338,7 +346,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_sonia.png', title:"Sónia Dias" %>
+                                <%= image_tag 'user_sonia.png', title:"Sónia Dias" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">Sónia Dias</h3>
@@ -374,7 +382,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_kelly.png', title:"Kelyanne Thomé" %>
+                                <%= image_tag 'user_kelly.png', title:"Kelyanne Thomé" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">Kelyanne Thomé</h3>
@@ -412,7 +420,7 @@
                         <!-- begin team -->
                         <div class="team">
                             <div class="image" data-animation="true" data-animation-type="flipInX">
-                              <%= image_tag 'user_ligia.png', title:"Ligia Chiuale" %>
+                                <%= image_tag 'user_ligia.png', title:"Ligia Chiuale" %>
                             </div>
                             <div class="info">
                                 <h3 class="name">Ligia Chiuale</h3>
@@ -432,7 +440,6 @@
             <!-- end container -->
         </div>
         <!-- end #team -->
-
         <!-- begin #contact -->
         <div id="contact" class="content bg-silver" data-scrollview="true">
             <!-- begin container -->
@@ -444,14 +451,14 @@
                     <div class="col-md-6" data-animation="true" data-animation-type="fadeInLeft">
                         <h3><%= t 'landing.contact_us.introduction_text' %></h3>
                         <p>
-                            <strong>Duster</strong><br />
-                            Universidade do Minho<br />
-                            Largo do Paço<br />
-                            4704-553 Braga, Portugal<br />
+                        <strong>Duster</strong><br />
+                        Universidade do Minho<br />
+                        Largo do Paço<br />
+                        4704-553 Braga, Portugal<br />
                         </p>
                         <p>
-                            <span class="phone">918 813 885</span><br />
-                            <a href="mailto:geral.duster@gmail.com">geral.duster@gmail.com</a>
+                        <span class="phone">918 813 885</span><br />
+                        <a href="mailto:geral.duster@gmail.com">geral.duster@gmail.com</a>
                         </p>
                     </div>
                     <!-- end col-6 -->
@@ -495,12 +502,11 @@
             <!-- end container -->
         </div>
         <!-- end #contact -->
-
         <!-- begin #footer -->
         <div id="footer" class="footer">
             <div class="container">
                 <div class="footer-brand">
-                  <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                    <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
                 </div>
                 <p>
                     &copy; <%= Date.today.year %><%= t 'landing.contact_us.copyright' %> <br />
