@@ -133,9 +133,8 @@ class ServicesController < ApplicationController
       aux_srvps.each { |elem|  filterTime(elem,uTime,srvps) }
       puts srvps.uniq.count
       return srvps.uniq
-
-
     end
+
 
     def srvp_cs(city, service)
       addres = Address.select(:user_id).where(district:city)
