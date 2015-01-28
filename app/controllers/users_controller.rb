@@ -42,6 +42,13 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
   end
 
+  def profile
+    @sidebar = true
+    @navbar = true
+    @user = User.find(current_user.id)
+    @services = Service.where(user_id: current_user.id)
+  end
+
 
   private
     def set_user
