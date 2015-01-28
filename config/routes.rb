@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
   post '/ajax/service_provider_stats', to:"service_providers/jobs#ajax_stats"
-  
+  post '/ajax/resquest/maid', to:"welcome#number_of_maids"
+
+
   post '/ajax/perish', to: "services#request_perish"
   post '/ajax/search_maid', to:"services#ajax_search_maid"
 
