@@ -40,16 +40,9 @@
 </div>
 <div id="content" class="content">
 			<!-- begin breadcrumb -->
-			<ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
-				<li><a href="javascript:;">Extra</a></li>
-				<li class="active">Timeline</li>
-			</ol>
 			<!-- end breadcrumb -->
 			<!-- begin page-header -->
-			<h1 class="page-header">Timeline <small>header small text goes here...</small></h1>
 			<!-- end page-header -->
-			
 			<!-- begin timeline -->
 			<ul class="timeline">
 				<% @services.order(:service_start).each do |s|%>
@@ -62,7 +55,7 @@
 			        <!-- end timeline-time -->
 			        <!-- begin timeline-icon -->
 			        <div class="timeline-icon">
-			            <a href="javascript:;"><i class="fa fa-paper-plane"></i></a>
+			            <a href="javascript:;"><i class="fa fa-home"></i></a>
 			        </div>
 			        <!-- end timeline-icon -->
 			        <!-- begin timeline-body -->
@@ -73,13 +66,27 @@
 			            </div>
 			            <div class="timeline-content">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                                Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                <strong>Cód. Postal:</strong>
+			                      <%= s.zip_code %>
+			                      <br/>
+			                      <strong>Cidade:</strong>
+			                      <%= s.city %>
+			                      <br/>
+			                      <strong>Rua:</strong>
+			                      <%= s.street %>
+			                      <br/>
+			                      <strong>Info. Adicional:</strong>
+			                      <%= s.additional_information %>
                             </p>
 			            </div>
 			            <div class="timeline-footer">
-			                <a href="javascript:;" class="m-r-15"><i class="fa fa-thumbs-up fa-fw"></i> Like</a>
-			                <a href="javascript:;"><i class="fa fa-comments fa-fw"></i> Comment</a>
+			            	<% if not s.ranking %>
+			            		<a href="/services/rating" class="m-r-15"><i class="fa fa-thumbs-up fa-fw"></i> Avaliar</a>
+			            	<% else %>
+			            		<% (1..s.ranking.value).each do |v| %>
+			            			<i class="fa fa-2x fa-star"></i>
+			            		<% end %>
+			            	<% end %>
 			            </div>
 			        </div>
 			        <!-- end timeline-body -->

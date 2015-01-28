@@ -60,7 +60,10 @@
                     <br/> <strong>Fim:</strong>
                     <%= i.service_end.strftime("%F %T") %></td>
                   <td>
-                    <strong>Cód. Postal:</strong>
+                      <strong>Nome:</strong>
+                      <%= i.service_provider.user.name %>
+                      <br/>
+                      <strong>Cód. Postal:</strong>
                       <%= i.zip_code %>
                       <br/>
                       <strong>Cidade:</strong>
@@ -140,6 +143,9 @@
                             <br/> <strong>Fim:</strong>
                             <%= i.service_end.strftime("%F %T") %></td>
                           <td>
+                            <strong>Nome:</strong>
+                            <%= i.service_provider.user.name %>
+                            <br/>
                             <strong>Cód. Postal:</strong>
                             <%= i.zip_code %>
                             <br/>
