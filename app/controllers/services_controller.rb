@@ -112,7 +112,7 @@ class ServicesController < ApplicationController
   def rating
     @sidebar = true
     @navbar = true
-    @services = Service.where(user_id=current_user.id)
+    @services = Service.where(user_id: current_user.id)
   end
 
   private
