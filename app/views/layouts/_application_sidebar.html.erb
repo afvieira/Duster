@@ -11,7 +11,7 @@
         <div class="info">
           <%= current_user.name%>
           <% if current_user.is_client%>
-            <small>Profesional de limpeza</small>
+            <small>Profissional de limpeza</small>
           <%else%>
             <small>Cliente</small>
           <%end%>
@@ -54,7 +54,7 @@
             <%end%>
               <%= link_to controller: "services", action: "search_service_provider" do%>              
                   <i class="fa fa-search"></i>
-                  <span>Cleaning professional</span>
+                  <span>Profissional de limpeza</span>
               <%end%>
             </li>
           </ul>
