@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   #post "services/request_result" => "registrations#request_submit"
   get 'services/rating', to:"services#rating"
   post "/services/rate" => "rankings#create"
+  get 'users/profile' => 'users#profile'
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
