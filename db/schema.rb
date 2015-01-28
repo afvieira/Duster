@@ -164,9 +164,11 @@ ActiveRecord::Schema.define(version: 20150118203311) do
     t.integer  "service_type_id"
     t.integer  "answer_id"
     t.integer  "state"
-    t.datetime "service_date"
+    t.date     "service_date"
     t.datetime "matching_date"
     t.datetime "creation_date"
+    t.time     "service_start"
+    t.time     "service_end"
     t.integer  "zip_code"
     t.string   "country"
     t.string   "district",               null: false
@@ -205,6 +207,7 @@ ActiveRecord::Schema.define(version: 20150118203311) do
 
   create_table "time_tables", force: true do |t|
     t.integer  "service_provider_id"
+    t.integer  "user_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at"

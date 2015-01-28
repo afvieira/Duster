@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_many :feedback
   has_many :service
-  has_many :service_provider
+  has_one :service_provider
   has_one  :ranking
+  has_many :time_table
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

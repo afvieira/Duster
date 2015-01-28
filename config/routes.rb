@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
       get "services/request_service" => 'services#request_service'
       get "services/request_result" => "services#request_result"
-      post "services/request_service" => "service#request_result"
-      post "services/request_result" => "registrations#request_submit"
+      post "services/request_service" => "services#request_result"
+      post "services/request_result" => "services#request_submit"
     end
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
