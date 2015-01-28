@@ -427,7 +427,7 @@ body.page-navbar-fixed-top-sm {
     padding: 0 !important;
     color: #fff;
     height: 811px;
-    width: 105%;
+    width: 100%;
 }
 
 .home img{
@@ -442,7 +442,7 @@ body.page-navbar-fixed-top-sm {
     right: 0;
     color: #8F8E8E;
     margin-top: -120px;
-    margin-right: 13%;
+    margin-right: 8%;
     padding: 0 15px;
     text-align: center;
 }
@@ -853,6 +853,8 @@ body.page-navbar-fixed-top-sm {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width:100% !important;
+    height:auto;
 }
 
 #how-it-works-container{
@@ -860,13 +862,22 @@ body.page-navbar-fixed-top-sm {
     margin-top: 4%;
 }
 
-#video{
-    display: block;
-    height: 70%;
-    width: 68%;
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0;
+    background-color: #fff;
+    margin-bottom: -58%;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
     position: absolute;
-    top: 37%;
-    left: 33%
+    top: -63%;
+    left: 32.5%;
+    height: 34%;
+    width: 35%;
 }
 
 /* Magnific Popup CSS */
