@@ -38,7 +38,7 @@
                       </li>
                       <% if user_signed_in? %>
                       <li class="dropdown">
-                        <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown">USER<b class="caret"></b></a>
+                        <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown"><%=current_user.name%><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
                           <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
                           <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
@@ -149,7 +149,7 @@
                     <div class="col-md-4 col-sm-4 milestone-col">
                         <div class="milestone">
                             <div class="number" data-animation="true" data-animation-type="number" data-final-number="1292">1,292</div>
-                            <div class="title"><%= t 'landing.about_us.footer_data1' %></div>
+                            <div class="title text-white"><%= t 'landing.about_us.footer_data1' %></div>
                         </div>
                     </div>
                     <!-- end col-3 -->
@@ -157,7 +157,7 @@
                     <div class="col-md-4 col-sm-4 milestone-col">
                         <div class="milestone">
                             <div class="number" data-animation="true" data-animation-type="number" data-final-number="9039">9,039</div>
-                            <div class="title"><%= t 'landing.about_us.footer_data2' %></div>
+                            <div class="title text-white"><%= t 'landing.about_us.footer_data2' %></div>
                         </div>
                     </div>
                     <!-- end col-3 -->
@@ -165,7 +165,7 @@
                     <div class="col-md-4 col-sm-4 milestone-col">
                         <div class="milestone">
                             <div class="number" data-animation="true" data-animation-type="number" data-final-number="89291">89,291</div>
-                            <div class="title"><%= t 'landing.about_us.footer_data3' %></div>
+                            <div class="title text-white"><%= t 'landing.about_us.footer_data3' %></div>
                         </div>
                     </div>
                     <!-- end col-3 -->
@@ -253,7 +253,8 @@
                             </div>
                             <div class="info">
                                 <h3 class="name">André Vieira</h3>
-                                <div class="name">Project Manager</div>
+                                <div class="name">Project Chief</div>
+                                <div class="name">Boss Man</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
@@ -338,7 +339,7 @@
                             </div>
                             <div class="info">
                                 <h3 class="name">Sónia Dias</h3>
-                                <div class="name">Technical Writer</div>
+                                <div class="name">Project Manager</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
@@ -377,7 +378,7 @@
                             </div>
                             <div class="info">
                                 <h3 class="name">Kelyanne Thomé</h3>
-                                <div class="name">Technical Writer</div>
+                                <div class="name">Project Manager</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
@@ -415,7 +416,7 @@
                             </div>
                             <div class="info">
                                 <h3 class="name">Ligia Chiuale</h3>
-                                <div class="name">Technical Writer</div>
+                                <div class="name">Project Manager</div>
                                 <div class="social">
                                     <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                     <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>

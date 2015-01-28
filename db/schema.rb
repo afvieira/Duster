@@ -181,9 +181,13 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "city",                   null: false
     t.string   "street",                 null: false
     t.string   "door_number",            null: false
+    t.string   "country"
+    t.string   "perish"
+    t.string   "preference"
     t.integer  "number_of_rooms"
     t.integer  "building_type"
     t.integer  "frequency"
+    t.integer  "time_pretended"
     t.boolean  "cleaning_stuff"
     t.string   "additional_information"
     t.datetime "created_at"
@@ -236,6 +240,8 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "photo"
     t.string   "nationality"
     t.boolean  "gender"
+    t.string   "description"
+    t.string   "bio"
     t.string   "account_level",          default: "c", null: false
     t.datetime "created_at"
     t.datetime "updated_at"

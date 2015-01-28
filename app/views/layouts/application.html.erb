@@ -21,22 +21,24 @@
   <!-- add required css or js to the header-->
   <%= yield :header_css %>
   <!-- ================== END PAGE LEVEL STYLE ================== -->
+
+
+
 </head>
 <body>
     <div id="page-loader" class="fade in"><span class="spinner"></span></div>
 
-<!-- end #page-loader -->
+    <!-- end #page-loader -->
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
 
-    <% if @navbar %>
       <%= render 'layouts/application_navbar' %>
-    <% end %>
+      <% if @sidebar %>
+        <%= render 'layouts/application_sidebar' %>
+      <% end %>
+      
+      <%= yield %>
 
-    <% if @sidebar %>
-      <%= render 'layouts/application_sidebar' %>
-    <% end %>
-    <%= yield %>
-
-
+    </div>
 
 <!-- ================== BEGIN BASE JS ================== -->
   <%= javascript_include_tag "application" %>

@@ -47,16 +47,20 @@
           <!-- begin sidebar nav -->
           <ul class="nav">
             <li class="nav-header">Home</li>
-            <li>
-              <a href="index.html">
-                <i class="fa fa-search"></i>
-                <span>Cleaning professional</span>
-              </a>
+            <%if @active_search_prof %>
+              <li class="active">
+            <%else%>
+              <li>
+            <%end%>
+              <%= link_to controller: "services", action: "search_service_provider" do%>              
+                  <i class="fa fa-search"></i>
+                  <span>Cleaning professional</span>
+              <%end%>
             </li>
           </ul>
           <!-- end sidebar nav -->
         <%end%>
-      </div
+      </div>
       <!-- end sidebar scrollbar -->
     </div>
     <div class="sidebar-bg"></div>

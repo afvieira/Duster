@@ -1,0 +1,136 @@
+<%= content_for :header_css do %>
+<%= stylesheet_link_tag "search_service" %>
+<%end%>
+<% content_for :header_js do %>
+<%= javascript_include_tag "search_service" %>
+<%= javascript_include_tag "search_service_starter" %>
+<% end %>
+<div id="content" class="content">
+	<!-- begin breadcrumb -->
+	<ol class="breadcrumb pull-right">
+		<li><a href="javascript:;">Home</a></li>
+		<li><a href="javascript:;">Form Stuff</a></li>
+		<li class="active">Form Plugins</li>
+	</ol>
+	<!-- end breadcrumb -->
+	<!-- begin page-header -->
+	<h1 class="page-header">Form Plugins <small>header small text goes here...</small></h1>
+	<!-- end page-header -->
+	
+	<!-- begin row -->
+	<div class="row">
+		<!-- begin col-6 -->
+		<div class="col-md-12">
+			<!-- begin panel -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+					</div>
+					<h4 class="panel-title">Procura de Professional de Limpeza</h4>
+				</div>
+				<div class="panel-body panel-form">
+					<form class="form-horizontal form-bordered" id="maid_search">
+						<div class="form-group">
+							<label class="control-label col-md-1">Localidade</label>
+							<div class="col-md-5">
+								<select id="city-select"
+									class="form-control selectpicker"
+									data-size="10"
+									data-live-search="true"
+									data-style="btn-white">
+									<option value="0" selected>Selecione uma cidade</option>
+									<%    @maid_cities .each do |record| %>
+									<option value=<%= record.district%>><%= record.district%></option>
+									<%end%>
+									
+								</select>
+							</div>
+							<label class="control-label col-md-1">Frequesia</label>
+							<div class="col-md-5">
+								<select id="perish-opt" class="form-control selectpicker" data-size="10" data-live-search="true" data-style="btn-white">
+									<option  value="0" selected>Selecione uma freguesia</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-1"> Serviço</label>
+							<div class="col-md-5">
+								<label class="radio-inline">
+									<input type="radio" name="optionsRadios" value="1" checked />
+									Limpeza geral
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="optionsRadios" value="2" />
+									Engomadoria
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="optionsRadios" value="3" />
+									Refeição
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="optionsRadios" value="4" />
+									Compras para o lar
+								</label>
+							</div>
+							<label class="control-label col-md-1">Hora inicio</label>
+							<div class="col-md-2">
+								<div class="input-group bootstrap-timepicker">
+									<input id="timepickerBegin" type="text" class="form-control" />
+									<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+								</div>
+							</div>
+							<label class="control-label col-md-1">Tempo</label>
+							<div class="col-md-2">
+								<select  id="hour_quant" class="combobox">
+									<option value="">Selecione quantidade</option>
+									<option value="one">01:00h</option>
+									<option value="two">02:00h</option>
+									<option value="three">03:00h</option>
+									<option value="four">04:00h</option>
+									<option value="five">05:00h</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-1">
+								Data do Serviço
+							</label>
+							
+							<div class="col-md-2">
+								<input class="form-control" id="datepicker-default" placeholder="Select Date"  data-date-start-date="Date.default"  type="text"></input>
+							</div>
+							<div class="col-md-8">
+								<button type="submit" class="btn btn-sm btn-success">Procurar</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- end panel -->
+		</div>
+		<!-- end col-6 -->
+	</div>
+	<div class="panel panel-inverse">
+		<div class="panel-heading">
+			<div class="panel-heading-btn">
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+				<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+			</div>
+			<h4 class="panel-title">Professionais de limpeza</h4>
+		</div>
+		<div class="panel-body">
+			<ul class="media-list media-list-with-divider" id="maids_elements">
+
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- end #content -->
+</div>
+<!-- end page container -->

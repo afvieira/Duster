@@ -1,0 +1,25 @@
+<li class="media media-sm">
+	<a class="pull-left" href="javascript:;">
+		<img src=<%= maid.photo+ "/all?random="+maid[:id].to_s%>
+			alt="" class="media-object rounded-corner"/>
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading"><%= maid[:name] %></h4>
+		<p>	
+	 		<span class="f-w-700">Descrição:</span>
+	 		<%= maid[:description]%>
+		</p>
+		<p>
+		<%= simple_form_for(:service, url: "/services/request_service") do |f| %>
+			<%= f.input:city, :as => :hidden %>
+			<%= f.input:perish, :as => :hidden %>
+			<%= f.input:time_pretended, :as => 'hidden'%>
+			<%= f.input:service_type_id, :as => 'hidden'%>
+			<%= f.input:service_start, :as => 'hidden' %>
+			<%= f.input:service_date, :as => 'hidden' %>
+			<%= f.button :submit, "Selecionar", class:"btn btn-sm btn-primary m-r-5" %>
+
+		<%end%>
+		</p>
+	</div>
+</li>

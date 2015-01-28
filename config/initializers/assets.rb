@@ -24,4 +24,10 @@ Rails.application.config.assets.precompile += %w(data_tables.css)
 Rails.application.config.assets.precompile += %w(data_tables.js)
 Rails.application.config.assets.precompile += %w(flot_include.js)
 Rails.application.config.assets.precompile += %w(jobs_pie.js)
+Rails.application.config.assets.precompile += %w(search_map.js)
+Rails.application.config.assets.precompile += %w(search_map.css)
+Rails.application.config.assets.precompile += %w(search_service.js)
+Rails.application.config.assets.precompile += %w(search_service.css)
+Rails.application.config.assets.precompile += %w(search_service_starter.js)
+
 

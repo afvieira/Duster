@@ -40,7 +40,9 @@ def generate_user
 											nationality: Faker::Address.country,
 											gender:  gen,
 											# a password e identica para podermos entrar em qualquer conta
-											password: "12345678" 
+											password: "12345678",
+											description:Faker::Lorem.paragraph,
+							 				bio:Faker::Lorem.paragraph(4)
 											)
 	return user
 
@@ -74,8 +76,8 @@ def add_service_type(srvp)
 
 	for i in 0..4
 		ServiceTypeServiceProvider.create(service_type_id:i,
-																			service_provider_id: srvp.id,
-																			value: Faker::Commerce.price)
+										 service_provider_id: srvp.id,
+										value: Faker::Commerce.price)
 	end
 
 end
@@ -84,9 +86,9 @@ def add_time_table(srvp)
 
 	for i in 0..6
 		TimeTable.create(service_provider_id: srvp.id,
-											start_time:Faker::Time.between(i.days.ago, i.days.ago, :morning), 
-											end_time:Faker::Time.between(i.days.ago, i.days.ago, :afternoon) 
-											)
+						 start_time:Faker::Time.between(i.days.ago, i.days.ago, :morning), 
+						end_time:Faker::Time.between(i.days.ago, i.days.ago, :afternoon) 
+						)
 	end
 end
 
@@ -141,31 +143,27 @@ def generate_service(user, maid)
 	start_hour = Faker::Time.between(serv_date, serv_date, :morning)
 	end_hour = Faker::Time.between(serv_date, serv_date, :afternoon)
 	service = Service.create(user_id: user.id,
-													 service_provider_id: maid.id,
-													 service_type_id: rand(1..4),
-													 state: rand(1..4),
-													 service_date: serv_date,
-													 matching_date: Faker::Time.between(30.days.ago,
-													 																		10.days.ago, 
-													 																		:day),
-													 creation_date: Faker::Time.between(9.days.ago, 
-													 																		Time.now, 
-													 																		:day),
-													 service_start: start_hour,
-													 service_end: end_hour,
-													 zip_code: Faker::Address.zip_code,
-													 district: Faker::Address.state, 
-													 city: Faker::Address.city,
-													 street: Faker::Address.street_address,
-													 door_number: Faker::Address.building_number,
-													 number_of_rooms: rand(1..12),
-													 #e.g 1-casa, 2-escritorio, 3-armazem
-													 #e.g: 1-mais d 200m2. 2-mais d 400m2, 3-mais d 600m2
-													 building_type: rand(1..3), 
-													 frequency: rand(1..3),
-													 cleaning_stuff: [true, false].sample,
-													 additional_information: Faker::Lorem.paragraph
-													 )
+							 service_provider_id: maid.id,
+							 service_type_id: rand(1..4),
+							 state: rand(1..4),
+							 service_date: serv_date,
+							 matching_date: Faker::Time.between(30.days.ago, 10.days.ago, :day),
+							 creation_date: Faker::Time.between(9.days.ago, Time.now, :day),
+							 service_start: start_hour,
+							 service_end: end_hour,
+							 zip_code: Faker::Address.zip_code,
+							 district: Faker::Address.state, 
+							 city: Faker::Address.city,
+							 street: Faker::Address.street_address,
+							 door_number: Faker::Address.building_number,
+							 number_of_rooms: rand(1..12),
+							 #e.g 1-casa, 2-escritorio, 3-armazem
+							 #e.g: 1-mais d 200m2. 2-mais d 400m2, 3-mais d 600m2
+							 building_type: rand(1..3), 
+							 frequency: rand(1..3),
+							 cleaning_stuff: [true, false].sample,
+							 additional_information: Faker::Lorem.paragraph
+							 )
 	return service
 
 end

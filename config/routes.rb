@@ -4,12 +4,26 @@ Rails.application.routes.draw do
   post '/ajax/block_resize', to: "service_providers/schedules#ajax_block_resize"
   post '/ajax/schedule', to: "service_providers/schedules#ajax_schedules"
   post '/ajax/service_provider_stats', to:"service_providers/jobs#ajax_stats"
+  post '/ajax/resquest/maid', to:"welcome#number_of_maids"
+
+
+  post '/ajax/perish', to: "services#request_perish"
+  post '/ajax/search_maid', to:"services#ajax_search_maid"
 
   get 'service_providers/schedules/:id' => 'service_providers/schedules#show'
   get 'service_providers/jobs' => 'service_providers/jobs#show'
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
   get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
 
+  get 'help/client', to:"help#help_client"
+  get 'help/user', to:"help#help_user"
+
+  get "services/search_service_provider" => 'services#search_service_provider'
+
+  #get "services/request_service" => 'services#request_service'
+  #get "services/request_result" => "services#request_result"
+  post "services/request_service" => "services#request_service"
+  #post "services/request_result" => "registrations#request_submit"
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     root to: 'welcome#index'
@@ -20,10 +34,6 @@ Rails.application.routes.draw do
       post "users/create_client" => "registrations#create_client"
       post "users/create_user" => "registrations#create_user"
 
-      get "services/request_service" => 'services#request_service'
-      get "services/request_result" => "services#request_result"
-      post "services/request_service" => "service#request_result"
-      post "services/request_result" => "registrations#request_submit"
     end
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
     get '*path', to: redirect { |params, request| "/#{params[:locale]}" }
