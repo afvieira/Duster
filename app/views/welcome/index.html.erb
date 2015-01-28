@@ -40,9 +40,9 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                       <li class="dropdown">
                         <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown"><%=current_user.name%><b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                            <li> <%= link_to "Painel", controller:"users", action: "profile" %></li>
-                            <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
-                            <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to t("landing.header.dashboard"), users_profile_path %></li>
+                          <li><%= link_to t("landing.header.settings"), edit_user_registration_path %></li>
+                          <li><%= link_to t("landing.header.logout"), destroy_user_session_path, method: :delete %></li>
                         </ul>
                       </li>
                       <% else %>

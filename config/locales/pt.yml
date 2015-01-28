@@ -14,6 +14,9 @@ pt:
       login: "Entrar"
       signup_as_a_client: "Register como cliente"
       signup_as_a_maid: "Registar como empregado(a)"
+      dashboard: "Painel de Controlo"
+      settings: "Definições"
+      logout: "Termiar sessão"
     home:
       welcome: "Bem-vindo ao Duster"
       phrase_2: "Limpeza do seu lar à distância de um click!"
