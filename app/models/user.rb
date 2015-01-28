@@ -20,17 +20,12 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   
   def is_client
-
-      puts self.id
-
-      sp = ServiceProvider.where(user_id: self.id).first
-      if sp == nil
-        return false
-      else
-        return true
-      end
-      
+    sp = ServiceProvider.where(user_id: self.id).first
+    if sp == nil
+      return false
+    else
+      return true
+    end
   end
-
 
 end

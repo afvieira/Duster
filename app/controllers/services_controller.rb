@@ -1,7 +1,9 @@
 class ServicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_service, only: [:show, :edit, :update, :destroy]
   before_action :set_users, only: [:show]
-
+  
+  layout "application"
   respond_to :html
 
   def index
@@ -104,6 +106,14 @@ class ServicesController < ApplicationController
   end
 
   def resource
+  
+  end
+
+  def rating
+    @ratingActive = true
+    @sidebar = true
+    @navbar = true
+    @services = Service.where(user_id: current_user.id)
   end
 
   private
