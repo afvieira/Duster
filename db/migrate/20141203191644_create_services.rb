@@ -20,13 +20,16 @@ class CreateServices < ActiveRecord::Migration
       t.string :country  
       t.string :perish
       t.string :preference
+      t.string :address
+      t.decimal :lat
+      t.decimal :long
 
       t.integer  :number_of_rooms
       t.integer  :building_type
       t.integer  :frequency
       t.integer :time_pretended
       t.boolean  :cleaning_stuff
-      t.string   :additional_information
+      t.text   :additional_information
       t.timestamps
     end
     add_index :services, :user_id

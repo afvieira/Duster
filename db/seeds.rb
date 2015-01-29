@@ -162,7 +162,10 @@ def generate_service(user, maid)
 							 building_type: rand(1..3), 
 							 frequency: rand(1..3),
 							 cleaning_stuff: [true, false].sample,
-							 additional_information: Faker::Lorem.paragraph
+							 additional_information: Faker::Lorem.paragraph,
+							 address:Faker::Address.street_address,
+							 lat:Faker::Address.latitude,
+							 long:Faker::Address.longitude
 							 )
 	return service
 

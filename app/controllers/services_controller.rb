@@ -66,6 +66,7 @@ class ServicesController < ApplicationController
     @sidebar = true
     @navbar = true
     @active_search_prof = true
+    @gmaps = true
     params.permit!
     service_type = params[:service][:service_type_id].to_i
     
