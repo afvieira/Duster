@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "zip_code"
     t.string   "city"
     t.string   "street"
+    t.string   "perish"
     t.integer  "door_number"
     t.string   "district"
     t.string   "address",     null: false

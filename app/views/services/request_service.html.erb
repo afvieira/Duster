@@ -73,8 +73,8 @@
                   <div class="row">
                     <div class="col-md-12 ui-sortable">
                       <div id="map-canvas" class="map-place"></div>
-                       <%= f.input:lat, :as => 'hidden'%>
-                       <%= f.input:long, :as => 'hidden'%>
+                       <%= f.input:lat, :as => 'hidden', input_html:{id:"map-lat"}%>
+                       <%= f.input:long, :as => 'hidden',  input_html:{id:"map-long"}%>
                     </div>
                   </div>
                 </div>

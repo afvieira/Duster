@@ -5,9 +5,10 @@ class CreateAddresses < ActiveRecord::Migration
       t.string   :zip_code
       t.string   :city
       t.string   :street
+      t.string   :perish
       t.integer  :door_number
       t.string   :district
-      t.string :address, null:false
+      t.string   :address, null:false
       t.decimal :lat, null:false
       t.decimal :long, null:false
       t.timestamps

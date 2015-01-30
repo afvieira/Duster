@@ -57,6 +57,7 @@ def generate_user_address(user)
 								 door_number: Faker::Address.building_number,
 								 district: Faker::Address.state,
 								 address:Faker::Address.street_address,
+								 perish: Faker::Address.city,
 							 	lat:Faker::Address.latitude,
 							 	long:Faker::Address.longitude 
 								)
@@ -157,6 +158,7 @@ def generate_service(user, maid)
 							 zip_code: Faker::Address.zip_code,
 							 district: Faker::Address.state, 
 							 city: Faker::Address.city,
+							 perish: Faker::Address.city,
 							 street: Faker::Address.street_address,
 							 door_number: Faker::Address.building_number,
 							 number_of_rooms: rand(1..12),
@@ -189,7 +191,7 @@ def generate_feedback(maid, service)
 end
 
 #From the generated users generate services
-2000.times do |i|
+500.times do |i|
 	user = users.sample
 	maid = maids.sample
 

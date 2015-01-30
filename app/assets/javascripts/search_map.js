@@ -71,8 +71,8 @@
     }
 
     var setFormValues = function setFormValues(pos){
-        $('#service_lat').val(pos.lat());
-        $('#service_long').val(pos.lng());
+        $('#map-lat').val(pos.lat());
+        $('#map-long').val(pos.lng());
     }
 
     $(initialize);
