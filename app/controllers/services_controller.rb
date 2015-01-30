@@ -21,7 +21,7 @@ class ServicesController < ApplicationController
   #response to ajax request
   def request_perish
       params.permit!
-      puts params[:city]
+      #puts params[:city]
       perishs = get_city_perish(params[:city])
       perish_array = []
       #mudar o district para perish se mudar a db
@@ -31,18 +31,14 @@ class ServicesController < ApplicationController
 
   def ajax_search_maid
     params.permit!
-    puts params
-    #gpsrvp_c(params[:city], params[:service])
 
-    #opção mais simples apenas cidade, servico e hora default
-    #if(params[:perish].blank? and
-     #  params[:time_pretended].blank? and
-     #  params[:service_date].blank?)
-     @srvps = srvps_csh(params[:city],
-                        params[:service_type_id],
-                        params[:service_start])
-    #end
-    
+    @srvps = select_srvps(params[:city],
+                          params[:perish], 
+                          params[:service_type_id],
+                          params[:service_date],
+                          params[:service_start],
+                          params[:time_pretended])
+
     params.delete("controller")
     params.delete("action")
     @service = Service.new(params)
@@ -55,6 +51,7 @@ class ServicesController < ApplicationController
   end
 
   def edit
+
   end
 
   def search_service_provider
@@ -63,7 +60,6 @@ class ServicesController < ApplicationController
     @active_search_prof = true
     @service = Service.new
     @maid_cities = get_service_providers_cities
-    puts @maid_cities
   end
 
   def request_service
@@ -71,6 +67,19 @@ class ServicesController < ApplicationController
     @navbar = true
     @active_search_prof = true
     params.permit!
+    service_type = params[:service][:service_type_id].to_i
+    
+    case service_type
+    when 1
+      @house_cleaning = true
+    when 2
+      @engomadoria = true
+    when 3
+      @ref = true
+    when 4
+      @comps = true
+    end
+ 
     @service = Service.new(params[:service])
     @zipcodes = Service.where(user_id: current_user.id)
   end
@@ -125,41 +134,134 @@ class ServicesController < ApplicationController
        :description => user.description}
     end
 
-    def filterTime(timeTableElem, time, list)
-      str_time = time.utc.strftime( "%H%M%S%N" )
-      usr_time =timeTableElem.start_time.utc.strftime( "%H%M%S%N" ) 
-      if str_time <= usr_time
-        list << User.find(timeTableElem.service_provider_id)
+    #Filtra cidade e perish
+    def filterCityPerish(city, perish)
+      if perish.blank?
+        return srvp_c(city)
       end
+        srvp_cp(city, perish)
     end
 
-    def srvps_csh(city, service, time)
-      srvp_cs = srvp_cs(city, service)
-      aux_srvps = TimeTable.select(:service_provider_id, :start_time).where(
-                          service_provider_id:srvp_cs)
-      srvps = []
-
-      uTime = Time.parse(time)
-      aux_srvps.each { |elem|  filterTime(elem,uTime,srvps) }
-      puts srvps.uniq.count
-      return srvps.uniq
-    end
-
-
-    def srvp_cs(city, service)
+    def srvp_c(city)
       addres = Address.select(:user_id).where(district:city)
-      srps = ServiceProvider.select(:id).where(user_id: addres)
-      srps_t = ServiceTypeServiceProvider.select(:service_provider_id).where(service_type_id:service,
-                                                                             service_provider_id:srps ) 
+      srps = ServiceProvider.select(:id).where(user_id: addres) 
     end
 
-    def gpsrvp_scp(city, perish, service)
-      addres = Address.select(:user_id).where(district:city, perish:perish)
+    def srvp_cp(city, perish)
+      addres = Address.select(:user_id).where(district:city, city:perish)
       srps = ServiceProvider.select(:id).where(user_id: addres)
-      srps_t = ServiceTypeServiceProvider.select(:service_provider_id).where(service_type_id:service,
-                                                                             service_provider_id:srps ) 
     end
 
+
+
+    def filterService(service, filterCityPerish)
+      srps_t = ServiceTypeServiceProvider.select(:service_provider_id).where(service_type_id:
+              service, service_provider_id: filterCityPerish )
+    end
+
+    def filterTime(data, timeS, duration, filter_s)
+
+      if data.blank?
+        return time_tsd(timeS,duration, filter_s)
+      end
+      time_dtsd(data,timeS,duration, filter_s)  
+    
+    end
+
+    def filterTimeStart(elem, str_time, end_time, res)
+        usr_s_time = elem.start_time.utc.strftime("%H%M") 
+        usr_e_time = elem.end_time.utc.strftime("%H%M")
+
+        if  usr_s_time <= str_time  and   end_time <= usr_e_time
+          res << elem
+        end
+
+    end
+
+    def filterDateTimeStart(date, elem, str_time, end_time, res)
+        usr_s_time = elem.start_time.utc.strftime("%H%M") 
+        usr_e_time = elem.end_time.utc.strftime("%H%M")
+        usr_date = elem.start_time.to_date.wday
+        opt_date = Date.parse(date).wday
+
+        if  usr_s_time <= str_time  and end_time <= usr_e_time and opt_date == usr_date 
+          res << elem
+        end
+
+    end    
+
+
+    def time_dtsd(data, timeS, duration, filter_s) 
+        time_s = Time.parse(timeS)
+        str_time = time_s.utc.strftime("%H%M")
+        endtime_insecs = (time_s.utc.strftime("%H").to_i + duration.to_i) * 60 * 60
+
+        if endtime_insecs > 24*60*60
+          return []
+        end
+        end_time = Time.at(endtime_insecs).utc.strftime("%H%M")
+
+        srvps = TimeTable.select(:service_provider_id, :start_time, :end_time).where(
+                          service_provider_id:filter_s)
+        res = []
+
+        srvps.each{ |elem| filterDateTimeStart(data,elem, str_time,end_time, res)}
+        return res.uniq{ |q| q.service_provider_id}
+    end
+
+
+    def time_tsd(timeS, duration, filter_s)
+        time_s = Time.parse(timeS)
+        str_time = time_s.utc.strftime("%H%M")
+        endtime_insecs = (time_s.utc.strftime("%H").to_i + duration.to_i) * 60 * 60
+
+        if endtime_insecs > 24*60*60
+          return []
+        end
+        end_time = Time.at(endtime_insecs).utc.strftime("%H%M")
+
+        srvps = TimeTable.select(:service_provider_id, :start_time, :end_time).where(
+                          service_provider_id:filter_s)
+        res = []
+
+        srvps.each{ |elem| filterTimeStart(elem, str_time,end_time, res)}
+        return res.uniq{ |q| q.service_provider_id}
+    end
+
+
+
+    def select_final_user(elem)
+      srvps = ServiceProvider.select(:user_id).where(id: elem.service_provider_id)
+      srps_data = User.where(id:srvps).distinct
+      return srps_data.first
+    end
+
+    def select_srvps(city,perish, service, data, timeS, duration)
+      filter_cp = filterCityPerish(city, perish)
+      filter_s = filterService(service, filter_cp)  
+      filter_time = filterTime(data, timeS, duration, filter_s)
+
+      res = []
+      filter_time.each { |elem| res << select_final_user(elem) }
+      return res
+    end
+
+
+
+
+
+
+
+
+
+    #End of filtering functions
+
+    def get_city_perish(city)
+      #mudar o city para perish se mudarmos a base de dados
+      Address.select(:city, :district).where(district: city,
+        user_id: ServiceProvider.select(:user_id).where(user_id:
+          User.select(:id))).distinct
+    end
     def get_service_providers_cities
        #mudar o district para city se mudarmos a base de dados
  
@@ -168,14 +270,7 @@ class ServicesController < ApplicationController
           User.select(:id))).distinct
     end
 
-    def get_city_perish(city)
-      #mudar o city para perish se mudarmos a base de dados
-      Address.select(:city, :district).where(district: city,
-        user_id: ServiceProvider.select(:user_id).where(user_id:
-          User.select(:id))).distinct
-    end
 
-    
     def set_service
       @service = Service.find(params[:id])
     end
