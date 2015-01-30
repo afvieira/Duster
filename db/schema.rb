@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "zip_code"
     t.string   "city"
     t.string   "street"
+    t.string   "perish"
     t.integer  "door_number"
     t.string   "district"
+    t.string   "address",     null: false
+    t.decimal  "lat",         null: false
+    t.decimal  "long",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -177,20 +181,23 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.datetime "creation_date"
     t.time     "service_start"
     t.time     "service_end"
-    t.integer  "zip_code",               null: false
-    t.string   "district",               null: false
-    t.string   "city",                   null: false
-    t.string   "street",                 null: false
-    t.string   "door_number",            null: false
+    t.integer  "zip_code"
+    t.string   "district"
+    t.string   "city"
+    t.string   "street"
+    t.string   "door_number"
     t.string   "country"
     t.string   "perish"
     t.string   "preference"
+    t.string   "address",                null: false
+    t.decimal  "lat",                    null: false
+    t.decimal  "long",                   null: false
     t.integer  "number_of_rooms"
     t.integer  "building_type"
     t.integer  "frequency"
     t.integer  "time_pretended"
     t.boolean  "cleaning_stuff"
-    t.string   "additional_information"
+    t.text     "additional_information"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -241,8 +248,8 @@ ActiveRecord::Schema.define(version: 20150123223653) do
     t.string   "photo"
     t.string   "nationality"
     t.boolean  "gender"
-    t.string   "description"
-    t.string   "bio"
+    t.text     "description"
+    t.text     "bio"
     t.string   "account_level",          default: "c", null: false
     t.datetime "created_at"
     t.datetime "updated_at"

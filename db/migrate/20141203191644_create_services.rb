@@ -12,21 +12,24 @@ class CreateServices < ActiveRecord::Migration
       t.time :service_start     #hora de inicio do servico
       t.time :service_end       #hora de fim do servico
       
-      t.integer :zip_code,      null:false
-      t.string :district,       null:false
-      t.string :city,           null:false
-      t.string :street,         null:false
-      t.string :door_number,     null:false
+      t.integer :zip_code
+      t.string :district
+      t.string :city
+      t.string :street
+      t.string :door_number
       t.string :country  
       t.string :perish
       t.string :preference
+      t.string :address, null:false
+      t.decimal :lat, null:false
+      t.decimal :long, null:false
 
       t.integer  :number_of_rooms
       t.integer  :building_type
       t.integer  :frequency
       t.integer :time_pretended
       t.boolean  :cleaning_stuff
-      t.string   :additional_information
+      t.text   :additional_information
       t.timestamps
     end
     add_index :services, :user_id

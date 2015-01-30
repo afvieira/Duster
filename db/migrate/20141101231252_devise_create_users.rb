@@ -40,8 +40,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string     :photo
       t.string     :nationality
       t.boolean    :gender
-      t.string     :description
-      t.string     :bio
+      t.text       :description
+      t.text       :bio
       t.string :account_level, default: "c", null: false
       t.timestamps
     end

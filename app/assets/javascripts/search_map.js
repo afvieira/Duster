@@ -1,46 +1,79 @@
 (function($) {
-
     function initialize() {
         console.log("ola");
+        latinit = new google.maps.LatLng(38.7222524, -9.139336599999979);
+        var zoom = 7;
         var mapOptions = {
-            center: {
-                lat: 40.48038142908172,
-                lng: -8.1298828125
-            },
-            zoom: 7,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            center: latinit,
+            zoom: 7
         };
-        var map = new google.maps.Map(document.getElementById('map-search-prof'),
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
 
+        geocoder = new google.maps.Geocoder();
+        var input = (document.getElementById('map-input'));
+        // @type {HTMLInputElement}
+        var searchBox = new google.maps.places.SearchBox((input));
+        var marker = null;
+        var position = null;
+
 
         google.maps.event.addListener(map, 'click', function(event) {
-            console.log(event)
-            console.log(event.latLng);
+            geocoder.geocode({
+                'latLng': event.latLng
+            }, function(results, status) {
 
-            //map.setZoom(8);
-            //map.setCenter(marker.getPosition());
+                var suggestion = results[0].formatted_address;
+                $('#map-input').val(suggestion);
+
+                if (marker != null) {
+                    marker.setPosition(event.latLng);
+                } else {
+                    // map.setCenter(latLng)
+                    marker = new google.maps.Marker({
+                        position: event.latLng,
+                        map: map,
+                        title: 'A minha morada'
+                    });
+                }
+                setFormValues(event.latLng);
+
+            });
         });
 
-		google.maps.event.addListenerOnce(map, 'idle', function(){
-	        // Create the search box and link it to the UI element.
-	        /** @type {HTMLInputElement} */
-	        var input = (document.getElementById('pac-input'));
-	        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-	        /** @type {HTMLInputElement} */
-	        var searchBox = new google.maps.places.SearchBox((input));
+        google.maps.event.addListener(searchBox, 'places_changed', function() {
+            place = searchBox.getPlaces()[0];
+            // console.log(place.geometry.viewport.getCenter());
+            lat = place.geometry.location.k;
+            lng = place.geometry.location.D;
 
-	        // Listen for the event fired when the user selects an item from the
-	        // pick list. Retrieve the matching places for that item.
-	        google.maps.event.addListener(searchBox, 'places_changed', function() {
-	            console.log(searchBox.getPlaces());
+            position = new google.maps.LatLng(lat, lng, true);
+
+            if (marker != null) {
+                marker.setPosition(position);
+            } else {
+                // map.setCenter(latLng)
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: 'A minha morada'
+                });
+            }
+
+            map.panTo(position);
+            if (map.getZoom() == 7) {
+                map.setZoom(15);
+            }
+            setFormValues(position)
         });
-        	        
-		});
-
     }
-    //$(initialize);
-}(jQuery));
 
+    var setFormValues = function setFormValues(pos){
+        $('#map-lat').val(pos.lat());
+        $('#map-long').val(pos.lng());
+    }
+
+    $(initialize);
+}(jQuery));

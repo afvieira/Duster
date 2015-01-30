@@ -55,7 +55,11 @@ def generate_user_address(user)
 								 city: Faker::Address.city,
 								 street: Faker::Address.street_address,
 								 door_number: Faker::Address.building_number,
-								 district: Faker::Address.state 
+								 district: Faker::Address.state,
+								 address:Faker::Address.street_address,
+								 perish: Faker::Address.city,
+							 	lat:Faker::Address.latitude,
+							 	long:Faker::Address.longitude 
 								)
 
 end
@@ -111,7 +115,7 @@ users = []
 maids = []
 
 #generte users, maids, service tupes and time tables
-100.times do |i|
+50.times do |i|
 	user = generate_user
 	generate_user_address(user)
 	#might set a user as a maid, and if it does then give him a schedule and
@@ -154,6 +158,7 @@ def generate_service(user, maid)
 							 zip_code: Faker::Address.zip_code,
 							 district: Faker::Address.state, 
 							 city: Faker::Address.city,
+							 perish: Faker::Address.city,
 							 street: Faker::Address.street_address,
 							 door_number: Faker::Address.building_number,
 							 number_of_rooms: rand(1..12),
@@ -162,7 +167,10 @@ def generate_service(user, maid)
 							 building_type: rand(1..3), 
 							 frequency: rand(1..3),
 							 cleaning_stuff: [true, false].sample,
-							 additional_information: Faker::Lorem.paragraph
+							 additional_information: Faker::Lorem.paragraph,
+							 address:Faker::Address.street_address,
+							 lat:Faker::Address.latitude,
+							 long:Faker::Address.longitude
 							 )
 	return service
 
