@@ -1,10 +1,8 @@
 <%= content_for :header_css do %>
 <%= stylesheet_link_tag "client_registration"%>
-<%= stylesheet_link_tag "search_map"%>
 <%end%>
 <% content_for :header_js do %>
 <%= javascript_include_tag "client_registration" %>
-<%= javascript_include_tag "search_map" %>
 <% end %>
 <%= content_for :js_start do %>
 <%= "FormWizardValidation.init();"%>
@@ -50,207 +48,210 @@
             <div class="wizard-step-1">
               <fieldset>
                 <legend class="pull-left width-full">Identification</legend>
-                <div class="form-horizontal form-bordered">
-                  <div class="row">
+                <!-- begin row -->
+                <div class="row">
+                  <!-- end col-4 -->
+                  <!-- begin col-4 -->
+                  <div class="col-md-4">
                     <div class="form-group">
-                      <%= f.simple_fields_for(:addresses) do | add| %>
-                      <label class="control-label col-md-1"> Localidade </label>
-                      <div class="col-md-5 ui-sortable">
-                        <%= add.input:city, label:false,
-                        input_html:{class:"form-control"}%>
-                      </div>
-                      <label class="control-label col-md-1"> Freguesia </label>
-                      <div class="col-md-5 ui-sortable">
-                        <%= add.input:perish, label:false,
-                        input_html:{class:"form-control"}%>
-                      </div>
-                      
-                      
-                      <div class="row">
-                        <div class="form-group">
-                          <label class="control-label col-md-1"> Morada </label>
-                          <div class="col-md-11 ui-sortable">
-                            <%= add.input:address,
-                            label:false,
-                            placeholder: "Colocar aqui a sua morada de residência",
-                            input_html:{class:"form-control", "data-parsley-required" => "true",
-                            id:"map-input"}  %>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12 ui-sortable">
-                          <div id="map-canvas" class="map-place"></div>
-                          <%= add.input:lat, :as => 'hidden'%>
-                          <%= add.input:long, :as => 'hidden'%>
-                        </div>
-                      
-                      </div>
-                      <%end%>
+                      <!-- The regist-mod class is used by
+                      registreation-modifier.js to
+                      edit the required tag.
+                      -->
+                      <%= f.input :name, autofocus:true,
+                      input_html:{class:"form-control regist-mod",
+                      "data-parsley-group" =>"wizard-step-1",
+                      }%>
                     </div>
                   </div>
-                </fieldset>
-              </div>
-              <!-- end wizard step-1 -->
-              <!-- begin wizard step-2 -->
-              <div class="wizard-step-2">
-                <fieldset>
-                  <legend class="pull-left width-full">Password</legend>
-                  <!-- begin row -->
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable),
-                        input_html:{ placeholder:"More then 8 characters",
-                        class: "form-control regist-mod",
-                        "data-parsley-group"=>"wizard-step-2"
-                        }
-                        %>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <%= f.input :password_confirmation,
-                        input_html:{placeholder:"Confirme password",
-                        class:"form-control  regist-mod",
-                        "data-parsley-group" => "wizard-step-2,"
-                        }
-                        %>
-                      </div>
+                  <!-- end col-4 -->
+                  <!--begin col-4 -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.input :email, autofocus: true,
+                      input_html: {class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-1"
+                      } %>
                     </div>
                   </div>
-                  <!-- end row -->
-                </fieldset>
-              </div>
-              <!-- end wizard step-2 -->
-              <!-- begin wizard step-3 -->
-              <div class="wizard-step-3">
-                <fieldset>
-                  <legend class="pull-left width-full">Personal Details</legend>
-                  <!-- begin row -->
-                  <div class="row">
-                    <!-- begin col-6 -->
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <%= f.input :cell_phone,
-                        input_html:{
-                        type:"tel",
-                        placeholder:"1234567890",
-                        class: "form-control  regist-mod",
-                        "data-parsley-group" => "wizard-step-3",
-                        "data-parsley-type" => "number"
-                        }%>
-                        <br></br>
-                        <%= f.input :phone,
-                        input_html:{
-                        type:"tel",
-                        placeholder:"1234567890",
-                        class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-3",
-                        "data-parsley-type" => "number"
-                        }%>
-                      </div>
-                    </div>
-                    <!-- end col-6 -->
-                    <!-- begin col-6 -->
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label> Data nascimento </label>
-                        <input id="datepicker-default"
-                        name="user[birth_date]"
-                        type="text"
-                        class="form-control"
-                        data-parsley-group="wizard-step-3"
-                        required=""
-                        ></input>
-                        <br></br>
-                        <%= f.input :nationality,
-                        input_html:{
-                        class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-3"
-                        }
-                        %>
-                      </div>
-                    </div>
-                    <!-- end col-6 -->
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <h6>Gender</h6>
-                        <div class="radio">
-                          <%= f.radio_button :gender, 'gent'%>
-                          <%= f.label :radio_button, 'gent', :value => 'gent' %>
-                        </div>
-                        <div class="radio">
-                          <%= f.radio_button :gender, 'lady'%>
-                          <%= f.label :radio_button, 'lady', :value => 'lady' %>
-                        </div>
-                      </div>
-                      
+                  <!-- begin col-4 -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <br></br>
+                      <span class="btn btn-success fileinput-button">
+                      <i class="glyphicon glyphicon-plus"></i>
+                      <span> Upload photo</span>
+                      <%= f.input :photo,
+                      label: false,
+                      input_html:{type:"file"} %>
+                      </span>
+                      <br></br>
                     </div>
                   </div>
-                  <!-- end row -->
-                </fieldset>
-              </div>
-              <!-- end wizard step-3 -->
-              <!-- begin wizard step-4 -->
-              <div>
-                <div class="form-actions">
-                  <%= f.simple_fields_for(:addresses) do | add| %>
-                  <div class="row">
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <%= add.input :zip_code, input_html:{class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-4",
-                        }%>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <%= add.input :city, input_html:{class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-4",
-                        }%>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group">
-                        <%= add.input :street, input_html:{class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-4",
-                        }%>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div clas="form-group">
-                        <%= add.input :door_number, input_html:{class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-4",
-                        }%>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div clas="form-group">
-                        <%= add.input :district, input_html:{class: "form-control regist-mod",
-                        "data-parsley-group" => "wizard-step-4",
-                        }%>
-                      </div>
-                    </div>
-                    <div class="col-md-2">
-                      <div clas="form-group">
-                        <%= f.button :submit, "Sign up", class:"btn-defaul" %>
-                      </div>
-                    </div>
-                  </div>
-                  <%end%>
                 </div>
-                
-              </div>
-              <!-- end wizard step-4 -->
+                <!-- end row -->
+              </fieldset>
             </div>
-            <%end%>
+            <!-- end wizard step-1 -->
+            <!-- begin wizard step-2 -->
+            <div class="wizard-step-2">
+              <fieldset>
+                <legend class="pull-left width-full">Password</legend>
+                <!-- begin row -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable),
+                      input_html:{ placeholder:"More then 8 characters",
+                      class: "form-control regist-mod",
+                      "data-parsley-group"=>"wizard-step-2"
+                      }
+                      %>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <%= f.input :password_confirmation,
+                      input_html:{placeholder:"Confirme password",
+                      class:"form-control  regist-mod",
+                      "data-parsley-group" => "wizard-step-2,"
+                      }
+                      %>
+                    </div>
+                  </div>
+                </div>
+                <!-- end row -->
+              </fieldset>
+            </div>
+            <!-- end wizard step-2 -->
+            <!-- begin wizard step-3 -->
+            <div class="wizard-step-3">
+              <fieldset>
+                <legend class="pull-left width-full">Personal Details</legend>
+                <!-- begin row -->
+                <div class="row">
+                  <!-- begin col-6 -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.input :cell_phone,
+                      input_html:{
+                      type:"tel",
+                      placeholder:"1234567890",
+                      class: "form-control  regist-mod",
+                      "data-parsley-group" => "wizard-step-3",
+                      "data-parsley-type" => "number"
+                      }%>
+                      <br></br>
+                      <%= f.input :phone,
+                      input_html:{
+                      type:"tel",
+                      placeholder:"1234567890",
+                      class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-3",
+                      "data-parsley-type" => "number"
+                      }%>
+                    </div>
+                  </div>
+                  <!-- end col-6 -->
+                  <!-- begin col-6 -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label> Data nascimento </label>
+                      <input id="datepicker-default"
+                      name="user[birth_date]"
+                      type="text"
+                      class="form-control"
+                      data-parsley-group="wizard-step-3"
+                      required=""
+                      ></input>
+                      <br></br>
+                      <%= f.input :nationality,
+                      input_html:{
+                      class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-3"
+                      }
+                      %>
+                    </div>
+                  </div>
+                  <!-- end col-6 -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <h6>Gender</h6>
+                      <div class="radio">
+                        <%= f.radio_button :gender, 'gent'%>
+                        <%= f.label :radio_button, 'gent', :value => 'gent' %>
+                      </div>
+                      <div class="radio">
+                        <%= f.radio_button :gender, 'lady'%>
+                        <%= f.label :radio_button, 'lady', :value => 'lady' %>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                <!-- end row -->
+              </fieldset>
+            </div>
+            <!-- end wizard step-3 -->
+            <!-- begin wizard step-4 -->
+            <div>
+              <div class="form-actions">
+                <%= f.simple_fields_for(:addresses) do | add| %>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <%= add.input :zip_code, input_html:{class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-4",
+                      }%>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <%= add.input :city, input_html:{class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-4",
+                      }%>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div class="form-group">
+                      <%= add.input :street, input_html:{class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-4",
+                      }%>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div clas="form-group">
+                      <%= add.input :door_number, input_html:{class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-4",
+                      }%>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div clas="form-group">
+                      <%= add.input :district, input_html:{class: "form-control regist-mod",
+                      "data-parsley-group" => "wizard-step-4",
+                      }%>
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <div clas="form-group">
+                      <%= f.button :submit, "Sign up", class:"btn-defaul" %>
+                    </div>
+                  </div>
+                </div>
+                <%end%>
+              </div>
+              
+            </div>
+            <!-- end wizard step-4 -->
           </div>
+          <%end%>
         </div>
-        <!-- end panel -->
       </div>
-      <!-- end col-12 -->
+      <!-- end panel -->
     </div>
-    <!-- end row -->
+    <!-- end col-12 -->
   </div>
-  <!-- end #content -->
+  <!-- end row -->
+</div>
+<!-- end #content -->
