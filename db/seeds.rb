@@ -55,7 +55,10 @@ def generate_user_address(user)
 								 city: Faker::Address.city,
 								 street: Faker::Address.street_address,
 								 door_number: Faker::Address.building_number,
-								 district: Faker::Address.state 
+								 district: Faker::Address.state,
+								 address:Faker::Address.street_address,
+							 	lat:Faker::Address.latitude,
+							 	long:Faker::Address.longitude 
 								)
 
 end
@@ -111,7 +114,7 @@ users = []
 maids = []
 
 #generte users, maids, service tupes and time tables
-100.times do |i|
+50.times do |i|
 	user = generate_user
 	generate_user_address(user)
 	#might set a user as a maid, and if it does then give him a schedule and
@@ -186,7 +189,7 @@ def generate_feedback(maid, service)
 end
 
 #From the generated users generate services
-500.times do |i|
+2000.times do |i|
 	user = users.sample
 	maid = maids.sample
 

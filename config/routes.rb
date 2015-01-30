@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   get 'help/user', to:"help#help_user"
 
   get "services/search_service_provider" => 'services#search_service_provider'
-
+  post "services/request_service" => "services#request_service"
+  post "/services/request_service_submit" =>"services#request_service_submit"
   #get "services/request_service" => 'services#request_service'
   #get "services/request_result" => "services#request_result"
-  post "services/request_service" => "services#request_service"
   #post "services/request_result" => "registrations#request_submit"
   get 'services/rating', to:"services#rating"
   post "/services/rate" => "rankings#create"
