@@ -11,12 +11,7 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
   <meta content="" name="Duster home page" />
   <meta content="" name="Duster" />
-<% if @gmaps %>
-   <script type="text/javascript" 
-           src="https://maps.googleapis.com/maps/api/js?key=
-           AIzaSyCnxCXeETJ7W4ntJIkq0afOW4I9-7n2z3o&libraries=places">
-   </script>
-<%end%>
+
   <!-- ================== BEGIN BASE CSS STYLE ================== -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
@@ -49,7 +44,12 @@
 
 <!-- ================== BEGIN BASE JS ================== -->
   <%= javascript_include_tag "application" %>
-
+<% if @gmaps %>
+   <script type="text/javascript" 
+           src="https://maps.googleapis.com/maps/api/js?key=
+           AIzaSyCnxCXeETJ7W4ntJIkq0afOW4I9-7n2z3o&libraries=places">
+   </script>
+<%end%>
 <!--A parte de baixo nao esta a funcionar talvez criar
  um manifest e incluir o necessario-->
 <!--[if lt IE 9]>

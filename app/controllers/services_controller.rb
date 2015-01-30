@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
 
   respond_to :html
 
-  def index
+  def indexs
     @services = Service.all
     respond_with(@services)
   end
@@ -84,13 +84,13 @@ class ServicesController < ApplicationController
   end
 
 
-  def request_result
 
-    @workers = User.take(10)
-  end
-
-  def request_submit
-
+  def request_service_submit
+    puts params.inspect
+    params.permit!
+    service = Service.new(params[:service])
+    service.save!
+    redirect_to '/users/home'
   end
 
   def create
