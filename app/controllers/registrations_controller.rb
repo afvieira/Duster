@@ -1,3 +1,4 @@
+
 class RegistrationsController < Devise::RegistrationsController
   layout 'application'
 
@@ -26,6 +27,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def new_client
+        @gmaps = true
         @user = User.new
         @address = Address.new
     end
