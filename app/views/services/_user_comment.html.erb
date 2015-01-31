@@ -1,0 +1,9 @@
+<div class="media media-sm">
+	<a class="pull-left" href="javascript:;">
+		<img class="media-object" src=<%=feedback[:photo]+"/all?random="+feedback[:id].to_s%>>
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading"><%=feedback[:name]%></h4>
+		<p> <%= feedback[:feedback]%></p>
+	</div>
+</div>

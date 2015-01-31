@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @active_profile =true
     @sidebar = true
     @navbar = true
     @user = User.find(current_user.id)

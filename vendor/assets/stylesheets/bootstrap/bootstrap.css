@@ -1271,6 +1271,20 @@ dd {
     margin-left: 180px;
   }
 }
+@media (min-width: 768px) {
+  .dl-horizontal-2 dt {
+    float: left;
+    width: 80px;
+    overflow: hidden;
+    clear: left;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 20px;
+  }
+}
 abbr[title],
 abbr[data-original-title] {
   cursor: help;

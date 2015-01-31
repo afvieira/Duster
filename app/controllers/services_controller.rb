@@ -18,6 +18,23 @@ class ServicesController < ApplicationController
 
   end
 
+
+  def profile
+
+    service_id = params[:id]
+    @sidebar = true
+    @navbar = true
+    @gmaps = true
+    service = Service.find(service_id)
+    @user_add = Address.where(user_id:current_user.id).first
+    @serv = create_service_hash(service)
+    user_feedback = Feedback.where(service_id:Service.where(user_id:service.user_id))
+
+    @feedbacks = []
+    user_feedback.each {|elem|  @feedbacks << gen_user_feedback(elem)}
+
+  end
+
   #response to ajax request
   def request_perish
       params.permit!
@@ -88,7 +105,6 @@ class ServicesController < ApplicationController
 
 
   def request_service_submit
-    puts params.inspect
     params.permit!
     service = Service.new(params[:service])
     service.save!
@@ -249,7 +265,28 @@ class ServicesController < ApplicationController
 
 
 
-
+    def create_service_hash(service)  
+      user = User.find(service.user_id)
+      hash = { :id => service.id, 
+               :type => service.service_type_id, 
+               :number_of_rooms => service.number_of_rooms,
+               :district => service.district,
+               :zip_code => service.zip_code,
+               :street => service.street,
+               :door_number => service.door_number,
+               :city => service.city,
+               :date => service.service_date,
+               :service_start => service.service_start,
+               :service_end => service.service_end,
+               :additional_information => service.additional_information,
+               :additional_information => service.additional_information,
+               :frequency => service.frequency,
+               :building_type => service.building_type,
+               :lat => service.lat,
+               :long => service.long,
+               :user => {:name => user.name, :photo => user.photo}}
+      return hash
+    end
 
 
 
@@ -278,5 +315,15 @@ class ServicesController < ApplicationController
 
     def service_params
       params[:service]
+    end
+
+
+
+    def gen_user_feedback(feedback)
+      maid = User.find(feedback.service_provider_id)
+      {id: feedback.id,
+       name:maid.name, 
+       photo:maid.photo, 
+       feedback:feedback.description}
     end
 end

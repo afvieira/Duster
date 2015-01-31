@@ -1,0 +1,91 @@
+<div class="media media-lg">
+	<a class="pull-left" href="javascript:;">
+		<img src=<%= service[:user][:photo] + "/all?random="+service[:id].to_s%>
+		alt="" class="media-object" />
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading"><%= service[:user][:name] %></h4>
+		<dl class="dl-horizontal-2">
+			<% if service[:type] == 1 %>
+			<dt>Serviço: </dt>
+			<dd> Engomadoria</dd>
+			<%elsif service[:type] == 2 %>
+			<dt>Serviço: </dt>
+			<dd> Limpeza geral </dd>
+			<dt>Divisões: </dt>
+			<dd><%= service[:number_of_rooms]%> </dd>
+			<%elsif service[:type] == 3 %>
+			<dt>Serviço: </dt>
+			<dd> Refeição </dd>
+			<%elsif service[:type] == 4 %>
+			<dt>Serviço: </dt>
+			<dd> Compras para o lar <dd>
+			<%end%>
+			<dt>Edifício</dt>
+			<dd>
+			<%case service[:building_type]%>
+			<%when 1%>
+			Casa
+			<%when 2%>
+			Prédio
+			<%when 3%>
+			Escritório
+			<%else%>
+			Outro
+			<%end%>
+			</dd>
+			<dt>Frequência: </dt>
+			<dd>
+			<% case service[:frequency] %>
+			<%when 1 %>
+			Unico
+			<%when 2 %>
+			Ocasionalmente
+			<%when 3%>
+			Semanalmente
+			<%when 4%>
+			Mensalmente
+			<%end%>
+			</dd>
+			<dt>Morada: </dt>
+			<dd>
+			<%= service[:district] %>,
+			<%= service[:street] %>,
+			<%= service[:door_number] %>,
+			<%= service[:city]%>,
+			<%= service[:zip_code]%>
+			</dd>
+			
+			<dt>Data: </dt>
+			<dd>
+			Dia
+			<span class="f-w-600">
+			<%= service[:date] %>
+			</span>
+			das
+			<span class="f-w-600">
+			<%= service[:service_start].hour%>:
+			<%= service[:service_start].min%>
+			</span> as
+			<span class="f-w-600">
+			<%= service[:service_end].hour%>:
+			<%= service[:service_end].min%>
+			</span>
+			</dd>
+		</dl>
+		<p>
+		<span class="f-w-700">Informação extra:</span>
+		<%= service[:additional_information]%>
+		</p>
+			<%= link_to "Aceitar",
+			{controller: "service_providers/jobs",
+			action: "accept_job",
+			id: service[:id]},
+			class:"btn btn-sm btn-primary m-r-5"%>
+			<%= link_to "Rejeitar",
+			{controller: "service_providers/jobs",
+			action: "reject_job",
+			id: service[:id]},
+			class:"btn btn-sm btn-danger m-r-5"%>
+	</div>
+</div>

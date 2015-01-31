@@ -58,6 +58,11 @@ model that contais id and information about request  -->
 	 		<span class="f-w-700">Informação extra:</span>
 	 		<%= service[:additional_information]%>
 		</p>
+		<%= link_to "Informações",
+		{controller: "/services",
+		action: "profile",
+		id: service[:id]},
+		class:"btn btn-sm btn-info m-r-5"%>
 
 		<%= link_to "Aceitar", 
 				{controller: "service_providers/jobs",  

@@ -12,7 +12,6 @@
 
 
 
-
 def generate_user
 	g_detector = GenderDetector.new
 
@@ -58,8 +57,8 @@ def generate_user_address(user)
 								 district: Faker::Address.state,
 								 address:Faker::Address.street_address,
 								 perish: Faker::Address.city,
-							 	lat:Faker::Address.latitude,
-							 	long:Faker::Address.longitude 
+								 lat:rand(41.50..41.57),
+							 	long:rand(8.38..8.44)*(-1) 
 								)
 
 end
@@ -137,6 +136,7 @@ end
 
 
 def generate_service(user, maid)
+	prng = Random.new
 
 	#Using 3 states
 	# 1 - service waint for maid confirmation
@@ -165,12 +165,12 @@ def generate_service(user, maid)
 							 #e.g 1-casa, 2-escritorio, 3-armazem
 							 #e.g: 1-mais d 200m2. 2-mais d 400m2, 3-mais d 600m2
 							 building_type: rand(1..3), 
-							 frequency: rand(1..3),
+							 frequency: rand(1..4),
 							 cleaning_stuff: [true, false].sample,
 							 additional_information: Faker::Lorem.paragraph,
 							 address:Faker::Address.street_address,
-							 lat:Faker::Address.latitude,
-							 long:Faker::Address.longitude
+							 lat:rand(41.50..41.57),
+							 long:rand(8.38..8.44)*(-1) 
 							 )
 	return service
 
@@ -185,8 +185,8 @@ end
 #por exemplo a criticar o utilizador por ser mal educado.
 def generate_feedback(maid, service)
 	Feedback.create(service_provider_id: maid.id, 
-									service_id: service.id, 
-									description: Faker::Lorem.paragraph)
+					service_id: service.id, 
+							description: Faker::Lorem.paragraph)
 
 end
 

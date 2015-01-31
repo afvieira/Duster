@@ -30,5 +30,5 @@ Rails.application.config.assets.precompile += %w(search_service.js)
 Rails.application.config.assets.precompile += %w(search_service.css)
 Rails.application.config.assets.precompile += %w(search_service_starter.js)
 Rails.application.config.assets.precompile += %w(request_service_starter.js)
-
+Rails.application.config.assets.precompile += %w(profile_map.js)
 

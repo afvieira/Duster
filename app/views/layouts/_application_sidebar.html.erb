@@ -26,44 +26,60 @@
       <li class="active">
         <% else %>
         <li>
-          <% end %>
-          <%= link_to controller: "service_providers/schedules", action: "show", id:current_user.id do%> <i class="fa fa-calendar"></i>
+          <%end%>
+          <%= link_to controller: "service_providers/schedules",
+          action: "show",
+          id:current_user.id do%>
+          <i class="fa fa-calendar"></i>
           <span>Horário</span>
-        <%end%></li>
+          <%end%>
+        </li>
         <%if @active_jobs %>
         <li class="active">
           <% else %>
           <li>
             <% end %>
-            <%= link_to controller: "service_providers/jobs", action: "show", id:current_user.id do%> <i class="fa fa-tasks"></i>
+            <%= link_to controller: "service_providers/jobs",
+            action: "show", id:current_user.id do%>
+            <i class="fa fa-tasks"></i>
             <span>Painel de Trabalho</span>
-          <%end%></li>
+            <%end%>
+          </li>
         </ul>
         <%else%>
         <!-- begin sidebar nav -->
         <ul class="nav">
           <li class="nav-header">Home</li>
-          <%if @active_search_prof %>
-          <li class="active">
+          <% if @active_profile %>
             <%else%>
             <li>
               <%end%>
-              <%= link_to controller: "services", action: "search_service_provider" do%>
-              <i class="fa fa-search"></i>
-              <span>Pesquisar profissional</span>
-            <%end%></li>
-            <%if @ratingActive %>
+              <%= link_to controller:"users", action: "profile" do %>
+              <i class="fa fa-2x fa-user"> </i>
+              <span>Perfil</span>
+              <%end%>
+            </li>
+            <%if @active_search_prof %>
             <li class="active">
               <%else%>
               <li>
                 <%end%>
-                <%= link_to controller: "services", action: "rating" do%>
-                <i class="fa fa-thumbs-o-up"></i>
-                <span>Avaliar serviços</span>
+                <%= link_to controller: "services", action: "search_service_provider" do%>
+                <i class="fa fa-search"></i>
+                <span>Pesquisar profissional</span>
               <%end%></li>
-            </ul>
-            <!-- end sidebar nav -->
-          <%end%></div>
-          <!-- end sidebar scrollbar --> </div>
-          <div class="sidebar-bg"></div>
-          <!-- end #sidebar -->
+              <%if @ratingActive %>
+              <li class="active">
+                <%else%>
+                <li>
+                  <%end%>
+                  <%= link_to controller: "services", action: "rating" do%>
+                  <i class="fa fa-thumbs-o-up"></i>
+                  <span>Avaliar serviços</span>
+                <%end%></li>
+              </ul>
+              <!-- end sidebar nav -->
+            <%end%></div>
+            <!-- end sidebar scrollbar --> </div>
+            <div class="sidebar-bg"></div>
+            <!-- end #sidebar -->
