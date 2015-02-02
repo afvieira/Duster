@@ -183,20 +183,17 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                 <center>
                 <p style="font-size:150%"> <span><b>Duster.</b></span> <%= t 'landing.how_it_works.desc' %></p>
                 </center>
+                
                 <!-- begin video -->
                 <div id="how-it-works-container">
                     <div class="how-it-works-video">
-                        <%= image_tag 'pc.png', title:"teste2" %>
+                        <%= image_tag 'workplace_duster.png', title:"" %>
                     </div>
-                    <div class="video-container">
-                    <a class="popup-vimeo" href="https://player.vimeo.com/video/45830194?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1">
-                      <iframe src="https://player.vimeo.com/video/45830194?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0" width="50%" height="50%" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                    </a>
-                    </div>
+                        <a class="popup-vimeo" href="https://player.vimeo.com/video/45830194?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" data-effect="mfp-zoom-in">
+                            <%= image_tag 'PlayButton.png', title:"Play Video", :class => "play-video" %>
+                        </a>
+                    <%= image_tag 'print_video2.png', title:"" , :class => "print_video"%>
                 </div>
-
-                <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/rY0WxgSXdEE" frameborder="0" allowfullscreen></iframe> -->
-                <!-- end video -->
             </div>
             <!-- end container -->
         </div>
