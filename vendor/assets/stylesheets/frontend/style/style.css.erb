@@ -855,6 +855,7 @@ body.page-navbar-fixed-top-sm {
     margin-right: auto;
     max-width:100% !important;
     height:auto;
+    z-index: 1; position:relative;
 }
 
 #how-it-works-container{
@@ -878,6 +879,28 @@ body.page-navbar-fixed-top-sm {
     left: 32.5%;
     height: 34%;
     width: 35%;
+}
+
+.play-video{
+    width: 20%;
+    position: relative;
+    left: 42%;
+    top: -353.5px;
+    z-index: 1;
+    margin-bottom: -160px;
+}
+
+.play-video:hover{
+    opacity: 0.8; 
+}
+
+.print_video{
+    position: relative;
+    bottom: 445px;
+    left: 16%;
+    height: 29%;
+    width: 31%;
+    margin-bottom: -30%;
 }
 
 /* Magnific Popup CSS */
@@ -949,6 +972,48 @@ body.page-navbar-fixed-top-sm {
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   cursor: zoom-in; }
+
+.mfp-zoom-in {
+  
+  /* start state */
+  .mfp-with-anim {
+    opacity: 0;
+    transition: all 0.2s ease-in-out; 
+    transform: scale(0.8); 
+  }
+  
+  &.mfp-bg {
+    opacity: 0;
+      transition: all 0.3s ease-out;
+  }
+  
+  /* animate in */
+  &.mfp-ready {
+    .mfp-with-anim {
+      opacity: 1;
+      transform: scale(1); 
+    }
+    &.mfp-bg {
+      opacity: 0.8;
+    }
+  }
+  
+  /* animate out */
+  &.mfp-removing {
+    
+    .mfp-with-anim {
+      transform: scale(0.8); 
+      opacity: 0;
+    }
+    &.mfp-bg {
+      opacity: 0;
+    }
+    
+  }
+  
+}
+
+
 
 .mfp-auto-cursor .mfp-content {
   cursor: auto; }
