@@ -142,6 +142,13 @@ class ServicesController < ApplicationController
     @services = Service.where(user_id: current_user.id)
   end
 
+  def feedback
+    @feedbackActive = true
+    @sidebar = true
+    @navbar = true
+    @services = Service.where(user_id: current_user.id)
+  end
+
   private
 
     def generateMaidInfoHash(user)
