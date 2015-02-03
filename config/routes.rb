@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get "users/new_client" => 'registrations#new_client'
       post "users/create_client" => "registrations#create_client"
       post "users/create_user" => "registrations#create_user"
+      get "users/publicprofile" => 'users#publicprofile'
 
     end
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
