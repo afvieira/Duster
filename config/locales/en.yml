@@ -13,6 +13,9 @@ en:
       login: "Login"
       signup_as_a_client: "Sign up as a client"
       signup_as_a_maid: "Sign up as a maid"
+      dashboard: "Dashboard"
+      settings: "Settings"
+      logout: "Logout"
     home:
       welcome: "Welcome to Duster"
       phrase_2: "Cleaning your home with just one click!"
@@ -45,6 +48,7 @@ en:
       subtitle2_text: ""
       area_control: "Check if we're in your area!"
       area_control2: "Where do you live?"
+      information: "More Information"
     contact_us:
       title: "Contact us"
       introduction_text: "Do you have any complain or sugestion? Please contact us:"

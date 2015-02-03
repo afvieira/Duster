@@ -26,6 +26,14 @@ class ServiceProvidersController < ApplicationController
     respond_with(@service_provider)
   end
 
+  def profile
+    @active_profile =true
+    @sidebar = true
+    @navbar = true
+    @user = ServiceProvider.find(current_user.id)
+    @services = Service.where(service_provider_id: current_user.id)
+  end
+
   def update
     @service_provider.update(service_provider_params)
     respond_with(@service_provider)

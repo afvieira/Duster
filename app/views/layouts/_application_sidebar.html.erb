@@ -45,6 +45,16 @@
             <span>Painel de Trabalho</span>
             <%end%>
           </li>
+          <%if @feedbackActive %>
+        <li class="active">
+          <% else %>
+          <li>
+            <% end %>
+            <%= link_to controller: "services", action: "feedback" do%>
+            <i class="fa fa-thumbs-o-up"></i>
+            <span>Avaliar Clientes</span>
+            <%end%>
+          </li>
         </ul>
         <%else%>
         <!-- begin sidebar nav -->

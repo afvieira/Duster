@@ -14,6 +14,9 @@ pt:
       login: "Entrar"
       signup_as_a_client: "Register como cliente"
       signup_as_a_maid: "Registar como empregado(a)"
+      dashboard: "Painel de Controlo"
+      settings: "Definições"
+      logout: "Termiar sessão"
     home:
       welcome: "Bem-vindo ao Duster"
       phrase_2: "Limpeza do seu lar à distância de um click!"
@@ -46,6 +49,7 @@ pt:
       subtitle2_text: ""
       area_control: "Veja se o Duster tem serviços disponíveis na sua área!"
       area_control2: "Qual é a sua cidade?"
+      information: "Mais Informação"
     contact_us:
       title: "Contacte-nos"
       introduction_text: "Se tem reclamações ou sugestões por favor contacte-nos através de email ou envie-nos uma mensagem:"

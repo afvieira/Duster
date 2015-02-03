@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'service_providers/jobs' => 'service_providers/jobs#show'
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
   get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
+  get 'service_providers/profile' => 'service_providers#profile'
 
   get 'help/client', to:"help#help_client"
   get 'help/user', to:"help#help_user"
@@ -26,7 +27,9 @@ Rails.application.routes.draw do
   #get "services/request_result" => "services#request_result"
   #post "services/request_result" => "registrations#request_submit"
   get 'services/rating', to:"services#rating"
+  get 'services/feedback', to:"services#feedback"
   post "/services/rate" => "rankings#create"
+  post "/services/feedback" => "feedbacks#create"
   get 'users/profile' => 'users#profile'
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
@@ -37,6 +40,7 @@ Rails.application.routes.draw do
       get "users/new_client" => 'registrations#new_client'
       post "users/create_client" => "registrations#create_client"
       post "users/create_user" => "registrations#create_user"
+      get "users/publicprofile" => 'users#publicprofile'
 
     end
     resources :guestbooks, :answer_types, :answers, :additional_informations, :states, :histories, :rankings, :services, :feedbacks, :payment_types, :premia, :service_provider_premia, :days, :slots, :schedules, :service_types, :service_type_service_providers, :service_providers, :addresses
