@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'service_providers/jobs' => 'service_providers/jobs#show'
   get 'service_providers/accept_job' => 'service_providers/jobs#accept_job'
   get 'service_providers/reject_job' => 'service_providers/jobs#reject_job'
+  get 'service_providers/profile' => 'service_providers#profile'
 
   get 'help/client', to:"help#help_client"
   get 'help/user', to:"help#help_user"
