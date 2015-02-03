@@ -114,7 +114,7 @@ users = []
 maids = []
 
 #generte users, maids, service tupes and time tables
-50.times do |i|
+200.times do |i|
 	user = generate_user
 	generate_user_address(user)
 	#might set a user as a maid, and if it does then give him a schedule and
