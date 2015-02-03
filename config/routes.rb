@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   #get "services/request_result" => "services#request_result"
   #post "services/request_result" => "registrations#request_submit"
   get 'services/rating', to:"services#rating"
+  get 'services/feedback', to:"services#feedback"
   post "/services/rate" => "rankings#create"
+  post "/services/feedback" => "feedbacks#create"
   get 'users/profile' => 'users#profile'
 
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do

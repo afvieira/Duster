@@ -22,8 +22,9 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(feedback_params)
+    @feedback.service_provider_id = current_user.id
     @feedback.save
-    respond_with(@feedback)
+    redirect_to services_feedback_path
   end
 
   def update
@@ -42,6 +43,6 @@ class FeedbacksController < ApplicationController
     end
 
     def feedback_params
-      params[:feedback]
+      params.require(:feedback).permit(:service_provider_id, :service_id, :description)
     end
 end
