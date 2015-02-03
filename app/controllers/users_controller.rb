@@ -50,6 +50,17 @@ class UsersController < ApplicationController
     @services = Service.where(user_id: current_user.id)
   end
 
+  
+  def publicprofile
+
+    @sidebar = true
+    @navbar = true
+    @euser = User.where(id: params[:eid]).take
+    esprovider = ServiceProvider.where(user_id: params[:eid]).take
+    @results = Ranking.joins(:service).where("services.service_provider_id = ?", esprovider.id).order(created_at: :desc)
+    @value = @results.average("value").to_i
+  end
+
 
   private
     def set_user
