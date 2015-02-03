@@ -146,7 +146,7 @@ class ServicesController < ApplicationController
     @feedbackActive = true
     @sidebar = true
     @navbar = true
-    @services = Service.where(user_id: current_user.id)
+    @services = Service.where(service_provider_id: current_user.id)
   end
 
   private
