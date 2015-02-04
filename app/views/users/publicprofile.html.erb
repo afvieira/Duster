@@ -11,7 +11,14 @@
 		</div>
 		<div class="panel-body">
 			<div class="media media-lg">
+        <a class="pull-left" href="javascript:;">
+        <a class="pull-left" href="javascript:;">
+            <img src=<%= @euser.photo + "/all?random="+@euser.id.to_s%>
 
+          <%= image_tag @euser.photo, class: "media-object" %>
+        </a>
+          <!-- <img src="assets/img/gallery/gallery-1.jpg" alt="" class="media-object"> -->
+        </a>
 				<div class="media-body">
 					<div class="media-body">
 					<h4 class="media-heading"><%= @euser.name%></h4>
@@ -32,10 +39,9 @@
 				</div>
 			</div>
 		</div>
-
-    <div class="panel-body">
-     <hr/>
-    <div class="media media-lg">
+    </div>
+  </div>
+<div id="content" class="content">
 
     <ul class="timeline">
     <% @results.each do |result|%>
@@ -73,6 +79,3 @@
     <%end%>
     </ul>
     </div>
-    </div>
-	</div>
-</div>
