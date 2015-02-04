@@ -771,6 +771,9 @@ label {
     margin-left: 220px;
     padding: 20px 25px;
 }
+.contentpopup {
+    padding: 20px 25px;
+}
 /* Added by rogerio to center box*/
 .content-form {
   padding: 20px 25px;

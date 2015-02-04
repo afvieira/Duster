@@ -16,4 +16,5 @@
  *= require admin/style/style
  *= require admin/style-responsive/style-responsive
  *= require admin/theme/blue
+ *= require gritter/jquery.gritter
  */
