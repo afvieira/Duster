@@ -211,17 +211,21 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                 <!-- begin container -->
                 <div class="container">
                     <h2 class="content-title"><%= t 'landing.services.title' %></h2>
-                    <p class="content-desc"><%= t 'landing.services.introduction_text' %>
+                    <p class="content-desc" style="font-size:18px"><%= t 'landing.services.introduction_text' %>
                     </p>
                     <!-- begin row -->
-                    <div class="row">
+                    <div id="teste" class="row">
+                        <div class="col-md-1 col-sm-6">
+                            <div class="client_services" data-animation="true" data-animation-type="bounceIn">
+                                 <%= image_tag ('client_services2.png') %>
+                            </div>
+                        </div>
                         <!-- begin col-4 -->
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-6">
                             <div class="service">
-                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-cog"></i></div>
                                 <div class="info">
-                                    <h4 class="title"><%= t 'landing.services.subtitle1' %></h4>
-                                    <p class="content-desc"><%= t 'landing.services.subtitle1_text' %>
+                                    <h4 class="title" style="font-size:20px"><%= t 'landing.services.subtitle1' %></h4><br/>
+                                    <p class="content-desc" style="font-size:17px"><%= t 'landing.services.subtitle1_text' %>
                                     <br/>
                                     <br/>
                                     <%= t 'landing.services.subtitle3_text' %>
@@ -232,12 +236,16 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                         </div>
                         <!-- end col-4 -->
                         <!-- begin col-4 -->
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-1 col-sm-6">
+                            <div class="client_services" data-animation="true" data-animation-type="bounceIn">
+                                 <%= image_tag ('maid_services.png') %>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
                             <div class="service">
-                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
                                 <div class="info">
-                                    <h4 class="title"><%= t 'landing.services.subtitle2' %></h4>
-                                    <p class="content-desc"><%= t 'landing.services.subtitle2_text' %>
+                                    <h4 class="title" style="font-size:20px"><%= t 'landing.services.subtitle2' %></h4><br/>
+                                    <p class="content-desc" style="font-size:17px"><%= t 'landing.services.subtitle2_text' %>
                                     <br/>
                                     <br/>
                                     <%= t 'landing.services.subtitle3_text' %>
@@ -259,7 +267,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
             <!-- begin container -->
             <div class="container">
                 <h2 class="content-title"><%= t 'landing.our_team.title' %></h2>
-                <p class="content-desc"><%= t 'landing.our_team.introduction_text' %><p>
+                <p class="content-desc" style="font-size:16px"><%= t 'landing.our_team.introduction_text' %><p>
                 <!-- begin row -->
                 <div class="row">
                     <div class="col-md-2-4 col-sm-4">
@@ -457,15 +465,15 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                     <!-- begin col-6 -->
                     <div class="col-md-6" data-animation="true" data-animation-type="fadeInLeft">
                         <h3><%= t 'landing.contact_us.introduction_text' %></h3>
-                        <p>
+                        <p style="font-size:18px">
                         <strong>Duster</strong><br />
                         Universidade do Minho<br />
                         Largo do Paço<br />
                         4704-553 Braga, Portugal<br />
                         </p>
                         <p>
-                        <span class="phone">918 813 885</span><br />
-                        <a href="mailto:geral.duster@gmail.com">geral.duster@gmail.com</a>
+                        <span class="phone" style="font-size:14px">918 813 885</span><br />
+                        <a href="mailto:geral.duster@gmail.com" style="font-size:14px; color:#3c8ac7">geral.duster@gmail.com</a>
                         </p>
                     </div>
                     <!-- end col-6 -->
