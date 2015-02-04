@@ -28,28 +28,28 @@
           <div id="wizard">
             <ol>
               <li>
-                Identification
-                <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</small>
+                Identificação
+                <small>Insira os seus dados de  registo.</small>
               </li>
               <li>
                 Password
                 <small>
-                  Aliquam bibendum felis id purus ullamcorper, quis luctus leo sollicitudin.
+                  Insira a senha que deseja utilizar.
                 </small>
               </li>
               <li>
-                Personal details
-                <small>Phasellus lacinia placerat neque pretium condimentum.</small>
+                Detalhes pessoais
+                <small>Forneca alguma informação sobre si.</small>
               </li>
               <li>
                 Conclusão
-                <small>Sed nunc neque, dapibus non leo sed, rhoncus dignissim elit.</small>
+                <small>Submeta o seu registo.</small>
               </li>
             </ol>
             <!-- begin wizard step-1 -->
             <div class="wizard-step-1">
               <fieldset>
-                <legend class="pull-left width-full">Identification</legend>
+                <legend class="pull-left width-full">Identificação</legend>
                 <!-- begin row -->
                 <div class="row">
 
@@ -135,11 +135,11 @@
         <!-- begin wizard step-3 -->
         <div class="wizard-step-3">
           <fieldset>
-            <legend class="pull-left width-full">Personal Details</legend>
+            <legend class="pull-left width-full">Detalhes pessoais</legend>
             <!-- begin row -->
             <div class="row">
               <!-- begin col-6 -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
                   <%= f.input :cell_phone, 
                             input_html:{
@@ -164,7 +164,7 @@
             </div>
             <!-- end col-6 -->
             <!-- begin col-6 -->
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Data nascimento</label>
                 <input id="datepicker-default" 
@@ -186,20 +186,6 @@
           </div>
 
         </div>
-        <!-- end col-6 -->
-        <div class="col-md-4">
-          <div class="form-group">
-            <h6>Gender</h6>
-            <div class="radio">
-              <%= f.radio_button :gender, 'gent'%>
-              <%= f.label :radio_button, 'gent', :value =>'gent' %></div>
-            <div class="radio">
-              <%= f.radio_button :gender, 'lady'%>
-              <%= f.label :radio_button, 'lady', :value =>'lady' %></div>
-          </div>
-
-        </div>
-
       </div>
       <!-- end row --> </fieldset>
   </div>
