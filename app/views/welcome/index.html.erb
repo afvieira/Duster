@@ -211,17 +211,21 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                 <!-- begin container -->
                 <div class="container">
                     <h2 class="content-title"><%= t 'landing.services.title' %></h2>
-                    <p class="content-desc"><%= t 'landing.services.introduction_text' %>
+                    <p class="content-desc" style="font-size:18px"><%= t 'landing.services.introduction_text' %>
                     </p>
                     <!-- begin row -->
-                    <div class="row">
+                    <div id="teste" class="row">
+                        <div class="col-md-1 col-sm-6">
+                            <div class="client_services" data-animation="true" data-animation-type="bounceIn">
+                                 <%= image_tag ('client_services2.png') %>
+                            </div>
+                        </div>
                         <!-- begin col-4 -->
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-6">
                             <div class="service">
-                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-cog"></i></div>
                                 <div class="info">
-                                    <h4 class="title"><%= t 'landing.services.subtitle1' %></h4>
-                                    <p class="content-desc"><%= t 'landing.services.subtitle1_text' %>
+                                    <h4 class="title" style="font-size:20px"><%= t 'landing.services.subtitle1' %></h4><br/>
+                                    <p class="content-desc" style="font-size:17px"><%= t 'landing.services.subtitle1_text' %>
                                     <br/>
                                     <br/>
                                     <%= t 'landing.services.subtitle3_text' %>
@@ -232,12 +236,16 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                         </div>
                         <!-- end col-4 -->
                         <!-- begin col-4 -->
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-1 col-sm-6">
+                            <div class="client_services" data-animation="true" data-animation-type="bounceIn">
+                                 <%= image_tag ('maid_services.png') %>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6">
                             <div class="service">
-                                <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
                                 <div class="info">
-                                    <h4 class="title"><%= t 'landing.services.subtitle2' %></h4>
-                                    <p class="content-desc"><%= t 'landing.services.subtitle2_text' %>
+                                    <h4 class="title" style="font-size:20px"><%= t 'landing.services.subtitle2' %></h4><br/>
+                                    <p class="content-desc" style="font-size:17px"><%= t 'landing.services.subtitle2_text' %>
                                     <br/>
                                     <br/>
                                     <%= t 'landing.services.subtitle3_text' %>
@@ -259,7 +267,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
             <!-- begin container -->
             <div class="container">
                 <h2 class="content-title"><%= t 'landing.our_team.title' %></h2>
-                <p class="content-desc"><%= t 'landing.our_team.introduction_text' %><p>
+                <p class="content-desc" style="font-size:16px"><%= t 'landing.our_team.introduction_text' %><p>
                 <!-- begin row -->
                 <div class="row">
                     <div class="col-md-2-4 col-sm-4">
@@ -273,8 +281,9 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <div class="name">Project Chief</div>
                                 <div class="name">Boss Man</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="http://www.facebook.com/andvieira"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="http://pt.linkedin.com/in/vieiraandre"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
+                                    <a href="http://www.alunos.di.uminho.pt/~a54817/"><i class="fa fa-github-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -290,8 +299,8 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Tiago Martins</h3>
                                 <div class="name">Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="http://www.facebook.com/tiago.martins.94695"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="http://pt.linkedin.com/in/tasm46"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -307,8 +316,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Hugo Gomes</h3>
                                 <div class="name">Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="http://facebook.com/duster.oficial"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -324,8 +332,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Carla Regadas</h3>
                                 <div class="name">Designer & Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/miss.regadas"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -341,8 +348,8 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Jorge Oliveira</h3>
                                 <div class="name">Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/jorgemfo"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="http://pt.linkedin.com/pub/jorge-oliveira/9b/a29/81a"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -361,8 +368,8 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Sónia Dias</h3>
                                 <div class="name">Project Manager</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/sonia.dias.77920"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="https://pt.linkedin.com/pub/sónia-dias/27/773/173"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -378,8 +385,8 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Pedro Eiras</h3>
                                 <div class="name">Designer & Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/moutinho116"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="http://pt.linkedin.com/pub/pedro-eiras/9a/35/667/pt"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -397,8 +404,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Kelyanne Thomé</h3>
                                 <div class="name">Project Manager</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/kelyanne.thome"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -416,8 +422,9 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Rogério Pontes</h3>
                                 <div class="name">Developer</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="https://www.facebook.com/roger.pontes1"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
+                                    <a href="http://pt.linkedin.com/in/roger62"><i class="fa fa-linkedin-square fa-lg fa-fw"></i></a>
+                                    <a href="https://github.com/roger62"><i class="fa fa-github-square fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -435,8 +442,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                                 <h3 class="name">Ligia Chiuale</h3>
                                 <div class="name">Project Manager</div>
                                 <div class="social">
-                                    <a href="#"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus fa-lg fa-fw"></i></a>
+                                    <a href="http://facebook.com/duster.oficial"><i class="fa fa-facebook fa-lg fa-fw"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -459,15 +465,15 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                     <!-- begin col-6 -->
                     <div class="col-md-6" data-animation="true" data-animation-type="fadeInLeft">
                         <h3><%= t 'landing.contact_us.introduction_text' %></h3>
-                        <p>
+                        <p style="font-size:18px">
                         <strong>Duster</strong><br />
                         Universidade do Minho<br />
                         Largo do Paço<br />
                         4704-553 Braga, Portugal<br />
                         </p>
                         <p>
-                        <span class="phone">918 813 885</span><br />
-                        <a href="mailto:geral.duster@gmail.com">geral.duster@gmail.com</a>
+                        <span class="phone" style="font-size:14px">918 813 885</span><br />
+                        <a href="mailto:geral.duster@gmail.com" style="font-size:14px; color:#3c8ac7">geral.duster@gmail.com</a>
                         </p>
                     </div>
                     <!-- end col-6 -->
