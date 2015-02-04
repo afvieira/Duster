@@ -22,76 +22,85 @@
     <% if current_user.is_client  %>
     <ul class="nav">
       <li class="nav-header">Home</li>
-      <%if @active_schedule %>
+      <% if @active_profile %>
       <li class="active">
-        <% else %>
+        <%else%>
         <li>
           <%end%>
-          <%= link_to controller: "service_providers/schedules",
-          action: "show",
-          id:current_user.id do%>
-          <i class="fa fa-calendar"></i>
-          <span>Horário</span>
+          <%= link_to controller:"/service_providers", action: "profile" do %>
+          <i class="fa fa-2x fa-user"> </i>
+          <span>Perfil</span>
           <%end%>
         </li>
-        <%if @active_jobs %>
+        <%if @active_schedule %>
         <li class="active">
           <% else %>
           <li>
-            <% end %>
-            <%= link_to controller: "service_providers/jobs",
-            action: "show", id:current_user.id do%>
-            <i class="fa fa-tasks"></i>
-            <span>Painel de Trabalho</span>
+            <%end%>
+            <%= link_to controller: "service_providers/schedules",
+            action: "show",
+            id:current_user.id do%>
+            <i class="fa fa-calendar"></i>
+            <span>Horário</span>
             <%end%>
           </li>
-          <%if @feedbackActive %>
-        <li class="active">
-          <% else %>
-          <li>
-            <% end %>
-            <%= link_to controller: "/services", action: "feedback" do%>
-            <i class="fa fa-thumbs-o-up"></i>
-            <span>Avaliar Clientes</span>
-            <%end%>
-          </li>
-        </ul>
-        <%else%>
-        <!-- begin sidebar nav -->
-        <ul class="nav">
-          <li class="nav-header">Home</li>
-          <% if @active_profile %>
-              <li class="active">
-
-            <%else%>
+          <%if @active_jobs %>
+          <li class="active">
+            <% else %>
             <li>
-              <%end%>
-              <%= link_to controller:"users", action: "profile" do %>
-              <i class="fa fa-2x fa-user"> </i>
-              <span>Perfil</span>
+              <% end %>
+              <%= link_to controller: "service_providers/jobs",
+              action: "show", id:current_user.id do%>
+              <i class="fa fa-tasks"></i>
+              <span>Painel de Trabalho</span>
               <%end%>
             </li>
-            <%if @active_search_prof %>
+            <%if @feedbackActive %>
             <li class="active">
-              <%else%>
+              <% else %>
               <li>
+                <% end %>
+                <%= link_to controller: "/services", action: "feedback" do%>
+                <i class="fa fa-thumbs-o-up"></i>
+                <span>Avaliar Clientes</span>
                 <%end%>
-                <%= link_to controller: "services", action: "search_service_provider" do%>
-                <i class="fa fa-search"></i>
-                <span>Pesquisar profissional</span>
-              <%end%></li>
-              <%if @ratingActive %>
+              </li>
+            </ul>
+            <%else%>
+            <!-- begin sidebar nav -->
+            <ul class="nav">
+              <li class="nav-header">Home</li>
+              <% if @active_profile %>
               <li class="active">
                 <%else%>
                 <li>
                   <%end%>
-                  <%= link_to controller: "services", action: "rating" do%>
-                  <i class="fa fa-thumbs-o-up"></i>
-                  <span>Avaliar serviços</span>
-                <%end%></li>
-              </ul>
-              <!-- end sidebar nav -->
-            <%end%></div>
-            <!-- end sidebar scrollbar --> </div>
-            <div class="sidebar-bg"></div>
-            <!-- end #sidebar -->
+                  <%= link_to controller:"users", action: "profile" do %>
+                  <i class="fa fa-2x fa-user"> </i>
+                  <span>Perfil</span>
+                  <%end%>
+                </li>
+                <%if @active_search_prof %>
+                <li class="active">
+                  <%else%>
+                  <li>
+                    <%end%>
+                    <%= link_to controller: "services", action: "search_service_provider" do%>
+                    <i class="fa fa-search"></i>
+                    <span>Pesquisar profissional</span>
+                  <%end%></li>
+                  <%if @ratingActive %>
+                  <li class="active">
+                    <%else%>
+                    <li>
+                      <%end%>
+                      <%= link_to controller: "services", action: "rating" do%>
+                      <i class="fa fa-thumbs-o-up"></i>
+                      <span>Avaliar serviços</span>
+                    <%end%></li>
+                  </ul>
+                  <!-- end sidebar nav -->
+                <%end%></div>
+                <!-- end sidebar scrollbar --> </div>
+                <div class="sidebar-bg"></div>
+                <!-- end #sidebar -->
