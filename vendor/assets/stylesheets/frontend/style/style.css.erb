@@ -219,14 +219,17 @@ body.page-navbar-fixed-top-sm {
     float: right;
 }*/
 
-#logo{
+#nav_log{
     height: 50px;
     width: 160px;
+    float: none;
 }
 
-#logo_bar{
+#logo-container{
+    width: 200px;
     height: 50px;
-    width: 160px;
+    position: fixed;
+
 }
 
 /* 2.3 Navbar Mobile Toggle */
@@ -272,7 +275,7 @@ body.page-navbar-fixed-top-sm {
 
 /* 2.6 Navbar Small Setting */
 
-.header.navbar.navbar-small {
+/*.header.navbar.navbar-small {
     border-bottom: none;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
     box-shadow: 0 1px 2px rgba(0,0,0,0.2);
@@ -296,7 +299,7 @@ body.page-navbar-fixed-top-sm {
 .navbar-small .navbar-toggle .icon-bar {
     background: #888;
 }
-
+*/
 
 
 
@@ -588,6 +591,11 @@ body.page-navbar-fixed-top-sm {
     color: #8F8E8E;
 }
 
+.braga_img{
+    position: absolute;
+    bottom: -35%;
+}
+
 
 
 /* -------------------------------
@@ -859,35 +867,18 @@ body.page-navbar-fixed-top-sm {
 }
 
 #how-it-works-container{
-    background-color: #50b2fe;
+    background-color: #fafafa;
     margin-top: 4%;
 }
 
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 30px; height: 0;
-    background-color: #fff;
-    margin-bottom: -58%;
-}
- 
-.video-container iframe,
-.video-container object,
-.video-container embed {
-    position: absolute;
-    top: -63%;
-    left: 32.5%;
-    height: 34%;
-    width: 35%;
-}
-
 .play-video{
-    width: 20%;
     position: relative;
     left: 42%;
-    top: -353.5px;
+    margin-top: -49.7%!important;
+    margin-bottom: auto;
+    max-width:20%!important;
+    height: auto;
     z-index: 1;
-    margin-bottom: -160px;
 }
 
 .play-video:hover{
@@ -896,11 +887,12 @@ body.page-navbar-fixed-top-sm {
 
 .print_video{
     position: relative;
-    bottom: 445px;
-    left: 16%;
-    height: 29%;
-    width: 31%;
-    margin-bottom: -30%;
+    left: 15.5%;
+    margin-top: -49.7%!important;
+    margin-bottom: auto;
+    max-width:31.7%!important;
+    height: auto;
+
 }
 
 /* Magnific Popup CSS */
