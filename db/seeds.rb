@@ -97,9 +97,9 @@ end
 
 def generate_service_type
 	ServiceType.create(description: "Engomadoria")
-	ServiceType.create(description: "Limpeza geral")
-	ServiceType.create(description: "Refeição")
-	ServiceType.create(description: "Compras para o lar")
+	ServiceType.create(description: "Limpeza Geral")
+	ServiceType.create(description: "Preparar Refeições")
+	ServiceType.create(description: "Compras para o Lar")
 end
 
 

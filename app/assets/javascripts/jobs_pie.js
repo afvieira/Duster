@@ -66,15 +66,15 @@ var request_statistics = function request_statistics() {
             data: Math.ceil((res.eng/Object.keys(res).length)*100) ,
             color: purpleDark
         }, {
-            label: "Limpeza geral",
+            label: "Limpeza Geral",
             data: Math.ceil((res.limp/Object.keys(res).length)*100),
             color: purple
         }, {
-            label: "Refeição",
+            label: "Preparar Refeições",
             data: Math.ceil((res.ref/Object.keys(res).length)*100),
             color: purpleLight
         }, {
-            label: "Compras para o lar",
+            label: "Compras para o Lar",
             data: Math.ceil((res.comp/Object.keys(res).length)*100),
             color: blue
 
