@@ -6,8 +6,15 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   
   def after_sign_in_path_for(resource)
-      '/users/profile'
+
+      if resource.is_client
+        return'/service_providers/profile'
+      end
+      
+      return'/users/profile'
+
   end
+
   def default_url_options(options={})
     logger.debug
     {locale: I18n.locale}
