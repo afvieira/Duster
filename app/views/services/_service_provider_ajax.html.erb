@@ -1,3 +1,8 @@
-<% @srvps.each do |srvp| %>
-	<%= render 'service_provider', :maid => srvp%>
-<%end%>
+<% if @srvps.blank? %>
+	<%= render 'no_match_found' %>
+
+<% else %>
+	<% @srvps.each do |srvp| %>
+		<%= render 'service_provider', :maid => srvp%>
+	<%end%>
+<% end %>
