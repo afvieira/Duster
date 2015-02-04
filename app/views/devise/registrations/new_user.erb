@@ -139,7 +139,7 @@
             <!-- begin row -->
             <div class="row">
               <!-- begin col-6 -->
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <div class="form-group">
                   <%= f.input :cell_phone, 
                             input_html:{
@@ -164,7 +164,7 @@
             </div>
             <!-- end col-6 -->
             <!-- begin col-6 -->
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>Data nascimento</label>
                 <input id="datepicker-default" 
@@ -186,20 +186,6 @@
           </div>
 
         </div>
-        <!-- end col-6 -->
-        <div class="col-md-4">
-          <div class="form-group">
-            <h6>Gender</h6>
-            <div class="radio">
-              <%= f.radio_button :gender, 'gent'%>
-              <%= f.label :radio_button, 'gent', :value =>'gent' %></div>
-            <div class="radio">
-              <%= f.radio_button :gender, 'lady'%>
-              <%= f.label :radio_button, 'lady', :value =>'lady' %></div>
-          </div>
-
-        </div>
-
       </div>
       <!-- end row --> </fieldset>
   </div>
