@@ -1,11 +1,11 @@
 <% content_for :body_class do %>
   data-spy="scroll" data-target="#header-navbar" data-offset="51"
 <% end %>
-
+    
     <!-- begin #page-container -->
     <div id="page-container" class="fade">
         <!-- begin #header -->
-        <div id="header" class="header navbar navbar-default navbar-fixed-top navbar-small" data-state-change="disabled">
+        <div id="header" class="header navbar navbar-inverse navbar-fixed-top">
             <!-- begin container -->
             <div class="container">
                 <!-- begin navbar-header -->
@@ -15,33 +15,35 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="index.html" class="navbar-brand">
-                        <span class="brand-logo"></span>
-                        <span class="brand-text">
-                            <span class="text-theme">Color</span> Admin
-                        </span>
+                    <a id="logo-container" href="http://localhost:3000/index.html" class="navbar-brand">
+                        <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
+                        <!--<span class="brand-text">Duster</span>-->
                     </a>
                 </div>
                 <!-- end navbar-header -->
                 <!-- begin navbar-collapse -->
                 <div class="collapse navbar-collapse" id="header-navbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#home" data-click="scroll-to-target" data-target="#" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                            <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                                <li><a href="index.html">Page with Transparent Header</a></li>
-                                <li><a href="index_inverse_header.html">Page with Inverse Header</a></li>
-                                <li><a href="index_default_header.html">Page with White Header</a></li>
-                                <li><a href="extra_element.html">Extra Element</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#about" data-click="scroll-to-target">ABOUT</a></li>
-                        <li><a href="#team" data-click="scroll-to-target">TEAM</a></li>
-                        <li><a href="#service" data-click="scroll-to-target">SERVICES</a></li>
-                        <li><a href="#work" data-click="scroll-to-target">WORK</a></li>
-                        <li><a href="#client" data-click="scroll-to-target">CLIENT</a></li>
-                        <li><a href="#pricing" data-click="scroll-to-target">PRICING</a></li>
-                        <li><a href="#contact" data-click="scroll-to-target">CONTACT</a></li>
+                      <li><a href="#summary" data-click="scroll-to-target">Resumo</a></li>
+                      <li><a href="#faqs" data-click="scroll-to-target">FAQs</a></li>
+                      <% if user_signed_in? %>
+                      <li class="dropdown">
+                        <a href="#perfil" data-click="scroll-to-target" data-toggle="dropdown">USER<b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to t("header.settings"), edit_user_registration_path %></li>
+                          <li><%= link_to t("header.logout"), destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                      </li>
+                      <% else %>
+                      <li><%= link_to t("landing.header.login"), new_user_session_path %></li>
+                      <li class="dropdown">
+                        <a href="#signup" data-click="scroll-to-target" data-toggle="dropdown"><%= t 'landing.header.signup' %><b class="caret"></b></a>
+                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
+                          <li><%= link_to t("landing.header.signup_as_a_client"),new_user_registration_path%></li>
+                          <li><%= link_to t("landing.header.signup_as_a_maid"),new_user_registration_path%></li>
+                        </ul>
+                      </li>
+                      <% end %>
                     </ul>
                 </div>
                 <!-- end navbar-collapse -->
@@ -50,290 +52,24 @@
         </div>
         <!-- end #header -->
         
-        <!-- begin tabs / accordion -->
-        <div class="content" data-scrollview="true">
-            <!-- begin container -->
-            <div class="container" data-animation="true" data-animation-type="fadeInDown">
-                <h2 class="content-title">Tabs / Accordion</h2>
-                <!-- begin row -->
-                <div class="row">
-                    <!-- begin col-6 -->
-                    <div class="col-md-6">
-                        <!-- begin nav-tabs -->
-                        <ul id="nav-tabs" class="nav nav-tabs">
-                            <li class="active"><a href="#tab-1" data-toggle="tab">Title 1</a></li>
-                            <li><a href="#tab-2" data-toggle="tab">Title 2</a></li>
-                            <li><a href="#tab-3" data-toggle="tab">Title 3</a></li>
-                        </ul>
-                        <!-- end nav-tabs -->
-                        <!-- begin tab-content -->
-                        <div id="tab-content" class="tab-content">
-                            <!-- begin tab-pane -->
-                            <div class="tab-pane fade in active" id="tab-1">
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut vulputate sem, quis gravida ligula. 
-                                    Sed faucibus faucibus nulla eu semper. Sed ut nunc velit. Integer accumsan imperdiet erat. 
-                                    Praesent molestie nisl vitae mi vulputate, et laoreet leo semper. Donec non ullamcorper lorem. 
-                                    Integer non mattis sem. Donec cursus congue lorem.
-                                </p>
-                                <p>
-                                    Phasellus laoreet massa vel nunc aliquet convallis. Praesent maximus, ex ac dictum gravida, 
-                                    libero lacus maximus sem, vehicula tristique nibh sapien ut massa. Etiam dapibus, dui vel malesuada tincidunt, 
-                                    lectus neque hendrerit ligula, et cursus lectus dolor vel sem.
-                                </p>
-                            </div>
-                            <!-- end tab-pane -->
-                            <!-- begin tab-pane -->
-                            <div class="tab-pane fade" id="tab-2">
-                                <p>
-                                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. 
-                                    Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan 
-                                    four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl 
-                                    cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. 
-                                </p>
-                                <p>
-                                    Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. 
-                                    Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. 
-                                    Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park
-                                </p>
-                            </div>
-                            <!-- end tab-pane -->
-                            <!-- begin tab-pane -->
-                            <div class="tab-pane fade" id="tab-3">
-                                <p>
-                                    Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo 
-                                    retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, 
-                                    iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. 
-                                </p>
-                                <p>
-                                    Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, 
-                                    carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, 
-                                    vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.
-                                </p>
-                            </div>
-                            <!-- begin tab-pane -->
-                        </div>
-                        <!-- end tab-content -->
-                    </div>
-                    <!-- end col-6 -->
-                    <!-- begin col-6 -->
-                    <div class="col-md-6">
-                        <!-- begin panel-group -->
-                        <div class="panel-group m-b-0" id="accordion">
-                            <!-- begin panel -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-1">Accordion #1</a>
-                                    </h4>
-                                </div>
-                                <div id="accordion-1" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <p>
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                            3 wolf moon officia aute, non cupidatat skateboard dolor brunch. 
-                                            Food truck quinoa nesciunt laborum eiusmod. 
-                                            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
-                                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, 
-                                            raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end panel-->
-                            <!-- begin panel -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-2">Accordion #2</a>
-                                    </h4>
-                                </div>
-                                <div id="accordion-2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                            3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
-                                            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
-                                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                                            synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end panel-->
-                            <!-- begin panel -->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#accordion-3">Accordion #3</a>
-                                    </h4>
-                                </div>
-                                <div id="accordion-3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                            3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
-                                            Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. 
-                                            Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                            Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                                            synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- begin panel -->
-                        </div>
-                        <!-- end panel-group -->
-                    </div>
-                    <!-- end col-6 -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end tabs / accordion -->
-        
         <!-- begin buttons -->
-        <div class="content has-bg bg-black-darker" data-scrollview="true">
+        <div id="summary" class="content has-bg bg-black-darker" data-scrollview="true">
             <!-- begin container -->
             <div class="container" data-animation="true" data-animation-type="fadeInDown">
-                <h2 class="content-title">Buttons</h2>
+                <br/>
+                <h2 class="content-title">Não ficou esclarecido?</h2>
                 <div class="text-center">
-                    <a href="#" class="btn btn-default m-r-5">Default</a>
-                    <a href="#" class="btn btn-inverse m-r-5">Inverse</a>
-                    <a href="#" class="btn btn-info m-r-5">Info</a>
-                    <a href="#" class="btn btn-primary m-r-5">Primary</a>
-                    <a href="#" class="btn btn-success m-r-5">Success</a>
-                    <a href="#" class="btn btn-warning m-r-5">Warning</a>
-                    <a href="#" class="btn btn-danger m-r-5">Danger</a>
-                    <a href="#" class="btn btn-outline m-r-5">Outline</a>
-                    <a href="#" class="btn btn-theme">Theme</a>
+                Não hesite em entrar em contacto connosco. 
+                <br/>
+                <%= link_to "Contacto", root_path + "#contact" %>
                 </div>
             </div>
             <!-- end container -->
         </div>
         <!-- end buttons -->
-        
-        <!-- begin pricing-table -->
-        <div class="content" data-scrollview="true">
-            <!-- begin container -->
-            <div class="container" data-animation="true" data-animation-type="fadeInDown">
-                <h2 class="content-title">Pricing Table</h2>
-                <!-- begin row -->
-                <div class="row p-t-30 p-b-30">
-                    <!-- begin col-12 -->
-                    <div class="col-md-12">
-                        <!-- begin pricing-table -->
-                        <ul class="pricing-table col-4 m-t-30">
-                            <li>
-                                <!-- begin pricing-container -->
-                                <div class="pricing-container">
-                                    <h3>Starter</h3>
-                                    <div class="price">
-                                        <div class="price-figure">
-                                            <span class="price-number">FREE</span>
-                                        </div>
-                                    </div>
-                                    <ul class="features">
-                                        <li>1GB Storage</li>
-                                        <li>2 Clients</li>
-                                        <li>5 Active Projects</li>
-                                        <li>5 Colors</li>
-                                        <li>Free Goodies</li>
-                                        <li>24/7 Email support</li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" class="btn btn-inverse btn-block">Buy Now</a>
-                                    </div>
-                                </div>
-                                <!-- end pricing-container -->
-                            </li>
-                            <li>
-                                <!-- begin pricing-container -->
-                                <div class="pricing-container">
-                                    <h3>Basic</h3>
-                                    <div class="price">
-                                        <div class="price-figure">
-                                            <span class="price-number">$9.99</span>
-                                            <span class="price-tenure">per month</span>
-                                        </div>
-                                    </div>
-                                    <ul class="features">
-                                        <li>2GB Storage</li>
-                                        <li>5 Clients</li>
-                                        <li>10 Active Projects</li>
-                                        <li>10 Colors</li>
-                                        <li>Free Goodies</li>
-                                        <li>24/7 Email support</li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" class="btn btn-inverse btn-block">Buy Now</a>
-                                    </div>
-                                </div>
-                                <!-- end pricing-container -->
-                            </li>
-                            <li class="highlight">
-                                <!-- begin pricing-container -->
-                                <div class="pricing-container">
-                                    <h3>Premium</h3>
-                                    <div class="price">
-                                        <div class="price-figure">
-                                            <span class="price-number">$19.99</span>
-                                            <span class="price-tenure">per month</span>
-                                        </div>
-                                    </div>
-                                    <ul class="features">
-                                        <li>5GB Storage</li>
-                                        <li>10 Clients</li>
-                                        <li>20 Active Projects</li>
-                                        <li>20 Colors</li>
-                                        <li>Free Goodies</li>
-                                        <li>24/7 Email support</li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" class="btn btn-theme btn-block">Buy Now</a>
-                                    </div>
-                                </div>
-                                <!-- end pricing-container -->
-                            </li>
-                            <li>
-                                <!-- begin pricing-container -->
-                                <div class="pricing-container">
-                                    <h3>Lifetime</h3>
-                                    <div class="price">
-                                        <div class="price-figure">
-                                            <span class="price-number">$999</span>
-                                        </div>
-                                    </div>
-                                    <ul class="features">
-                                        <li>Unlimited Storage</li>
-                                        <li>Unlimited Clients</li>
-                                        <li>Unlimited Projects</li>
-                                        <li>Unlimited Colors</li>
-                                        <li>Free Goodies</li>
-                                        <li>24/7 Email support</li>
-                                    </ul>
-                                    <div class="footer">
-                                        <a href="#" class="btn btn-inverse btn-block">Buy Now</a>
-                                    </div>
-                                </div>
-                                <!-- end pricing-container -->
-                            </li>
-                        </ul>
-                        <!-- end pricing-table -->
-                    </div>
-                    <!-- end col-12 -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end pricing-table -->
-        
+
         <!-- begin FAQs -->
-        <div class="content bg-silver" data-scrollview="true">
+        <div id="faqs" class="content bg-silver" data-scrollview="true">
             <!-- begin container -->
             <div class="container" data-animation="true" data-animation-type="fadeInDown">
                 <h2 class="content-title">FAQs</h2>
@@ -343,18 +79,13 @@
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#faq-1"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 1</a>
+                                <a data-toggle="collapse" href="#faq-1"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i>Quantas pessoas fazem parte da equipa de limpezas domésticas?</a>
                             </h4>
                         </div>
                         <div id="faq-1" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    As equipas de limpeza são compostas apenas por uma pessoa.
                                 </p>
                             </div>
                         </div>
@@ -364,18 +95,13 @@
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#faq-2"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 2</a>
+                                <a data-toggle="collapse" href="#faq-2"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Quais são os horários possíveis para requisitar as limpezas?</a>
                             </h4>
                         </div>
                         <div id="faq-2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    As limpezas são agendadas para a altura que o cliente assim o desejar, salvaguardando de não haver hora disponível em todas as alturas.
                                 </p>
                             </div>
                         </div>
@@ -385,18 +111,67 @@
                     <div class="panel panel-inverse">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#faq-3"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Question 3</a>
+                                <a data-toggle="collapse" href="#faq-3"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Há algum custo com a limpeza, além do número de horas de trabalho?</a>
                             </h4>
                         </div>
                         <div id="faq-3" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <p>
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
-                                    3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.
-                                    Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
-                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. 
-                                    Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic 
-                                    synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    Não, o cliente apenas paga o número de horas de limpeza agendadas. O cliente deverá apenas fornecer o material devido para a limpeza.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-4"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> É obrigatório a assinatura de algum contrato?</a>
+                            </h4>
+                        </div>
+                        <div id="faq-4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Não, o cliente pode agendar um serviço quando quer e nos horários que acordar. Não temos como objectivo prender o cliente através da assinatura de qualquer contrato, mas sim através do serviço desempenhado, sobre o qual pode ser dada uma apreciação no nosso site.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-5"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> Como funciona o acesso à casa, tenho que dar a chave?</a>
+                            </h4>
+                        </div>
+                        <div id="faq-5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Depende, cada cliente procede da maneira que seja mais do seu agrado. Deixamos este aspecto ao seu critério porque entendemos que custa sempre confiarmos totalmente num desconhecido.
+                                    Existem várias hipóteses:
+                                    <ul>
+                                        <li>Entrega a chave à pessoa.</li>
+                                        <li>Fica em casa no dia da limpeza para abrir a porta, podendo depois prosseguir com a sua vida e quando o serviço termina a pessoa responsável abandona e fecha a porta à saída.</li>
+                                        <li>Pede a algum familiar, vizinho ou amigo para ir abrir a porta.</li>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                    <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#faq-6"><i class="fa fa-question-circle fa-fw text-success m-r-5"></i> O pessoal tem algum tipo de formação?</a>
+                            </h4>
+                        </div>
+                        <div id="faq-6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Todas as colaboradoras que possuem um registo na plataforma, passam por uma fase de registo minuciosa e elaborada, que é verificada por pessoas da nossa equipa e só obtem o registo validado no caso de estar completo.
                                 </p>
                             </div>
                         </div>
@@ -408,166 +183,22 @@
             <!-- end container -->
         </div>
         <!-- end FAQs -->
-        
-        <!-- begin services -->
-        <div class="content" data-scrollview="true">
-            <!-- begin container -->
-            <div class="container" data-animation="true" data-animation-type="fadeInDown">
-                <h2 class="content-title">Services</h2>
-                <!-- begin row -->
-                <div class="row p-t-30">
-                    <!-- begin col-3 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="service service-vertical">
-                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-code"></i></div>
-                            <div class="info">
-                                <h4 class="title">Re-usable Code</h4>
-                                <p class="desc">Aenean et elementum dui. Aenean massa enim, suscipit ut molestie quis, pretium sed orci. Ut faucibus egestas mattis.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col-3 -->
-                    <!-- begin col-3 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="service service-vertical">
-                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-paint-brush"></i></div>
-                            <div class="info">
-                                <h4 class="title">Clean & Careful Design</h4>
-                                <p class="desc">Etiam nulla turpis, gravida et orci ac, viverra commodo ipsum. Donec nec mauris faucibus, congue nisi sit amet, lobortis arcu.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col-3 -->
-                    <!-- begin col-3 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="service service-vertical">
-                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-file"></i></div>
-                            <div class="info">
-                                <h4 class="title">Well Documented</h4>
-                                <p class="desc">Ut vel laoreet tortor. Donec venenatis ex velit, eget bibendum purus accumsan cursus. Curabitur pulvinar iaculis diam.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col-3 -->
-                    <!-- begin col-3 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="service service-vertical">
-                            <div class="icon bg-theme" data-animation="true" data-animation-type="bounceIn"><i class="fa fa-code"></i></div>
-                            <div class="info">
-                                <h4 class="title">Re-usable Code</h4>
-                                <p class="desc">Aenean et elementum dui. Aenean massa enim, suscipit ut molestie quis, pretium sed orci. Ut faucibus egestas mattis.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end col-3 -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end services -->
-        
-        <!-- begin carousel -->
-        <div class="content bg-silver" data-scrollview="true">
-            <!-- begin container -->
-            <div class="container" data-animation="true" data-animation-type="fadeInDown">
-                <h2 class="content-title">Embed & Carousel</h2>
-                
-                <!-- begin row -->
-                <div class="row">
-                    <!-- begin col-6 -->
-                    <div class="col-md-6">
-                        <!-- 4:3 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="//www.youtube.com/embed/EX1I2LI8Wc8" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <!-- end col-6 -->
-                    <!-- begin col-6 -->
-                    <div class="col-md-6">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img src="assets/img/carousel-1.jpg" alt="Carousel 1">
-                                    <div class="carousel-caption">
-                                        <h4 class="m-b-5">Caption Title 1</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="assets/img/carousel-2.jpg" alt="Carousel 2">
-                                    <div class="carousel-caption">
-                                        <h4 class="m-b-5">Caption Title 2</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="assets/img/carousel-3.jpg" alt="Carousel 3">
-                                    <div class="carousel-caption">
-                                        <h4 class="m-b-5">Caption Title 3</h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <i class="fa fa-chevron-left"></i>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <i class="fa fa-chevron-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- end col-6 -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </div>
-        <!-- end carousel -->
-        
         <!-- begin #footer -->
         <div id="footer" class="footer">
             <div class="container">
                 <div class="footer-brand">
-                    <div class="footer-brand-logo"></div>
-                    Color Admin
+                  <img id="logo" alt="Duster" height="50" src="/assets/logo2.png" width="160">
                 </div>
                 <p>
-                    &copy; Copyright Color Admin 2014 <br />
-                    An admin & front end theme with serious impact. Created by <a href="#">SeanTheme</a>
+                    &copy; <%= t 'landing.contact_us.copyright' %> <br />
                 </p>
                 <p class="social-list">
-                    <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
-                    <a href="#"><i class="fa fa-instagram fa-fw"></i></a>
-                    <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
-                    <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
-                    <a href="#"><i class="fa fa-dribbble fa-fw"></i></a>
+                    <a href="http://facebook.com/duster.oficial"><i class="fa fa-facebook fa-fw"></i></a>
+                    <a href="http://dusterproject.tumblr.com/"><i class="fa fa-tumblr fa-fw"></i></a>
                 </p>
             </div>
         </div>
         <!-- end #footer -->
-        <!-- begin theme-panel -->
-        <div class="theme-panel">
-            <a href="javascript:;" data-click="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-            <div class="theme-panel-content">
-                <ul class="theme-list clearfix">
-                    <li><a href="javascript:;" class="bg-purple" data-theme="purple" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Purple">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-blue" data-theme="blue" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Blue">&nbsp;</a></li>
-                    <li class="active"><a href="javascript:;" class="bg-green" data-theme="default" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Default">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-orange" data-theme="orange" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Orange">&nbsp;</a></li>
-                    <li><a href="javascript:;" class="bg-red" data-theme="red" data-click="theme-selector" data-toggle="tooltip" data-trigger="hover" data-container="body" data-title="Red">&nbsp;</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- end theme-panel -->
     </div>
     <!-- end #page-container -->
 

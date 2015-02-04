@@ -2,12 +2,14 @@
 	$("#form_welcome").submit(function(event) {
 		event.preventDefault();
 		var answer = $("#select_district option:selected").text();
-		ajax_request_maid(answer);
+		var lan = $("#languageToSearchMaid").val();
+		ajax_request_maid(answer, lan);
 	});
 
-	function ajax_request_maid(answer) {
+	function ajax_request_maid(answer, lan) {
 		$.post("/ajax/resquest/maid", {
-			city: answer
+			city: answer,
+			lan: lan
 		}, answer_callback);
 	}
 
