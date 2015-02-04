@@ -53,8 +53,8 @@ class UsersController < ApplicationController
   
   def publicprofile
 
-    @sidebar = true
-    @navbar = true
+    @sidebar = false
+    @navbar = false
     @euser = User.where(id: params[:eid]).take
     esprovider = ServiceProvider.where(user_id: params[:eid]).take
     @results = Ranking.joins(:service).where("services.service_provider_id = ?", esprovider.id).order(created_at: :desc)
