@@ -178,7 +178,9 @@ end
 
 #Ranking é a avaliacao que o utilizador da ao servico prestado pelo professional
 def generate_ranking(user, service)
-	Ranking.create(user_id: user.id, service_id: service.id, value: rand(1..5))
+
+	Ranking.create(user_id: user.id, service_id: service.id, value: rand(1..5),
+							comment: Faker::Lorem.paragraph)
 end
 
 #Feedback é um comentario que o professional de limpeza fez sobre o servico, 
@@ -186,7 +188,7 @@ end
 def generate_feedback(maid, service)
 	Feedback.create(service_provider_id: maid.id, 
 					service_id: service.id, 
-							description: Faker::Lorem.paragraph)
+					description: Faker::Lorem.paragraph)
 
 end
 
@@ -194,10 +196,15 @@ end
 500.times do |i|
 	user = users.sample
 	maid = maids.sample
-
 	service = generate_service(user, maid)
-	generate_ranking(user, service)
-	generate_feedback(maid, service)
+
+	rank = [true, false].sample
+
+	if rank
+		generate_ranking(user, service)
+		generate_feedback(maid, service)
+	end
+
 
 end
 
