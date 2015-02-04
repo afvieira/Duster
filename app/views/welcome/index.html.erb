@@ -80,6 +80,7 @@ data-spy="scroll" data-target="#header-navbar" data-offset="51"
                   <button id="searchHP" type="submit" class="btn btn-success"><%= t 'landing.home.title_button' %></button>
                   <br/>
                   <br/>
+                  <input id="languageToSearchMaid" type="hidden" name="Language" value="<%= I18n.locale %>">
                   <label id="answer_html"></label>
                 </form>
                 <% if not user_signed_in? %>
