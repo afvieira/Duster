@@ -19,7 +19,6 @@
 //= require jquery-cookie/jquery.cookie
 //= require sparkline/jquery.sparkline
 //= require admin/apps
-//= require publicprofile
 //= require frontend/apps/magnific-popup.min
 //= require ui-modal-notification/ui-modal-notification.demo
 //= require gritter/jquery.gritter
